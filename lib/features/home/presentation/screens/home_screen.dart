@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:iam_hungry2/core/src/routes.dart';
+import 'package:iam_hungry2/core/src/widgets/horizontal_list_builder.dart';
+import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
+import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/features/home/presentation/controller/home_controller.dart';
+import 'package:iam_hungry2/core/src/widgets/drawer/animated_drawer_widget.dart';
+import 'package:iam_hungry2/features/home/presentation/widgets/auto_slider_images_widget.dart';
+import 'package:iam_hungry2/core/src/widgets/drawer/drawer_home_widget.dart';
+import 'package:iam_hungry2/features/home/presentation/widgets/home_app_bar.dart';
+import 'package:iam_hungry2/features/home/presentation/widgets/hungry_healthy_card_widget.dart';
+import 'package:iam_hungry2/features/home/presentation/widgets/reorder_previous_order_item_widget.dart';
+
+class HomeScreen extends GetView<HomeController> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        DrawerWidget(),
+        AnimatedDrawerWidget(
+          controller: controller,
+          child: Scaffold(
+            // floatingActionButton: FloatingCartButton(title: HUNGRY),
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(.08.sh),
+              child: HomeAppBar(
+                onTapDrawerIcon: () => controller.setScreenSizeByAnimation(),
+              ),
+            ),
+            body: ListView(
+              children: [
+                SideTitleWidget(title: 'hello'.tr + ' Ahmed'),
+                Row(
+                  children: [
+                    HungryAndHealthyCardWidget(
+                      image: 'assets/images/iam_hungry_bite_logo.svg',
+                      onTap: () => Get.toNamed(Routes.hungryScreen),
+                    ),
+                    HungryAndHealthyCardWidget(
+                      image: 'assets/images/healthy/iam_healthy.svg',
+                      onTap: () => Get.toNamed(Routes.healthyScreen),
+                    ),
+                  ],
+                ),
+                SizedBox(height: .30.sh, child: AutoSliderImagesWidget()),
+                SideTitleWidget(title: 'previousOrder'.tr),
+                HorizontalListBuilder(
+                  heightList: 16,
+                  itemCount: 5,
+                  itemBuilder: (context, index) => ReorderPreviousItemWidget(
+                    onTapReorder: () {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
