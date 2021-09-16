@@ -6,6 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'menu_details_dialog.dart';
 
 class MenuScreen extends StatelessWidget {
+  final int? index;
+
+  MenuScreen({this.index});
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -16,9 +20,11 @@ class MenuScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 30, right: 30, top: 12),
             child: RichText(
               text: TextSpan(
-                text: 'I\'m Hungry\n',
+                text: index == null ? 'I\'m Hungry\n' : 'I\'m Healthy\n',
                 style: textTheme.headline1?.copyWith(
-                  color: CustomColors.primaryColor,
+                  color: index ==null
+                      ? CustomColors.primaryColor
+                      : CustomColors.greenColor,
                   fontSize: 24.sp,
                 ),
                 children: [

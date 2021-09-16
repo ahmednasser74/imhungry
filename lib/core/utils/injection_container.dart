@@ -8,6 +8,7 @@ import 'package:iam_hungry2/features/home/presentation/controller/drawer_control
 import 'package:iam_hungry2/features/home/presentation/controller/home_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/create_your_own_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/hungry_controller.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
 import 'package:iam_hungry2/features/sign_up/presentation/controller/otp_controller.dart';
 import 'package:iam_hungry2/features/sign_up/presentation/controller/sign_up_controller.dart';
 import 'package:iam_hungry2/features/sign_up/presentation/controller/slider_controller.dart';
@@ -59,6 +60,7 @@ class Injection {
   static void _hungryCycle() {
     // Controller
     sl.registerFactory<HungryController>(() => HungryController());
+    sl.registerFactory<MenuTabBarController>(() => MenuTabBarController());
     sl.registerFactory<CreateYourOwnController>(
         () => CreateYourOwnController());
   }

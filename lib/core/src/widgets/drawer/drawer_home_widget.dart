@@ -116,7 +116,7 @@ class DrawerWidget extends StatelessWidget {
               ),
             ),
             // GestureDetector(
-            //   onTap: ()=>Get.offAndToNamed(Routes.healthyScreen),
+            //   onTap: () => Get.offAndToNamed(Routes.healthyScreen),
             //   child: Align(
             //     alignment: Alignment.centerRight,
             //     child: Container(

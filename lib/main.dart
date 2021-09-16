@@ -13,6 +13,7 @@ import 'features/home/presentation/controller/drawer_controller.dart';
 import 'features/home/presentation/controller/home_controller.dart';
 import 'features/iam_hungry/presentation/controller/create_your_own_controller.dart';
 import 'features/iam_hungry/presentation/controller/hungry_controller.dart';
+import 'features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
 import 'features/sign_up/presentation/controller/otp_controller.dart';
 import 'features/sign_up/presentation/controller/sign_up_controller.dart';
 import 'features/sign_up/presentation/controller/slider_controller.dart';
@@ -65,5 +66,6 @@ class MyApp extends StatelessWidget {
     // Hungry Cycle
     Get.lazyPut(() => Injection.sl<HungryController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<CreateYourOwnController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<MenuTabBarController>());
   }
 }
