@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iam_hungry2/features/cart/presentation/screens/check_out_first_screen.dart';
 
 class CartAnimation extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class CartAnimation extends StatelessWidget {
             child: TweenAnimationBuilder(
               tween: Tween(begin: 0.0, end: 1.0),
               duration: Duration(milliseconds: 500),
-              child: Container(),
+              child: CheckOutFirstScreen(),
               builder: (_, dynamic value, child) {
                 return ShaderMask(
                   shaderCallback: (rect) {

@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,9 +13,8 @@ class CartFab extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).push(
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return CartAnimation();
-            },
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                CartAnimation(),
           ),
         );
       },
@@ -22,17 +22,18 @@ class CartFab extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child:
-                SvgPicture.asset('assets/images/cart/shopping_cart_icon.svg'),
+            child: SvgPicture.asset(
+              'assets/images/cart/shopping_cart_icon.svg',
+            ),
           ),
           Align(
             alignment: Alignment.topRight,
             child: CircleAvatar(
-              radius: 11,
+              radius: 11.r,
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 backgroundColor: CustomColors.primaryColor,
-                radius: 9,
+                radius: 9.r,
                 child: AutoSizeText(
                   '1',
                   maxLines: 1,
