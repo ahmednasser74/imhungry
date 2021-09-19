@@ -1,4 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:iam_hungry2/features/cart/presentation/screens/choose_location_screen.dart';
+import 'package:iam_hungry2/features/cart/presentation/screens/payment_screen.dart';
 import 'package:iam_hungry2/features/drawer/presentation/screens/about_screen.dart';
 import 'package:iam_hungry2/features/drawer/presentation/screens/address_screen.dart';
 import 'package:iam_hungry2/features/drawer/presentation/screens/discount_screen.dart';
@@ -44,6 +46,8 @@ class Routes {
       hungryScreen = '/hungryScreen',
       topMealScreen = '/topMealScreen',
       createYourOwnHungryScreen = '/createYourOwnHungryScreen',
+      chooseLocationScreen = '/chooseLocationScreen',
+      paymentScreen = '/paymentScreen',
       orderHistoryTabBar = '/orderHistoryTabBar';
 
   static List<GetPage> setScreens() {
@@ -69,6 +73,8 @@ class Routes {
       GetPage(name: healthyScreen, page: () => HealthyScreen()),
       GetPage(name: hungryScreen, page: () => HungryScreen()),
       GetPage(name: topMealScreen, page: () => TopMealScreen()),
+      GetPage(name: chooseLocationScreen, page: () => ChooseLocationScreen()),
+      GetPage(name: paymentScreen, page: () => PaymentScreen()),
       GetPage(
         name: createYourOwnHungryScreen,
         page: () => CreateYourOwnHungryScreen(),

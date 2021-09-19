@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AddAndWithOutCheckBox extends StatelessWidget {
+class CustomCheckBox extends StatelessWidget {
   final Function(bool value) onChanged;
   final String title;
   final double price;
   final bool value, hasPrice;
 
-  const AddAndWithOutCheckBox({
+  const CustomCheckBox({
     required this.title,
     required this.value,
     required this.onChanged,

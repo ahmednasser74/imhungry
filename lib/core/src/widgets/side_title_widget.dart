@@ -4,10 +4,12 @@ import 'package:iam_hungry2/core/src/colors.dart';
 class SideTitleWidget extends StatelessWidget {
   final String title;
   final Color color;
+  final TextStyle? textStyle;
 
   const SideTitleWidget({
     required this.title,
     this.color = CustomColors.primaryColor,
+    this.textStyle,
   });
 
   @override
@@ -17,7 +19,7 @@ class SideTitleWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Text(
         title,
-        style: textTheme.headline3?.copyWith(color: color),
+        style: textStyle ?? textTheme.headline3?.copyWith(color: color),
       ),
     );
   }

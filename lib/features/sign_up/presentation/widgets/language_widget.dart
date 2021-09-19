@@ -24,8 +24,7 @@ class LanguageWidget extends StatelessWidget {
         onTap: onTap,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 4),
-          width: 1.sw,
-          height: .06.sh,
+          height: .07.sh,
           decoration: CustomStyle.containerShadowDecoration.copyWith(
             color: backgroundColor,
           ),

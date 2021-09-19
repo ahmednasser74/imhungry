@@ -5,8 +5,6 @@ import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/cart_fab/cart_fab.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iam_hungry2/core/src/widgets/drawer/animated_drawer_widget.dart';
-import 'package:iam_hungry2/core/src/widgets/drawer/drawer_home_widget.dart';
 import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/hungry_controller.dart';

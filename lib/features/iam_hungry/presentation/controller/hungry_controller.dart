@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/utils/helper_methods.dart';
-import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/menu_tab_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'menu_tab_bar_controller.dart';

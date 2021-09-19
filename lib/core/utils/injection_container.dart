@@ -1,6 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:iam_hungry2/core/localization/translation_controller.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/check_out_controller.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/address_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/map_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/setting_controller.dart';
@@ -34,6 +37,7 @@ class Injection {
     _homeCycle();
     _drawerCycle();
     _hungryCycle();
+    _cartCycle();
   }
 
   static void _signUpCycle() {
@@ -63,5 +67,12 @@ class Injection {
     sl.registerFactory<MenuTabBarController>(() => MenuTabBarController());
     sl.registerFactory<CreateYourOwnController>(
         () => CreateYourOwnController());
+  }
+
+  static void _cartCycle() {
+    // Controller
+    sl.registerFactory<CheckOutController>(() => CheckOutController());
+    sl.registerFactory<ChooseLocationController>(() => ChooseLocationController());
+    sl.registerFactory<PaymentController>(() => PaymentController());
   }
 }

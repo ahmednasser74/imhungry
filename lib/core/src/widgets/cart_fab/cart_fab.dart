@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'cart_animation.dart';
 
@@ -10,14 +11,7 @@ class CartFab extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return FloatingActionButton(
-      onPressed: () {
-        Navigator.of(context).push(
-          PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                CartAnimation(),
-          ),
-        );
-      },
+      onPressed: () => Get.to(() => CartAnimation()),
       backgroundColor: CustomColors.primaryColor,
       child: Stack(
         children: [

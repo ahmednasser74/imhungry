@@ -45,7 +45,7 @@ class TotalPriceWidget extends StatelessWidget {
 
 class ReceiptItemWidget extends StatelessWidget {
   final String receiptTitle;
-  double price;
+  final double price;
 
   ReceiptItemWidget({required this.receiptTitle, required this.price});
 

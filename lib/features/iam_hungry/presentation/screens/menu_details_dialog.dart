@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
-import 'package:iam_hungry2/core/src/widgets/add_without_checkbox.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/add_without_checkbox.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -78,7 +78,7 @@ class MenuDetailsDialog extends StatelessWidget {
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
                         itemCount: 5,
-                        itemBuilder: (context, index) => AddAndWithOutCheckBox(
+                        itemBuilder: (context, index) => CustomCheckBox(
                           title: 'title',
                           value: true,
                           onChanged: (value) {},
@@ -94,7 +94,7 @@ class MenuDetailsDialog extends StatelessWidget {
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
                         itemCount: 5,
-                        itemBuilder: (context, index) => AddAndWithOutCheckBox(
+                        itemBuilder: (context, index) => CustomCheckBox(
                           title: 'title',
                           value: true,
                           onChanged: (value) {},

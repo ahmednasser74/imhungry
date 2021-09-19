@@ -80,7 +80,8 @@ class SignUpScreen extends GetView<SignUpController> {
                       children: [
                         LanguageWidget(
                           languageName: 'English',
-                          onTap: controller.onEnglishPressed,
+                          // onTap: controller.onEnglishPressed,
+                          onTap:(){},
                           backgroundColor:
                               controller.getLanguage == Language.English
                                   ? CustomColors.primaryColor
@@ -91,7 +92,8 @@ class SignUpScreen extends GetView<SignUpController> {
                         ),
                         LanguageWidget(
                           languageName: 'Arabic',
-                          onTap: controller.onArabicPressed,
+                          // onTap: controller.onArabicPressed,
+                          onTap:(){},
                           backgroundColor:
                               controller.getLanguage == Language.Arabic
                                   ? CustomColors.primaryColor

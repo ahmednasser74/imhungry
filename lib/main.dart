@@ -6,6 +6,9 @@ import 'core/localization/translation_controller.dart';
 import 'core/src/routes.dart';
 import 'core/src/theme.dart';
 import 'core/utils/injection_container.dart';
+import 'features/cart/presentation/controller/check_out_controller.dart';
+import 'features/cart/presentation/controller/choose_location_controller.dart';
+import 'features/cart/presentation/controller/payment_controller.dart';
 import 'features/drawer/presentation/controller/address_controller.dart';
 import 'features/drawer/presentation/controller/map_controller.dart';
 import 'features/drawer/presentation/controller/setting_controller.dart';
@@ -67,5 +70,9 @@ class MyApp extends StatelessWidget {
     Get.lazyPut(() => Injection.sl<HungryController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<CreateYourOwnController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<MenuTabBarController>());
+    // Cart Cycle
+    Get.lazyPut(() => Injection.sl<CheckOutController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<ChooseLocationController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<PaymentController>(), fenix: true);
   }
 }
