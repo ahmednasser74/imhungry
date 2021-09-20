@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/controller/slider_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/slider_controller.dart';
 
 class SliderScreen extends GetView<SliderController> {
   @override

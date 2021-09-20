@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LanguageWidget extends StatelessWidget {
+class LanguageItemWidget extends StatelessWidget {
   final String languageName;
   final VoidCallback onTap;
   final Color backgroundColor;
   final Color textColor;
 
-  LanguageWidget({
+  LanguageItemWidget({
     required this.languageName,
     required this.onTap,
     required this.backgroundColor,

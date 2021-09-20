@@ -2,7 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/controller/splash_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
 

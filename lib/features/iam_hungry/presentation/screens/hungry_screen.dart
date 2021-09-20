@@ -31,7 +31,7 @@ class HungryScreen extends GetView<HungryController> {
             height: .28.sh,
             child: Row(
               children: [
-                CustomSquareCardHomeScreen(
+                CustomSquareCardHungryScreen(
                   image: 'assets/images/hungry/meal_icon.png',
                   title: 'meal'.tr,
                   onTap: () => controller.navigateToMenu(context, 0),
@@ -39,13 +39,13 @@ class HungryScreen extends GetView<HungryController> {
                 Expanded(
                   child: Column(
                     children: [
-                      CustomSquareCardHomeScreen(
+                      CustomSquareCardHungryScreen(
                         image: 'assets/images/hungry/sandwich_icon.png',
                         title: 'sandwich'.tr,
                         onTap: () => controller.navigateToMenu(context, 1),
                       ),
                       SizedBox(height: .01.sh),
-                      CustomSquareCardHomeScreen(
+                      CustomSquareCardHungryScreen(
                         image: 'assets/images/hungry/dessert_icon.png',
                         title: 'dessert'.tr,
                         onTap: () => controller.navigateToMenu(context, 3),

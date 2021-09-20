@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/widgets/slider_item_widget.dart';
+import 'package:iam_hungry2/features/auth/presentation/widgets/slider_item_widget.dart';
 
 class SliderController extends GetxController {
   final _pageIndex = 0.obs;

@@ -6,9 +6,9 @@ import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/utils/enums.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/controller/sign_up_controller.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/widgets/language_widget.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/widgets/sign_up_row_icons_item_widget.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/sign_up_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/widgets/language_widget.dart';
+import 'package:iam_hungry2/features/auth/presentation/widgets/sign_up_row_icons_item_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends GetView<SignUpController> {
@@ -78,10 +78,10 @@ class SignUpScreen extends GetView<SignUpController> {
                     SizedBox(height: 20),
                     Row(
                       children: [
-                        LanguageWidget(
+                        LanguageItemWidget(
                           languageName: 'English',
                           // onTap: controller.onEnglishPressed,
-                          onTap:(){},
+                          onTap: () {},
                           backgroundColor:
                               controller.getLanguage == Language.English
                                   ? CustomColors.primaryColor
@@ -90,10 +90,10 @@ class SignUpScreen extends GetView<SignUpController> {
                               ? Colors.white
                               : Colors.black,
                         ),
-                        LanguageWidget(
+                        LanguageItemWidget(
                           languageName: 'Arabic',
                           // onTap: controller.onArabicPressed,
-                          onTap:(){},
+                          onTap: () {},
                           backgroundColor:
                               controller.getLanguage == Language.Arabic
                                   ? CustomColors.primaryColor
@@ -106,7 +106,7 @@ class SignUpScreen extends GetView<SignUpController> {
                     ),
                     SizedBox(height: 20),
                     CustomButton(
-                      onPressed: () => Get.toNamed(Routes.otpScreen),
+                      onPressed: controller.login,
                       title: 'login'.tr,
                       alignment: Alignment.bottomRight,
                       paddingHorizontal: .26.sw,

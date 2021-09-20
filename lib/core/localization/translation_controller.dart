@@ -16,9 +16,8 @@ class TranslationController extends GetxController {
   }
 
   void changeLanguage(String type) async {
-    if (appLocale == type) {
-      return;
-    }
+    if (appLocale == type) return;
+
     if (type == 'ar') {
       appLocale = 'ar';
       localStorage.saveLanguage('ar');

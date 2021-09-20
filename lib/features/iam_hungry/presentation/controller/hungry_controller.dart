@@ -1,9 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/utils/helper_methods.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'menu_tab_bar_controller.dart';
 
 class HungryController extends GetxController {
@@ -44,11 +44,5 @@ class HungryController extends GetxController {
     final x = Get.find<MenuTabBarController>().setSelectedPage = selectedPage;
     HelperMethods.showToast(msg: 'enterPage = $x');
     Get.toNamed(Routes.menuTabBar);
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (_) => MenuTabBar(selectedPage: x),
-    //   ),
-    // );
   }
 }

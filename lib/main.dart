@@ -17,10 +17,10 @@ import 'features/home/presentation/controller/home_controller.dart';
 import 'features/iam_hungry/presentation/controller/create_your_own_controller.dart';
 import 'features/iam_hungry/presentation/controller/hungry_controller.dart';
 import 'features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
-import 'features/sign_up/presentation/controller/otp_controller.dart';
-import 'features/sign_up/presentation/controller/sign_up_controller.dart';
-import 'features/sign_up/presentation/controller/slider_controller.dart';
-import 'features/sign_up/presentation/controller/splash_controller.dart';
+import 'features/auth/presentation/controller/otp_controller.dart';
+import 'features/auth/presentation/controller/sign_up_controller.dart';
+import 'features/auth/presentation/controller/slider_controller.dart';
+import 'features/auth/presentation/controller/splash_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
     //Core
     Get.lazyPut(() => Injection.sl<TranslationController>());
     // SignUpCycle
-    Get.lazyPut(() => Injection.sl<SignUpController>());
+    Get.lazyPut(() => Injection.sl<SignUpController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<OtpController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<SplashController>());
     Get.lazyPut(() => Injection.sl<SliderController>());
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
     // Hungry Cycle
     Get.lazyPut(() => Injection.sl<HungryController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<CreateYourOwnController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<MenuTabBarController>());
+    Get.lazyPut(() => Injection.sl<MenuTabBarController>(), fenix: true);
     // Cart Cycle
     Get.lazyPut(() => Injection.sl<CheckOutController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<ChooseLocationController>(), fenix: true);

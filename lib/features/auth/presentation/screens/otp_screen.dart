@@ -5,7 +5,7 @@ import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/controller/otp_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/otp_controller.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

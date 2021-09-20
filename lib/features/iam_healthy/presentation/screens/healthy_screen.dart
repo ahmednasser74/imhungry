@@ -6,7 +6,7 @@ import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_app_bar.dart';
 import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
 import 'package:iam_hungry2/features/iam_healthy/presentation/widgets/healthy_menu_item.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/controller/otp_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/otp_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HealthyScreen extends GetView<OtpController> {

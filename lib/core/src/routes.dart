@@ -19,10 +19,10 @@ import 'package:iam_hungry2/features/iam_hungry/presentation/screens/create_your
 import 'package:iam_hungry2/features/iam_hungry/presentation/screens/hungry_screen.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/screens/top_meal_screen.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/menu_tab_bar.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/screens/otp_screen.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/screens/sign_up_screen.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/screens/slider_screen.dart';
-import 'package:iam_hungry2/features/sign_up/presentation/screens/splash_screen.dart';
+import 'package:iam_hungry2/features/auth/presentation/screens/otp_screen.dart';
+import 'package:iam_hungry2/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:iam_hungry2/features/auth/presentation/screens/slider_screen.dart';
+import 'package:iam_hungry2/features/auth/presentation/screens/splash_screen.dart';
 
 class Routes {
   static const String splashScreen = '/splashScreen',
