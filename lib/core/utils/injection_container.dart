@@ -5,10 +5,17 @@ import 'package:iam_hungry2/features/auth/data/datasources/auth_remote_data_sour
 import 'package:iam_hungry2/features/auth/data/repositories/auth_repository_imp.dart';
 import 'package:iam_hungry2/features/auth/domin/repositories/auth_repository.dart';
 import 'package:iam_hungry2/features/auth/domin/usecases/auth_use_case.dart';
+import 'package:iam_hungry2/features/auth/domin/usecases/otp_use_case.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/check_out_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
+import 'package:iam_hungry2/features/drawer/data/datasources/drawer_remote_data_source.dart';
+import 'package:iam_hungry2/features/drawer/data/repositories/drawer_repository_imp.dart';
+import 'package:iam_hungry2/features/drawer/domin/repositories/drawer_repository.dart';
+import 'package:iam_hungry2/features/drawer/domin/usecases/discounts_use_case.dart';
+import 'package:iam_hungry2/features/drawer/domin/usecases/locations_use_case.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/address_controller.dart';
+import 'package:iam_hungry2/features/drawer/presentation/controller/discount_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/map_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/setting_controller.dart';
 import 'package:iam_hungry2/features/home/presentation/controller/drawer_controller.dart';
@@ -54,13 +61,18 @@ class Injection {
     sl.registerFactory<SignUpController>(
       () => SignUpController(loginUseCase: sl()),
     );
-    sl.registerFactory<OtpController>(() => OtpController());
+    sl.registerFactory<OtpController>(
+      () => OtpController(otpUseCase: sl()),
+    );
     sl.registerFactory<SplashController>(() => SplashController());
     sl.registerFactory<SliderController>(() => SliderController());
 
     // Use cases
     sl.registerLazySingleton<LoginUseCase>(
       () => LoginUseCase(authRepository: sl()),
+    );
+    sl.registerLazySingleton<OtpUseCase>(
+      () => OtpUseCase(authRepository: sl()),
     );
 
     //repo
@@ -83,8 +95,28 @@ class Injection {
   static void _drawerCycle() {
     // Controller
     sl.registerFactory<MapController>(() => MapController());
-    sl.registerFactory<AddressController>(() => AddressController());
+    sl.registerFactory<AddressController>(
+      () => AddressController(locationsUseCase: sl()),
+    );
     sl.registerFactory<SettingController>(() => SettingController());
+    sl.registerFactory<DiscountController>(
+      () => DiscountController(discountUseCase: sl()),
+    );
+    // Use cases
+    sl.registerLazySingleton<LocationsUseCase>(
+      () => LocationsUseCase(drawerRepository: sl()),
+    );
+    sl.registerLazySingleton<DiscountUseCase>(
+      () => DiscountUseCase(drawerRepository: sl()),
+    );
+    // Repo
+    sl.registerLazySingleton<DrawerRepository>(
+      () => DrawerRepositoryImp(drawerRemoteDataSource: sl()),
+    );
+    // Data sources
+    sl.registerLazySingleton<DrawerRemoteDataSource>(
+      () => DrawerRemoteDataSourceImp(),
+    );
   }
 
   static void _hungryCycle() {

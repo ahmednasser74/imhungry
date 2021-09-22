@@ -18,8 +18,11 @@ dependencies:
     sdk: flutter
   #validation
   form_field_validator: ^1.1.0
-  #state management
+  #getx and get storage
   get: ^4.3.4
+  get_storage: ^2.0.3
+  #shared preference
+  shared_preferences: ^2.0.6
   #injection
   get_it: ^7.2.0
   #image picker
@@ -33,8 +36,6 @@ dependencies:
   path_provider: ^2.0.2
   #permissions
   permission_handler: ^8.1.4+2
-  #shared preference
-  shared_preferences: ^2.0.6
   uuid: ^3.0.4
   #play sound
   audioplayers: ^0.20.0
@@ -46,7 +47,6 @@ dependencies:
   flutter_svg: ^0.22.0
   #otp
   pin_code_fields: ^7.3.0
-  get_storage: ^2.0.3
   # image slider
   flutter_swiper_null_safety: ^1.0.2
   # toast for user

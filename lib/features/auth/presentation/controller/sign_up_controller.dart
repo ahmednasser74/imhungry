@@ -17,17 +17,12 @@ class SignUpController extends GetxController {
 
   Language get getLanguage => selectLanguage.value;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
   Future<void> login() async {
+    Get.toNamed(Routes.otpScreen);
     final phone = phoneTEC.text;
     if (phone.isNotEmpty) {
       final params = LoginParams(phone: phone);
-      loginUseCase.call(params: params);
-      Get.toNamed(Routes.otpScreen);
+      loginUseCase(params: params);
     } else {
       HelperMethods.showToast(msg: 'Something went wrong');
     }

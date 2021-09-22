@@ -2,25 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'core/localization/translation.dart';
-import 'core/localization/translation_controller.dart';
 import 'core/src/routes.dart';
 import 'core/src/theme.dart';
+import 'core/utils/controller_binding.dart';
 import 'core/utils/injection_container.dart';
-import 'features/cart/presentation/controller/check_out_controller.dart';
-import 'features/cart/presentation/controller/choose_location_controller.dart';
-import 'features/cart/presentation/controller/payment_controller.dart';
-import 'features/drawer/presentation/controller/address_controller.dart';
-import 'features/drawer/presentation/controller/map_controller.dart';
-import 'features/drawer/presentation/controller/setting_controller.dart';
-import 'features/home/presentation/controller/drawer_controller.dart';
-import 'features/home/presentation/controller/home_controller.dart';
-import 'features/iam_hungry/presentation/controller/create_your_own_controller.dart';
-import 'features/iam_hungry/presentation/controller/hungry_controller.dart';
-import 'features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
-import 'features/auth/presentation/controller/otp_controller.dart';
-import 'features/auth/presentation/controller/sign_up_controller.dart';
-import 'features/auth/presentation/controller/slider_controller.dart';
-import 'features/auth/presentation/controller/splash_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +24,7 @@ class MyApp extends StatelessWidget {
         initialRoute: Routes.splashScreen,
         locale: Get.deviceLocale,
         getPages: Routes.setScreens(),
-        onInit: _initControllers,
+        initialBinding: ControllerBinding(),
         translations: Translation(),
         fallbackLocale: Locale('en'),
         builder: (context, widget) => MediaQuery(
@@ -49,30 +34,5 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _initControllers() {
-    //Core
-    Get.lazyPut(() => Injection.sl<TranslationController>());
-    // SignUpCycle
-    Get.lazyPut(() => Injection.sl<SignUpController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<OtpController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<SplashController>());
-    Get.lazyPut(() => Injection.sl<SliderController>());
-    //  Home Cycle
-    Get.lazyPut(() => Injection.sl<DrawerCustomController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<HomeController>(), fenix: true);
-    //  Drawer Cycle
-    Get.lazyPut(() => Injection.sl<MapController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<AddressController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<SettingController>(), fenix: true);
-    // Hungry Cycle
-    Get.lazyPut(() => Injection.sl<HungryController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<CreateYourOwnController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<MenuTabBarController>(), fenix: true);
-    // Cart Cycle
-    Get.lazyPut(() => Injection.sl<CheckOutController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<ChooseLocationController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<PaymentController>(), fenix: true);
   }
 }

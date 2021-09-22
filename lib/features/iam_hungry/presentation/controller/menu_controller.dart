@@ -8,7 +8,7 @@ class MenuController extends GetxController {
   MenuController({required this.menuUseCase});
 
   Future<void> getMenu() async {
-    final menus = await menuUseCase.call(params: NoParams());
+    final menus = await menuUseCase(params: NoParams());
     menus.menuList.forEach((element) {
       print('desc = ${element.description}');
     });

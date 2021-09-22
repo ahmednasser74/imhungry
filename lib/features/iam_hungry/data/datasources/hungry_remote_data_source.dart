@@ -9,13 +9,13 @@ abstract class HungryRemoteDataSource {
 
 class HungryRemoteDataSourceImp extends GetConnect
     implements HungryRemoteDataSource {
-
   static const String base = 'https://api.themoviedb.org/3/';
 
   @override
   Future<MenusModel> getMenu() async {
-    final response = await get(
-        '$base/movie/popular?api_key=d08eecd863f06da75667bc6853553bb0');
+    httpClient.baseUrl = 'https://api.themoviedb.org/3/';
+    final response = await httpClient
+        .get('$base/movie/popular?api_key=d08eecd863f06da75667bc6853553bb0');
     if (response.statusCode == 200) {
       final json = response.body;
       final data = MenusModel.fromJson(json);

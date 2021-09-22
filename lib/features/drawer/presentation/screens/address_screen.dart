@@ -15,8 +15,8 @@ class AddressScreen extends GetView<AddressController> {
       ),
       body: AddressScreenWidget(
         onTapOpenMap: controller.addAddressMapBtn,
+        locationsList: [],
       ),
     );
   }
 }
-

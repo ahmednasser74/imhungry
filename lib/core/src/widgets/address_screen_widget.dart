@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/features/drawer/data/models/location/locations_model.dart';
 
 import '../colors.dart';
 import '../styles.dart';
@@ -8,8 +9,12 @@ import 'items/address_item.dart';
 
 class AddressScreenWidget extends StatelessWidget {
   final VoidCallback onTapOpenMap;
+  final List<LocationsModel> locationsList;
 
-  AddressScreenWidget({required this.onTapOpenMap});
+  AddressScreenWidget({
+    required this.onTapOpenMap,
+    required this.locationsList,
+  });
 
   @override
   Widget build(BuildContext context) {
