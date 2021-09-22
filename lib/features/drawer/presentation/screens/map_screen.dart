@@ -57,59 +57,56 @@ class MapScreen extends GetView<MapController> {
                 ),
                 width: 1.sw,
                 height: .31.sh,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  child: ListView(
-                    physics: BouncingScrollPhysics(),
-                    padding: EdgeInsets.zero,
-                    children: [
-                      TextField(
-                        controller: controller.placeNameTEC,
-                        style: textTheme.caption,
-                        decoration: CustomStyle.authInputDecoration
-                            .copyWith(hintText: 'Place title (Home, Work...)'),
+                child: ListView(
+                  padding:const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    TextField(
+                      controller: controller.placeNameTEC,
+                      style: textTheme.caption,
+                      decoration: CustomStyle.authInputDecoration
+                          .copyWith(hintText: 'Place title (Home, Work...)'),
+                    ),
+                    SizedBox(height: 6),
+                    TextField(
+                      controller: controller.streetTEC,
+                      style: textTheme.caption,
+                      decoration: CustomStyle.authInputDecoration.copyWith(
+                        hintText: 'Street',
                       ),
-                      SizedBox(height: 6),
-                      TextField(
-                        controller: controller.streetTEC,
-                        style: textTheme.caption,
-                        decoration: CustomStyle.authInputDecoration.copyWith(
-                          hintText: 'Street',
-                        ),
-                      ),
-                      SizedBox(height: 6),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: controller.buildingTEC,
-                              style: textTheme.caption,
-                              keyboardType: TextInputType.number,
-                              decoration: CustomStyle.authInputDecoration
-                                  .copyWith(hintText: 'Building/Villa No.'),
-                            ),
+                    ),
+                    SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: controller.buildingTEC,
+                            style: textTheme.caption,
+                            keyboardType: TextInputType.number,
+                            decoration: CustomStyle.authInputDecoration
+                                .copyWith(hintText: 'Building/Villa No.'),
                           ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: TextField(
-                              controller: controller.floorTEC,
-                              style: textTheme.caption,
-                              keyboardType: TextInputType.number,
-                              decoration: CustomStyle.authInputDecoration
-                                  .copyWith(hintText: 'Floor/Flat No.'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Center(
-                        child: CustomButton(
-                          onPressed: () {},
-                          title: 'Add Address',
                         ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: controller.floorTEC,
+                            style: textTheme.caption,
+                            keyboardType: TextInputType.number,
+                            decoration: CustomStyle.authInputDecoration
+                                .copyWith(hintText: 'Floor/Flat No.'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Center(
+                      child: CustomButton(
+                        onPressed: () {},
+                        title: 'Add Address',
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             )

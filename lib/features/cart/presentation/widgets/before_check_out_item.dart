@@ -21,14 +21,13 @@ class BeforeCheckOutItem extends StatelessWidget {
         decoration: CustomStyle.containerShadowDecoration,
         width: .25.sw,
         height: .025.sh,
-
         child: Column(
           children: [
             Expanded(
               child: Image.asset('assets/images/hungry/sandwich_icon.png'),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6),
+              padding:const EdgeInsets.symmetric(horizontal: 6),
               child: AutoSizeText(
                 'Single Burger',
                 maxLines: 1,
@@ -41,10 +40,7 @@ class BeforeCheckOutItem extends StatelessWidget {
                 text: 'SAR ',
                 style: textTheme.subtitle1?.copyWith(fontSize: 8),
                 children: [
-                  TextSpan(
-                    text: '20',
-                    style: textTheme.headline5,
-                  ),
+                  TextSpan(text: '20', style: textTheme.headline5),
                 ],
               ),
             )

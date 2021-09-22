@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:get/get.dart';
+import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'drawer_item_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,7 +46,7 @@ class DrawerWidget extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DrawerIemWidget(onTap: () {}, text: 'home'.tr),
+                      // DrawerIemWidget(onTap: () => Get.back(), text: 'home'.tr),
                       DrawerIemWidget(
                         onTap: () => Get.toNamed(Routes.orderHistoryTabBar),
                         text: 'orders'.tr,
@@ -87,6 +88,13 @@ class DrawerWidget extends StatelessWidget {
                               color: Colors.black54,
                             ),
                           ),
+                          CustomButton(
+                            onPressed: () {},
+                            title: 'logout'.tr,
+                            backgroundColor: Colors.transparent,
+                            textColor: CustomColors.primaryColor,
+                            paddingHorizontal: 6,
+                          ),
                         ],
                       )
                     ],
@@ -122,7 +130,7 @@ class DrawerWidget extends StatelessWidget {
             //     child: Container(
             //       height: .58.sh,
             //       width: .55.sw,
-            //       padding:const EdgeInsets.all(15),
+            //       padding: const EdgeInsets.all(15),
             //       decoration: BoxDecoration(
             //         color: CustomColors.greenLightColor,
             //         borderRadius: BorderRadius.circular(20),

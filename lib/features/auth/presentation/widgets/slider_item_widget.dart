@@ -87,14 +87,14 @@ class SliderItemWidgetState extends State<SliderItemWidget>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 0, right: 25, top: 25, left: 25),
+              padding: const EdgeInsets.only(right: 25, top: 25, left: 25),
               child: Align(
                 alignment: Alignment.topRight,
                 child: SafeArea(
                   child: SvgPicture.asset(
                     'assets/images/iam_hungry_bite_logo.svg',
                     height: 50,
-                    color: Color.fromARGB(127, 6, 6, 1),
+                    color: const Color.fromARGB(127, 6, 6, 1),
                   ),
                 ),
               ),
@@ -109,16 +109,16 @@ class SliderItemWidgetState extends State<SliderItemWidget>
                     color: CustomColors.whiteColor,
                     fontSize: 40,
                     shadows: [
-                      Shadow(
+                      const Shadow(
                         blurRadius: 4,
-                        offset: Offset(3, 1),
+                        offset: const Offset(3, 1),
                       )
                     ],
                   ),
                 ),
               ),
             ),
-            SlideTransition(
+             SlideTransition(
               position: _offsetAnimationOfDescription,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(23, 0, 10, 30),

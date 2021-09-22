@@ -6,7 +6,7 @@ class HelpItemWidget extends StatelessWidget {
   final String helpTitle;
   final VoidCallback onTap;
 
-  HelpItemWidget({required this.helpTitle, required this.onTap});
+  const HelpItemWidget({required this.helpTitle, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HelpItemWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: Colors.transparent,
-        width:1.sw,
+        width: 1.sw,
         child: Column(
           children: [
             Padding(
@@ -27,11 +27,11 @@ class HelpItemWidget extends StatelessWidget {
                     minFontSize: 10,
                     maxLines: 1,
                   ),
-                  Icon(Icons.arrow_forward_ios, color: Colors.black)
+                  const            Icon(Icons.arrow_forward_ios, color: Colors.black)
                 ],
               ),
             ),
-            Divider(color: Colors.grey, thickness: 1)
+            const Divider(color: Colors.grey, thickness: 1)
           ],
         ),
       ),

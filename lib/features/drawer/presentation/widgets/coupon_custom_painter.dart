@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CouponShapeCustomPainter extends CustomPainter {
@@ -71,7 +70,7 @@ class CouponShapeCustomPainter extends CustomPainter {
     path_0.close();
 
     Paint paintFill = Paint()..style = PaintingStyle.fill;
-    paintFill.color =Color(0xffE0E0E0);
+    paintFill.color = Color(0xffE0E0E0);
     canvas.drawShadow(path_0, Colors.black45, 2, false);
     canvas.drawPath(path_0, paintFill);
   }

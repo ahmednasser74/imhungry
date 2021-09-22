@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/widgets/cart_fab/cart_fab.dart';
 import 'package:iam_hungry2/core/src/widgets/horizontal_list_builder.dart';
 import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
@@ -29,22 +28,12 @@ class HomeScreen extends GetView<HomeController> {
                 onTapDrawerIcon: () => controller.setScreenSizeByAnimation(),
               ),
             ),
-            body: ListView(
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SideTitleWidget(title: 'hello'.tr + ' Ahmed'),
-                Row(
-                  children: [
-                    HungryAndHealthyCardWidget(
-                      image: 'assets/images/iam_hungry_bite_logo.svg',
-                      onTap: () => Get.toNamed(Routes.hungryScreen),
-                    ),
-                    HungryAndHealthyCardWidget(
-                      image: 'assets/images/healthy/iam_healthy.svg',
-                      onTap: () => Get.toNamed(Routes.healthyScreen),
-                    ),
-                  ],
-                ),
-                SizedBox(height: .30.sh, child: AutoSliderImagesWidget()),
+                const HungryAndHealthyWidget(),
+                AutoSliderImagesWidget(),
                 SideTitleWidget(title: 'previousOrder'.tr),
                 HorizontalListBuilder(
                   heightList: 16,

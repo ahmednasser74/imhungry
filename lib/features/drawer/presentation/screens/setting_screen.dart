@@ -5,6 +5,7 @@ import 'package:iam_hungry2/core/src/widgets/custom_app_bar.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/utils/enums.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/setting_controller.dart';
+import 'package:iam_hungry2/features/drawer/presentation/widgets/setting_profile_widget.dart';
 import 'package:iam_hungry2/features/drawer/presentation/widgets/setting_category_title.dart';
 import 'package:iam_hungry2/features/drawer/presentation/widgets/setting_language_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,54 +28,25 @@ class SettingScreen extends GetView<SettingController> {
               haveEditingButton: true,
               onTapEditProfile: () {},
             ),
-            Padding(
-              padding: EdgeInsets.all(18),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Name :', style: textTheme.caption),
-                          Text('Ahmed Nasser', style: textTheme.headline4),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text('Gender :', style: textTheme.caption),
-                          Text('Male', style: textTheme.headline4),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Mobile Number :', style: textTheme.caption),
-                      Text('+201119193535', style: textTheme.headline4),
-                    ],
-                  )
-                ],
-              ),
-            ),
+            SettingProfileWidget(),
             SettingSectionTitle(title: 'Notification'),
             SwitchListTile(
               value: controller.messageValue.value,
               onChanged: (bool value) => controller.onMessageChange(value),
               title: Text('Message', style: textTheme.caption),
+              activeColor: CustomColors.primaryColor,
             ),
             SwitchListTile(
               value: controller.orderStatusValue.value,
               onChanged: (bool value) => controller.onOrderStatusChange(value),
               title: Text('Order Status', style: textTheme.caption),
+              activeColor: CustomColors.primaryColor,
             ),
             SwitchListTile(
               value: controller.couponsValue.value,
               onChanged: (bool value) => controller.onCouponsChange(value),
               title: Text('Coupons', style: textTheme.caption),
+              activeColor: CustomColors.primaryColor,
             ),
             SettingSectionTitle(title: 'General'),
             SizedBox(height: .01.sh),
@@ -82,7 +54,7 @@ class SettingScreen extends GetView<SettingController> {
               title: Text('Language', style: textTheme.caption),
               trailing: Wrap(
                 spacing: 14, // space between two icons
-                children: <Widget>[
+                children: [
                   SettingLanguageWidget(
                     onTap: () => controller.changeLanguage(Language.English),
                     languageName: 'EN',
@@ -113,11 +85,12 @@ class SettingScreen extends GetView<SettingController> {
             SizedBox(height: .08.sh),
             CustomButton(
               onPressed: () {},
-              marginHorizontal: .25.sh,
+              marginHorizontal: .18.sh,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.logout, color: Colors.white),
+                  const Icon(Icons.logout, color: Colors.white),
+                  SizedBox(width: 8),
                   Text('Logout', style: textTheme.headline2),
                 ],
               ),

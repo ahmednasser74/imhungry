@@ -24,11 +24,11 @@ class SearchScreen extends StatelessWidget {
               child: TextFormField(
                 decoration: CustomStyle.authInputDecoration.copyWith(
                   prefix: Padding(
-                    padding:EdgeInsets.only(right: 6),
+                    padding: EdgeInsets.only(right: 6),
                     child: SvgPicture.asset(
                       'assets/images/search_icon.svg',
                       width: .02.sw,
-                      height:.02.sh,
+                      height: .02.sh,
                     ),
                   ),
                 ),

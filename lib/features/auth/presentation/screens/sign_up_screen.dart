@@ -26,100 +26,71 @@ class SignUpScreen extends GetView<SignUpController> {
             ),
           ),
           child: ListView(
+            padding: const EdgeInsets.all(20),
             shrinkWrap: true,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(30),
-                      width: .45.sw,
-                      decoration: CustomStyle.containerShadowDecoration,
-                      child: SvgPicture.asset(
-                        'assets/images/iam_hungry_bite_logo.svg',
-                        width: .40.sw,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      children: [
-                        SignUpRowIconsItemWidget(
-                          title: 'feedYourHunger'.tr,
-                          image:
-                              'assets/images/sign_up/sign_up_feed_your_hunger.svg',
-                        ),
-                        SignUpRowIconsItemWidget(
-                          title: 'easeOrdering'.tr,
-                          image: 'assets/images/sign_up/easy_ordering_icon.svg',
-                        ),
-                        SignUpRowIconsItemWidget(
-                          title: 'dealsCoupon'.tr,
-                          image: 'assets/images/sign_up/coupon_icon.svg',
-                        ),
-                        SignUpRowIconsItemWidget(
-                          title: 'fastDelivery'.tr,
-                          image: 'assets/images/sign_up/delivery_icon.svg',
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
-                      controller: controller.phoneTEC,
-                      keyboardType: TextInputType.number,
-                      textInputAction: TextInputAction.done,
-                      style: textTheme.headline3,
-                      decoration: CustomStyle.authInputDecoration.copyWith(
-                        hintStyle: textTheme.subtitle1?.copyWith(fontSize: 14),
-                        hintText: 'enterPhone'.tr,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      children: [
-                        LanguageItemWidget(
-                          languageName: 'English',
-                          // onTap: controller.onEnglishPressed,
-                          onTap: () {},
-                          backgroundColor:
-                              controller.getLanguage == Language.English
-                                  ? CustomColors.primaryColor
-                                  : Colors.white,
-                          textColor: controller.getLanguage == Language.English
-                              ? Colors.white
-                              : Colors.black,
-                        ),
-                        LanguageItemWidget(
-                          languageName: 'Arabic',
-                          // onTap: controller.onArabicPressed,
-                          onTap: () {},
-                          backgroundColor:
-                              controller.getLanguage == Language.Arabic
-                                  ? CustomColors.primaryColor
-                                  : Colors.white,
-                          textColor: controller.getLanguage == Language.Arabic
-                              ? Colors.white
-                              : Colors.black,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    CustomButton(
-                      onPressed: controller.login,
-                      title: 'login'.tr,
-                      alignment: Alignment.bottomRight,
-                      paddingHorizontal: .26.sw,
-                    ),
-                    CustomButton(
-                      onPressed: () => Get.toNamed(Routes.homeScreen),
-                      title: 'skip'.tr,
-                      fontFamily: 'nunito',
-                      backgroundColor: Colors.transparent,
-                      borderColor: Colors.transparent,
-                    ),
-                  ],
+              Container(
+                padding: const EdgeInsets.all(30),
+                margin: EdgeInsets.symmetric(horizontal: .20.sw),
+                width: .45.sw,
+                decoration: CustomStyle.containerShadowDecoration,
+                child: SvgPicture.asset(
+                  'assets/images/iam_hungry_bite_logo.svg',
+                  width: .40.sw,
                 ),
+              ),
+              const SizedBox(height: 20),
+              SignUpIconsWidget(),
+              const SizedBox(height: 20),
+              TextField(
+                controller: controller.phoneTEC,
+                keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                style: textTheme.headline3,
+                decoration: CustomStyle.authInputDecoration.copyWith(
+                  hintStyle: textTheme.subtitle1?.copyWith(fontSize: 14),
+                  hintText: 'enterPhone'.tr,
+                ),
+              ),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  LanguageItemWidget(
+                    languageName: 'English',
+                    // onTap: controller.onEnglishPressed,
+                    onTap: () {},
+                    backgroundColor: controller.getLanguage == Language.English
+                        ? CustomColors.primaryColor
+                        : Colors.white,
+                    textColor: controller.getLanguage == Language.English
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                  LanguageItemWidget(
+                    languageName: 'Arabic',
+                    // onTap: controller.onArabicPressed,
+                    onTap: () {},
+                    backgroundColor: controller.getLanguage == Language.Arabic
+                        ? CustomColors.primaryColor
+                        : Colors.white,
+                    textColor: controller.getLanguage == Language.Arabic
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              CustomButton(
+                onPressed: controller.login,
+                title: 'login'.tr,
+                paddingHorizontal: .26.sw,
+              ),
+              CustomButton(
+                onPressed: () => Get.toNamed(Routes.homeScreen),
+                title: 'skip'.tr,
+                fontFamily: 'nunito',
+                backgroundColor: Colors.transparent,
+                borderColor: Colors.transparent,
               ),
             ],
           ),

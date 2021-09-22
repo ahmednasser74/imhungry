@@ -10,7 +10,7 @@ class TopMealItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       margin: EdgeInsets.symmetric(horizontal: .06.sw, vertical: .05.sh),
       decoration: CustomStyle.containerShadowDecoration.copyWith(
         borderRadius: BorderRadius.circular(30),

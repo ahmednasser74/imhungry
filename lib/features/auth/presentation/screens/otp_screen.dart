@@ -22,7 +22,8 @@ class OtpScreen extends GetView<OtpController> {
           Form(
             key: controller.otpFormKey,
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
               child: PinCodeTextField(
                 appContext: context,
                 length: 4,

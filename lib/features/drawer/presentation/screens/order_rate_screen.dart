@@ -12,15 +12,15 @@ class OrderRateScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(.06.sh),
+        preferredSize: Size.fromHeight(.08.sh),
         child: CustomAppBar(centerTitle: 'Order Rate'),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
           Center(child: Text('#12123123', style: textTheme.headline3)),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Icon(
               Icons.qr_code_scanner,
               color: Colors.black,
@@ -39,11 +39,7 @@ class OrderRateScreen extends StatelessWidget {
             },
           ),
           Text('How was delivery time ?', style: textTheme.headline3),
-          CustomRatingBar(
-            ratingValue: (rating) {
-              print('rateBar 2 :$rating');
-            },
-          ),
+          CustomRatingBar(ratingValue: (rating) => print('rateBar 2 :$rating')),
           Text('How was order experience ?', style: textTheme.headline3),
           CustomRatingBar(
             ratingValue: (rating) {

@@ -11,7 +11,6 @@ import 'package:iam_hungry2/features/drawer/presentation/widgets/payment_deliver
 import 'package:iam_hungry2/features/drawer/presentation/widgets/payment_method_widget.dart';
 
 class PaymentScreen extends GetView<PaymentController> {
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

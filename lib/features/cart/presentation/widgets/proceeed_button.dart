@@ -6,7 +6,7 @@ class ProceedButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
 
-  ProceedButton({
+  const ProceedButton({
     required this.onTap,
     this.title = 'Proceed >>>',
   });

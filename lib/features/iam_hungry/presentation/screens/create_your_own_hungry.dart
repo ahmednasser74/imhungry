@@ -52,12 +52,14 @@ class CreateYourOwnHungryScreen extends StatelessWidget {
             height: .24.sh,
             width: 1.sw,
             decoration: CustomStyle.containerShadowDecoration.copyWith(
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(30),
-                bottomLeft: Radius.circular(30),
+              borderRadius: const BorderRadius.only(
+                bottomRight: const Radius.circular(30),
+                bottomLeft: const Radius.circular(30),
               ),
-              color: Color(0xff3A3A3C),
-              boxShadow: [BoxShadow(color: Color(0xff3A3A3C), blurRadius: 0)],
+              color: const Color(0xff3A3A3C),
+              boxShadow: [
+                const BoxShadow(color: Color(0xff3A3A3C), blurRadius: 0)
+              ],
             ),
             child: Image.asset(
               'assets/images/hungry/create_your_own_background.png',
@@ -73,7 +75,7 @@ class CreateYourOwnHungryScreen extends StatelessWidget {
                   children: [
                     SideTitleWidget(title: 'Title', color: Colors.black),
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: TextField(
                         textCapitalization: TextCapitalization.words,
                         textInputAction: TextInputAction.done,
@@ -83,21 +85,19 @@ class CreateYourOwnHungryScreen extends StatelessWidget {
                             hintStyle: textTheme.bodyText1),
                       ),
                     ),
-                    SideTitleWidget(title: 'Bread', color: Colors.black),
+                    const SideTitleWidget(title: 'Bread', color: Colors.black),
                     HorizontalListBuilder(
                       itemCount: 5,
-                      itemBuilder: (context, index) =>
-                          CreateOwnSingleSelectionItem(
+                      itemBuilder: (_, index) => CreateOwnSingleSelectionItem(
                         index: index,
                         selectIndex: 2,
                         onTap: () {},
                       ),
                     ),
-                    SideTitleWidget(title: 'Meat', color: Colors.black),
+                    const SideTitleWidget(title: 'Meat', color: Colors.black),
                     HorizontalListBuilder(
                       itemCount: createOwnMeat.length,
-                      itemBuilder: (context, index) =>
-                          CreateOwnMultiSelectionItem(
+                      itemBuilder: (_, index) => CreateOwnMultiSelectionItem(
                         index: index,
                         list: createOwnMeat,
                         onTap: () {},

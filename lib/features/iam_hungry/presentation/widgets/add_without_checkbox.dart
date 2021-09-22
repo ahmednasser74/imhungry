@@ -19,9 +19,7 @@ class CustomCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return InkWell(
-      onTap: () {
-        onChanged(!value);
-      },
+      onTap: () => onChanged(!value),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -29,9 +27,7 @@ class CustomCheckBox extends StatelessWidget {
             height: .05.sh,
             child: Checkbox(
               value: value,
-              onChanged: (bool? newValue) {
-                onChanged(newValue ?? false);
-              },
+              onChanged: (bool? newValue) => onChanged(newValue ?? false),
             ),
           ),
           Expanded(child: Text(title)),
@@ -39,8 +35,7 @@ class CustomCheckBox extends StatelessWidget {
             visible: hasPrice ? true : false,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child:
-                  Text(hasPrice ? '+$price' : '', style: textTheme.caption),
+              child: Text(hasPrice ? '+$price' : '', style: textTheme.caption),
             ),
           )
         ],

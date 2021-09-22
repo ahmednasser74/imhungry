@@ -14,7 +14,7 @@ class TotalPriceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all( 8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: CustomStyle.containerShadowDecoration,
         child: Padding(
@@ -47,7 +47,7 @@ class ReceiptItemWidget extends StatelessWidget {
   final String receiptTitle;
   final double price;
 
-  ReceiptItemWidget({required this.receiptTitle, required this.price});
+  const ReceiptItemWidget({required this.receiptTitle, required this.price});
 
   @override
   Widget build(BuildContext context) {

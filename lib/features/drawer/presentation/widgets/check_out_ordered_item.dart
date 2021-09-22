@@ -14,63 +14,61 @@ class CheckOutOrderedItem extends StatelessWidget {
       child: Container(
         height: .16.sh,
         decoration: CustomStyle.containerShadowDecoration,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: SvgPicture.asset(
-                  'assets/images/iam_hungry_bite_logo.svg',
-                ),
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: SvgPicture.asset(
+                'assets/images/iam_hungry_bite_logo.svg',
               ),
-              Expanded(
-                flex: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AutoSizeText(
-                      'Single Burger',
-                      style: textTheme.caption,
-                      maxFontSize: 20,
-                      minFontSize: 8,
-                      maxLines: 1,
-                    ),
-                    AutoSizeText(
-                      'best sandwich in saudi arabia',
+            ),
+            Expanded(
+              flex: 5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AutoSizeText(
+                    'Single Burger',
+                    style: textTheme.caption,
+                    maxFontSize: 20,
+                    minFontSize: 8,
+                    maxLines: 1,
+                  ),
+                  AutoSizeText(
+                    'best sandwich in saudi arabia',
+                    style: textTheme.subtitle1,
+                    maxFontSize: 12,
+                    minFontSize: 8,
+                    maxLines: 3,
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      text: 'SAR ',
                       style: textTheme.subtitle1,
-                      maxFontSize: 12,
-                      minFontSize: 8,
-                      maxLines: 3,
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'SAR ',
-                        style: textTheme.subtitle1,
-                        children: [
-                          TextSpan(
-                            text: '20',
-                            style: textTheme.headline4,
-                          ),
-                        ],
-                      ),
+                      children: [
+                        TextSpan(
+                          text: '20',
+                          style: textTheme.headline4,
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 30),
-                  ],
-                ),
-              )
-            ],
-          ),
+                  ),
+                  SizedBox(height: 30),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

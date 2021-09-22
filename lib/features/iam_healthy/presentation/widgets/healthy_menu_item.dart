@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HealthyMenuItem extends StatelessWidget {
   final VoidCallback onTap;
 
-  HealthyMenuItem({required this.onTap});
+  const HealthyMenuItem({required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +13,18 @@ class HealthyMenuItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        margin: EdgeInsets.all(6),
-        padding: EdgeInsets.symmetric(vertical: 6),
+        margin: const EdgeInsets.all(6),
+        padding: const EdgeInsets.symmetric(vertical: 6),
         decoration: CustomStyle.containerShadowDecoration,
-        width: .55.sw,
+        width: .52.sw,
         child: Column(
           children: [
             Expanded(
               child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 child: Image.asset(
                   'assets/images/healthy/salad_two.png',
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(14)),
               ),
             ),
             Text('Ceaser Salad', style: textTheme.headline3),

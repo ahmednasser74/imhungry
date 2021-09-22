@@ -25,7 +25,7 @@ class DeleteItemFromCartDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           child: Scaffold(
             body: Padding(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 6),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +34,7 @@ class DeleteItemFromCartDialog extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Expanded(child: Image.asset(image, height: .1.sh)),
-                      SizedBox(width: 4),
+                      const SizedBox(width: 4),
                       Expanded(
                         flex: 3,
                         child: AutoSizeText(
@@ -53,7 +53,9 @@ class DeleteItemFromCartDialog extends StatelessWidget {
                         onPressed: () => Get.back(),
                         child: Text('No', style: textTheme.subtitle2),
                       ),
-                      SizedBox(width: .05.sw,),
+                      SizedBox(
+                        width: .05.sw,
+                      ),
                       TextButton(
                         onPressed: onTapRemove,
                         child: Text('Yes', style: textTheme.subtitle2),

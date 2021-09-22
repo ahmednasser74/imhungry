@@ -23,7 +23,7 @@ class ChooseLocationScreen extends GetView<ChooseLocationController> {
             Container(
               width: 1.sw,
               height: .1.sh,
-              padding: EdgeInsets.symmetric(horizontal: 8),
+              padding:const EdgeInsets.symmetric(horizontal: 8),
               child: Container(
                 padding: EdgeInsets.all(6),
                 decoration: CustomStyle.containerShadowDecoration.copyWith(

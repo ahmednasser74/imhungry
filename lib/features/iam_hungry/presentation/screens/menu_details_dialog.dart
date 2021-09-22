@@ -59,15 +59,13 @@ class MenuDetailsDialog extends StatelessWidget {
                       maxFontSize: 16,
                       minFontSize: 6,
                     ),
-                    SizedBox(height: .01.sh),
                     Row(
                       children: [
                         SvgPicture.asset(
                           'assets/images/hungry/calories_icon.svg',
-                          height: 15,
                           width: 15,
                         ),
-                        SizedBox(height: .01.sh),
+                        SizedBox(width: .01.sw),
                         Text('300 Calories', style: textTheme.headline5),
                       ],
                     ),
@@ -110,7 +108,7 @@ class MenuDetailsDialog extends StatelessWidget {
                             onTapMinus: () {},
                             onTapPlus: () {},
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           CustomButton(
                             onPressed: () {},
                             title: 'Add to cart',

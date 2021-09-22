@@ -8,7 +8,7 @@ class DiscountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(.06.sh),
+        preferredSize: Size.fromHeight(.08.sh),
         child: CustomAppBar(centerTitle: 'Discount'),
       ),
       body: ListView.builder(

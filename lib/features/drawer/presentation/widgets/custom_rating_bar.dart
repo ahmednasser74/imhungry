@@ -18,11 +18,11 @@ class CustomRatingBar extends StatelessWidget {
         allowHalfRating: true,
         onRatingUpdate: ratingValue,
         ratingWidget: RatingWidget(
-          full: Icon(
+          full:const Icon(
             Icons.star,
             color: CustomColors.primaryColor,
           ),
-          half: Icon(
+          half:const Icon(
             Icons.star_half_outlined,
             color: CustomColors.primaryColor,
           ),

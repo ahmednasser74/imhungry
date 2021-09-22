@@ -34,8 +34,8 @@ class OrderHistoryTabBar extends StatelessWidget {
             unselectedLabelColor: CustomColors.redLightColor,
             unselectedLabelStyle: textTheme.caption,
             tabs: [
-              Tab(child: Text('Recent')),
-              Tab(child: Text('Previous')),
+              const Tab(child: Text('Recent')),
+              const Tab(child: Text('Previous')),
             ],
           ),
         ),

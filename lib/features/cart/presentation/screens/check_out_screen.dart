@@ -22,69 +22,67 @@ class CheckOutScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Padding(
+          ListView(
             padding: EdgeInsets.only(bottom: .08.sh),
-            child: ListView(
-              children: [
-                Column(
-                  children: [
-                    SizedBox(
-                      height: .4.sh,
-                      child: Scrollbar(
-                        radius: Radius.circular(10),
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: 4,
-                          itemBuilder: (_, index) => CheckOutOrderedItem(
-                            onTapRemoveItem: () {},
-                            onTapMinus: () {},
-                            onTapPlus: () {},
-                            quantity: 1,
-                            hasPlusAndMinus: true,
-                          ),
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: .4.sh,
+                    child: Scrollbar(
+                      radius: Radius.circular(10),
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 4,
+                        itemBuilder: (_, index) => CheckOutOrderedItem(
+                          onTapRemoveItem: () {},
+                          onTapMinus: () {},
+                          onTapPlus: () {},
+                          quantity: 1,
+                          hasPlusAndMinus: true,
                         ),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Divider(color: Colors.red[900], thickness: 10),
-                        Shimmer.fromColors(
-                          highlightColor: CustomColors.primaryColor,
-                          baseColor: Colors.black,
-                          period: Duration(milliseconds: 1000),
-                          child: SideTitleWidget(
-                            title: 'Before Check Out',
-                            color: Colors.black,
-                          ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Divider(
+                        color: CustomColors.primaryColor,
+                        thickness: 10,
+                      ),
+                      Shimmer.fromColors(
+                        highlightColor: CustomColors.primaryColor,
+                        baseColor: Colors.black,
+                        period: Duration(milliseconds: 1000),
+                        child: const SideTitleWidget(
+                          title: 'Before Check Out',
+                          color: Colors.black,
                         ),
-                        HorizontalListBuilder(
-                          heightList: .022.sh,
-                          itemCount: 5,
-                          itemBuilder: (_, index) => BeforeCheckOutItem(
-                            onTap: () {},
-                          ),
+                      ),
+                      HorizontalListBuilder(
+                        heightList: .022.sh,
+                        itemCount: 5,
+                        itemBuilder: (_, index) => BeforeCheckOutItem(
+                          onTap: () {},
                         ),
-                        TotalPriceWidget(
-                          subTotal: 40,
-                          discount: 5,
-                          tax: 10,
-                          total: 45,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                      ),
+                      const TotalPriceWidget(
+                        subTotal: 40,
+                        discount: 5,
+                        tax: 10,
+                        total: 45,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
-          Align(
+           Align(
             alignment: Alignment.bottomCenter,
-            child: ProceedButton(
-              onTap: () {
-                print('navigated');
-                Get.toNamed(Routes.chooseLocationScreen);
-              },
+            child:  ProceedButton(
+              onTap: () => Get.toNamed(Routes.chooseLocationScreen),
             ),
           )
         ],

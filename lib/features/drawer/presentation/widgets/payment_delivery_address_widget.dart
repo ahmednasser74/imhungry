@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// ignore: must_be_immutable
 class PaymentDeliverAddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,18 +32,9 @@ class PaymentDeliverAddressWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      'Street',
-                      style: textTheme.subtitle1,
-                    ),
-                    Text(
-                      'Aprt',
-                      style: textTheme.subtitle1,
-                    ),
-                    Text(
-                      'Building',
-                      style: textTheme.subtitle1,
-                    ),
+                    Text('Street', style: textTheme.subtitle1),
+                    Text('Aprt', style: textTheme.subtitle1),
+                    Text('Building', style: textTheme.subtitle1),
                   ],
                 ),
               ),

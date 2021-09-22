@@ -5,7 +5,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
-
 import 'delete_item_from_cart_dialog.dart';
 
 class CheckOutOrderedItem extends StatelessWidget {
@@ -35,8 +34,9 @@ class CheckOutOrderedItem extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                  flex: 3,
-                  child: Image.asset('assets/images/hungry/sandwich_icon.png')),
+                flex: 3,
+                child: Image.asset('assets/images/hungry/sandwich_icon.png'),
+              ),
               Expanded(
                 flex: 5,
                 child: Column(

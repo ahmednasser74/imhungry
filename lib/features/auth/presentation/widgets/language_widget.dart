@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,11 +30,13 @@ class LanguageItemWidget extends StatelessWidget {
             color: backgroundColor,
           ),
           child: Center(
-            child: Text(
+            child: AutoSizeText(
               languageName,
+              maxFontSize: 25,
+              minFontSize: 12,
               style: textTheme.headline3?.copyWith(
                 color: textColor,
-                fontSize: 25,
+                fontSize: 25.sp,
               ),
             ),
           ),

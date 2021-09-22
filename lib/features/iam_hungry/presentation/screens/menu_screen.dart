@@ -17,7 +17,7 @@ class MenuScreen extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 30, right: 30, top: 12),
+            padding: const EdgeInsets.only(left: 30, right: 30, top: 12),
             child: RichText(
               text: TextSpan(
                 text: index == null ? 'I\'m Hungry\n' : 'I\'m Healthy\n',

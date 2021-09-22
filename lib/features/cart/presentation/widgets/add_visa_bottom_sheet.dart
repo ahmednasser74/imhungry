@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 
@@ -25,12 +26,13 @@ class AddVisaCardBottomSheet extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: IconButton(
-                        icon: Icon(
-                          Icons.close,
-                          color: Colors.black,
-                          size: 25,
-                        ),
-                        onPressed: () => Navigator.of(context).pop()),
+                      icon: Icon(
+                        Icons.close,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      onPressed: () => Get.back(),
+                    ),
                   )
                 ],
               ),

@@ -52,10 +52,8 @@ class MapController extends GetxController {
   }
 
   void onSubmitSearchTF() async {
-    await searchMap(
-      mapController: mapController,
-      searchTEC: searchTEC,
-    ).then((value) {
+    await searchMap(mapController: mapController, searchTEC: searchTEC)
+        .then((value) {
       lat.value = value.latitude;
       long.value = value.longitude;
     });
@@ -108,62 +106,14 @@ class MapController extends GetxController {
     }
   }
 
-  ///this method added custom marker
-  Future<void> replaceCustomMarker(double lat, double long) async {
-    customMarker = await BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(devicePixelRatio: 2.5),
-      'assets/images/home/bike_icon.png',
-    );
-    markers.replaceRange(0, 1, [
-      Marker(
-        markerId: MarkerId('3'),
-        position: LatLng(lat, long),
-        icon: customMarker,
-      ),
-    ]);
-  }
-
-  void updateMarkerOnMap(
-    double lat,
-    double long, {
-    required Completer<GoogleMapController> mapController,
-  }) async {
-    final GoogleMapController controller = await mapController.future;
-    final newCameraPosition = CameraUpdate.newCameraPosition(
-      CameraPosition(zoom: 16, target: LatLng(lat, long)),
-    );
-    controller.animateCamera(newCameraPosition);
-    markers.removeWhere((marker) => marker.markerId.value == 'sourcePin');
-    addCustomMarker(lat, long);
-  }
-
-  void streamWithMarker(
-    double lat,
-    double long, {
-    required Completer<GoogleMapController> mapController,
-  }) {
-    location.serviceEnabled().then((value) {
-      location.onLocationChanged.listen((currentLocation) {
-        lat = currentLocation.latitude!;
-        print('lat = ${currentLocation.latitude}');
-        print('long = ${currentLocation.longitude}');
-        print('time = ${currentLocation.time}');
-      });
-    });
-    location.enableBackgroundMode(enable: true);
-  }
-
-  ///this method added custom marker
-  Future<void> addCustomMarker(double lat, double long) async {
-    customMarker = await BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(devicePixelRatio: 2.5),
-      'assets/images/sign_up/log_in_background.png',
-    );
+  ///this method added normal marker
+  void addMarker(double lat, double long) {
     markers.add(
       Marker(
-        markerId: MarkerId('sourcePin'),
+        markerId: MarkerId('1'),
         position: LatLng(lat, long),
-        icon: customMarker,
+        icon: BitmapDescriptor.defaultMarker,
+        onTap: () => print('on tap marker'),
       ),
     );
   }
@@ -178,18 +128,6 @@ class MapController extends GetxController {
         onTap: () => print('on tap marker'),
       ),
     ]);
-  }
-
-  ///this method added normal marker
-  void addMarker(double lat, double long) {
-    markers.add(
-      Marker(
-        markerId: MarkerId('1'),
-        position: LatLng(lat, long),
-        icon: BitmapDescriptor.defaultMarker,
-        onTap: () => print('on tap marker'),
-      ),
-    );
   }
 
   void addPolygon() {

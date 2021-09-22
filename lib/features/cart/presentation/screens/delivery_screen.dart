@@ -15,7 +15,7 @@ class DeliveryScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SideTitleWidget(title: 'Address',color: Colors.black),
+              SideTitleWidget(title: 'Address', color: Colors.black),
               SizedBox(height: .02.sh),
               GestureDetector(
                 onTap: () {},

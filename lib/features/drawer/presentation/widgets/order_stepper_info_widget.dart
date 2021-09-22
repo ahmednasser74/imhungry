@@ -4,9 +4,9 @@ import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderTrackStepperWidget extends StatelessWidget {
-  final bool orderIsPreparing = true;
-  final bool deliveryOnWay = false;
-  final bool orderDelivered = false;
+  final bool orderIsPreparingDone = true;
+  final bool deliveryOnWayDone = false;
+  final bool orderDeliveredDone = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class OrderTrackStepperWidget extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 6,
-                        color: orderIsPreparing
+                        color: orderIsPreparingDone
                             ? CustomColors.primaryColor
                             : CustomColors.redLightColor,
                       ),
@@ -56,7 +56,7 @@ class OrderTrackStepperWidget extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 6,
-                        color: deliveryOnWay
+                        color: deliveryOnWayDone
                             ? CustomColors.primaryColor
                             : CustomColors.redLightColor,
                       ),
@@ -64,7 +64,7 @@ class OrderTrackStepperWidget extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 6,
-                        color: orderDelivered
+                        color: orderDeliveredDone
                             ? CustomColors.primaryColor
                             : CustomColors.redLightColor,
                       ),
@@ -75,9 +75,9 @@ class OrderTrackStepperWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     StepperCircleShape(stepHadDone: true),
-                    StepperCircleShape(stepHadDone: orderIsPreparing),
-                    StepperCircleShape(stepHadDone: deliveryOnWay),
-                    StepperCircleShape(stepHadDone: orderDelivered),
+                    StepperCircleShape(stepHadDone: orderIsPreparingDone),
+                    StepperCircleShape(stepHadDone: deliveryOnWayDone),
+                    StepperCircleShape(stepHadDone: orderDeliveredDone),
                   ],
                 )
               ],

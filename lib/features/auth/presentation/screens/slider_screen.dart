@@ -32,7 +32,7 @@ class SliderScreen extends GetView<SliderController> {
                       children: [
                         CustomButton(
                           onPressed: controller.onPressedSkip,
-                          title: 'skip',
+                          title: 'Skip',
                           textColor: Colors.black,
                           backgroundColor: Colors.transparent,
                         ),

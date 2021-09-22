@@ -16,10 +16,10 @@ class DrawerIemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      child: GestureDetector(
-        onTap: onTap,
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 4),
         child: Container(
           width: 1.sw,
           child: Padding(

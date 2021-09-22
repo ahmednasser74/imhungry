@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/hungry_controller.dart';
-import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/custom_square_card.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/explore_menu_widget.dart';
 
 class HungryScreen extends GetView<HungryController> {
   @override
@@ -27,34 +27,10 @@ class HungryScreen extends GetView<HungryController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SideTitleWidget(title: 'exploreMenu'.tr),
-          SizedBox(
-            height: .28.sh,
-            child: Row(
-              children: [
-                CustomSquareCardHungryScreen(
-                  image: 'assets/images/hungry/meal_icon.png',
-                  title: 'meal'.tr,
-                  onTap: () => controller.navigateToMenu(context, 0),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      CustomSquareCardHungryScreen(
-                        image: 'assets/images/hungry/sandwich_icon.png',
-                        title: 'sandwich'.tr,
-                        onTap: () => controller.navigateToMenu(context, 1),
-                      ),
-                      SizedBox(height: .01.sh),
-                      CustomSquareCardHungryScreen(
-                        image: 'assets/images/hungry/dessert_icon.png',
-                        title: 'dessert'.tr,
-                        onTap: () => controller.navigateToMenu(context, 3),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+          ExploreMenuWidget(
+            onTapMeals: () => controller.navigateToMenu(specificScreen: 0),
+            onTapSandwich: () => controller.navigateToMenu(specificScreen: 1),
+            onTapDessert: () => controller.navigateToMenu(specificScreen: 3),
           ),
           SizedBox(height: .01.sh),
           GestureDetector(

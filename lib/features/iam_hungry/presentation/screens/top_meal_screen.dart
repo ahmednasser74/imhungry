@@ -54,9 +54,7 @@ class TopMealScreen extends StatelessWidget {
                     itemHeight: 1.sh,
                     layout: SwiperLayout.STACK,
                     itemCount: 4,
-                    itemBuilder: (BuildContext context, int index) {
-                      return TopMealItemWidget();
-                    },
+                    itemBuilder: (context, index) => TopMealItemWidget(),
                   ),
                 ),
               ],

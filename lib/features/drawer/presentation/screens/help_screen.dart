@@ -12,7 +12,7 @@ class HelpScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(.06.sh),
+        preferredSize: Size.fromHeight(.08.sh),
         child: CustomAppBar(centerTitle: 'Help'),
       ),
       body: ListView(
@@ -28,7 +28,7 @@ class HelpScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Hello, '),
+              const Text('Hello, '),
               Text('Ahmed! ', style: textTheme.headline5),
               AutoSizeText(
                 'How can we help you?',
@@ -52,13 +52,13 @@ class HelpScreen extends StatelessWidget {
             onTap: () {},
           ),
           SizedBox(height: .08.sh),
-          SideTitleWidget(title: 'Chat'),
+          const SideTitleWidget(title: 'Chat'),
           HelpItemWidget(
             helpTitle: 'Chatting with us',
             onTap: () {},
           ),
           SizedBox(height: .04.sh),
-          SideTitleWidget(title: 'More Help'),
+          const SideTitleWidget(title: 'More Help'),
           HelpItemWidget(
             helpTitle: 'Go for FAQs',
             onTap: () {},

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_app_bar.dart';
+import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
 import 'package:iam_hungry2/features/drawer/presentation/widgets/check_out_ordered_item.dart';
 import 'package:iam_hungry2/features/drawer/presentation/widgets/order_stepper_info_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,11 +13,11 @@ class OrderInfoScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(.06.sh),
+        preferredSize: Size.fromHeight(.08.sh),
         child: CustomAppBar(centerTitle: 'Order Info'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Text('#12123123', style: textTheme.headline3),
@@ -40,21 +41,22 @@ class OrderInfoScreen extends StatelessWidget {
               ),
             ),
             OrderTrackStepperWidget(),
-            Divider(color: CustomColors.primaryColor, thickness: 1.5),
+            const Divider(color: CustomColors.primaryColor, thickness: 1.5),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Order :', style: textTheme.caption),
-                Icon(Icons.receipt_outlined, color: Colors.black, size: 30),
+                const SideTitleWidget(title: 'Order :', color: Colors.black),
+                const Icon(
+                  Icons.receipt_outlined,
+                  color: Colors.black,
+                  size: 30,
+                ),
               ],
             ),
             Expanded(
-              child: Scrollbar(
-                radius: Radius.circular(10),
-                child: ListView.builder(
-                  itemCount: 6,
-                  itemBuilder: (context, index) => CheckOutOrderedItem(),
-                ),
+              child: ListView.builder(
+                itemCount: 6,
+                itemBuilder: (context, index) => CheckOutOrderedItem(),
               ),
             )
           ],
