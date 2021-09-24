@@ -16,10 +16,9 @@ class MapScreen extends GetView<MapController> {
           children: [
             GoogleMap(
               myLocationEnabled: true,
-              zoomControlsEnabled: false,
-              myLocationButtonEnabled: false,
+              zoomControlsEnabled: true,
+              myLocationButtonEnabled: true,
               markers: controller.markers.toSet(),
-              mapType: MapType.normal,
               polygons: controller.polygon,
               initialCameraPosition: CameraPosition(
                 target: LatLng(controller.lat.value, controller.long.value),

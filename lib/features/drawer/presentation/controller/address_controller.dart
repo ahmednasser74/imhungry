@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/usecases/usecase.dart';
@@ -22,9 +24,15 @@ class AddressController extends GetxController with StateMixin<LocationsModel> {
   }
 
   void addAddressMapBtn() async {
-    var status = await Permission.location.request();
-    if (status.isGranted) {
+    print('add map pressed');
+    final status = await Permission.location.request();
+
+    if (Platform.isAndroid) {
+      if (status.isGranted) {
+        Get.toNamed(Routes.mapScreen);
+      } else if (status.isDenied) {}
+    } else {
       Get.toNamed(Routes.mapScreen);
-    } else if (status.isDenied) {}
+    }
   }
 }
