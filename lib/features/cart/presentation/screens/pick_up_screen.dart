@@ -44,7 +44,7 @@ class PickUpAndDineInScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: TextField(
-                decoration: CustomStyle.authInputDecoration,
+                decoration: CustomStyle.roundedBorderInputDecoration,
               ),
             ),
           ],

@@ -1,19 +1,22 @@
 import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:iam_hungry2/core/feature/location/data/models/location/locations_model.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/usecases/usecase.dart';
-import 'package:iam_hungry2/features/drawer/data/models/location/locations_model.dart';
-import 'package:iam_hungry2/features/drawer/domin/usecases/locations_use_case.dart';
+import 'package:iam_hungry2/core/feature/location/domin/usecases/locations_use_case.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class AddressController extends GetxController with StateMixin<LocationsModel> {
+class LocationController extends GetxController
+    with StateMixin<LocationsModel> {
   final LocationsUseCase locationsUseCase;
 
-  AddressController({required this.locationsUseCase});
+  LocationController({required this.locationsUseCase});
 
   @override
   void onInit() async {
+    change(null, status: RxStatus.empty());
+
     super.onInit();
   }
 
@@ -23,10 +26,9 @@ class AddressController extends GetxController with StateMixin<LocationsModel> {
     change(locationList, status: RxStatus.success());
   }
 
-  void addAddressMapBtn() async {
-    print('add map pressed');
+  void onTapOpenMap() async {
+    print('add location button pressed');
     final status = await Permission.location.request();
-
     if (Platform.isAndroid) {
       if (status.isGranted) {
         Get.toNamed(Routes.mapScreen);

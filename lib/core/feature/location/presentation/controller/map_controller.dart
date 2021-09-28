@@ -157,4 +157,11 @@ class MapController extends GetxController {
     controller.dispose();
     super.dispose();
   }
+
+  @override
+  void onClose() async {
+    final controller = await mapController.future;
+    controller.dispose();
+    super.onClose();
+  }
 }

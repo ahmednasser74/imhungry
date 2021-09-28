@@ -22,7 +22,7 @@ class SearchScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextFormField(
-                decoration: CustomStyle.authInputDecoration.copyWith(
+                decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                   prefix: Padding(
                     padding: EdgeInsets.only(right: 6),
                     child: SvgPicture.asset(

@@ -48,7 +48,7 @@ class OrderRateScreen extends StatelessWidget {
           ),
           SizedBox(height: .02.sh),
           TextField(
-            decoration: CustomStyle.authInputDecoration.copyWith(
+            decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
               hintText: 'Write your review...',
             ),
             maxLines: 5,

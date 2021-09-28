@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iam_hungry2/features/cart/presentation/screens/delivery_screen.dart';
+import 'package:iam_hungry2/core/feature/location/presentation/screens/location_screen.dart';
 import 'package:iam_hungry2/features/cart/presentation/screens/pick_up_screen.dart';
 
 class ChooseLocationController extends GetxController {
@@ -16,6 +16,6 @@ class ChooseLocationController extends GetxController {
     } else if (groupValue.value == 'dineIn') {
       return PickUpAndDineInScreen();
     }
-    return DeliveryScreen();
+    return Expanded(child: LocationScreen());
   }
 }

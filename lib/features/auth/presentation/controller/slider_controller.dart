@@ -44,14 +44,14 @@ class SliderController extends GetxController {
     } else {
       Future.delayed(
         Duration.zero,
-        () => Get.offAndToNamed(Routes.signUpScreen),
+        () => Get.offAndToNamed(Routes.selectLanguageScreen),
       );
     }
   }
 
   void onPressedSkip() => Future.delayed(
         Duration.zero,
-        () => Get.toNamed(Routes.signUpScreen),
+        () => Get.toNamed(Routes.selectLanguageScreen),
       );
 
   Widget buildPageIndicator(bool isCurrentPage) {

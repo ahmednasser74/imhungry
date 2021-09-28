@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
-import 'package:iam_hungry2/core/utils/helper_methods.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'menu_tab_bar_controller.dart';
 
@@ -38,9 +37,7 @@ class HungryController extends GetxController {
   }
 
   void navigateToMenu({required int specificScreen}) {
-    // final enterMenu =
-    final x = Get.find<MenuTabBarController>().setSelectedPage = specificScreen;
-    HelperMethods.showToast(msg: 'enterPage = $x');
     Get.toNamed(Routes.menuTabBar);
+    Get.find<MenuTabBarController>().getTabController.animateTo(specificScreen);
   }
 }

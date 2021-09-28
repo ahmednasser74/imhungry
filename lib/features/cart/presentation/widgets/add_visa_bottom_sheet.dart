@@ -37,22 +37,22 @@ class AddVisaCardBottomSheet extends StatelessWidget {
                 ],
               ),
               TextField(
-                decoration: CustomStyle.authInputDecoration.copyWith(
+                decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                   hintText: 'Name Of Card',
                 ),
               ),
               TextField(
-                decoration: CustomStyle.authInputDecoration.copyWith(
+                decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                   hintText: 'Card No.',
                 ),
               ),
               TextField(
-                decoration: CustomStyle.authInputDecoration.copyWith(
+                decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                   hintText: 'Expired Date',
                 ),
               ),
               TextField(
-                decoration: CustomStyle.authInputDecoration.copyWith(
+                decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                   hintText: 'CVV',
                 ),
               ),
