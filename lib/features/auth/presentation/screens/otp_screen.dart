@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:iam_hungry2/core/feature/location/presentation/screens/map_screen.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
+import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/otp_controller.dart';
@@ -80,10 +80,7 @@ class OtpScreen extends GetView<OtpController> {
               ),
             ),
             CustomButton(
-              // onPressed: () => Get.toNamed(Routes.mapScreen),
-              onPressed: () => Get.to(
-                MapScreen(isFirstTimeAddLocation: true),
-              ),
+              onPressed: () => Get.toNamed(Routes.enterNameScreen),
               title: 'done'.tr,
               fonSize: 20.sp,
               fontFamily: 'nunito',

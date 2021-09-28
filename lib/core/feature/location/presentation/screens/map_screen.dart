@@ -19,94 +19,21 @@ class MapScreen extends GetView<MapController> {
       () => Scaffold(
         body: Stack(
           children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: .69.sh,
-                  child: GoogleMap(
-                      myLocationEnabled: true,
-                      zoomControlsEnabled: true,
-                      myLocationButtonEnabled: true,
-                      // padding: EdgeInsets.only(top: .6.sh),
-                      markers: controller.markers.toSet(),
-                      polygons: controller.polygon,
-                      initialCameraPosition: CameraPosition(
-                        target: LatLng(controller.lat.value, controller.long.value),
-                        zoom: 16,
-                      ),
-                      onMapCreated: (mapController) {
-                        if (!controller.mapController.isCompleted) {
-                          controller.mapController.complete(mapController);
-                        }
-                      }),
+            GoogleMap(
+                myLocationEnabled: true,
+                zoomControlsEnabled: true,
+                myLocationButtonEnabled: true,
+                markers: controller.markers.toSet(),
+                polygons: controller.polygon,
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(controller.lat.value, controller.long.value),
+                  zoom: 16,
                 ),
-                Container(
-                  decoration: CustomStyle.containerShadowDecoration.copyWith(
-                    borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(20),
-                      topRight: const Radius.circular(20),
-                    ),
-                  ),
-                  width: 1.sw,
-                  height: .31.sh,
-                  child: ListView(
-                    padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    physics: BouncingScrollPhysics(),
-                    children: [
-                      TextField(
-                        controller: controller.placeNameTEC,
-                        style: textTheme.caption,
-                        decoration: CustomStyle.roundedBorderInputDecoration
-                            .copyWith(hintText: 'Place title (Home, Work...)'),
-                      ),
-                      SizedBox(height: 6),
-                      TextField(
-                        controller: controller.streetTEC,
-                        style: textTheme.caption,
-                        decoration:
-                        CustomStyle.roundedBorderInputDecoration.copyWith(
-                          hintText: 'Street',
-                        ),
-                      ),
-                      SizedBox(height: 6),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: controller.buildingTEC,
-                              style: textTheme.caption,
-                              keyboardType: TextInputType.number,
-                              decoration: CustomStyle.roundedBorderInputDecoration
-                                  .copyWith(hintText: 'Building/Villa No.'),
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: TextField(
-                              controller: controller.floorTEC,
-                              style: textTheme.caption,
-                              keyboardType: TextInputType.number,
-                              decoration: CustomStyle.roundedBorderInputDecoration
-                                  .copyWith(hintText: 'Floor/Flat No.'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Center(
-                        child: CustomButton(
-                          onPressed: () => isFirstTimeAddLocation ?? false
-                              ? Get.toNamed(Routes.homeScreen)
-                              : Get.back(),
-                          title: 'Add Address',
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                onMapCreated: (mapController) {
+                  if (!controller.mapController.isCompleted) {
+                    controller.mapController.complete(mapController);
+                  }
+                }),
             SafeArea(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -125,6 +52,74 @@ class MapScreen extends GetView<MapController> {
                 ),
               ),
             ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                decoration: CustomStyle.containerShadowDecoration.copyWith(
+                  borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(20),
+                    topRight: const Radius.circular(20),
+                  ),
+                ),
+                width: 1.sw,
+                height: .31.sh,
+                child: ListView(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    TextField(
+                      controller: controller.placeNameTEC,
+                      style: textTheme.caption,
+                      decoration: CustomStyle.roundedBorderInputDecoration
+                          .copyWith(hintText: 'Place title (Home, Work...)'),
+                    ),
+                    SizedBox(height: 6),
+                    TextField(
+                      controller: controller.streetTEC,
+                      style: textTheme.caption,
+                      decoration:
+                          CustomStyle.roundedBorderInputDecoration.copyWith(
+                        hintText: 'Street',
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: controller.buildingTEC,
+                            style: textTheme.caption,
+                            keyboardType: TextInputType.number,
+                            decoration: CustomStyle.roundedBorderInputDecoration
+                                .copyWith(hintText: 'Building/Villa No.'),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: controller.floorTEC,
+                            style: textTheme.caption,
+                            keyboardType: TextInputType.number,
+                            decoration: CustomStyle.roundedBorderInputDecoration
+                                .copyWith(hintText: 'Floor/Flat No.'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Center(
+                      child: CustomButton(
+                        onPressed: () => isFirstTimeAddLocation ?? false
+                            ? Get.toNamed(Routes.homeScreen)
+                            : Get.back(),
+                        title: 'Add Address',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

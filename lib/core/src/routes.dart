@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:iam_hungry2/core/feature/location/presentation/screens/map_screen.dart';
+import 'package:iam_hungry2/features/auth/presentation/screens/enter_name_screen.dart';
 import 'package:iam_hungry2/features/auth/presentation/screens/select_language_screen.dart';
 import 'package:iam_hungry2/features/cart/presentation/screens/choose_location_screen.dart';
 import 'package:iam_hungry2/features/cart/presentation/screens/payment_screen.dart';
@@ -29,6 +30,7 @@ class Routes {
   static const String splashScreen = '/splashScreen',
       sliderScreen = '/sliderScreen',
       enterPhoneScreen = '/enterPhoneScreen',
+      enterNameScreen = '/enterNameScreen',
       homeScreen = '/homeScreen',
       otpScreen = '/otpScreen',
       orderRecentScreen = '/orderRecentScreen',
@@ -57,6 +59,7 @@ class Routes {
       GetPage(name: splashScreen, page: () => SplashScreen()),
       GetPage(name: sliderScreen, page: () => SliderScreen()),
       GetPage(name: enterPhoneScreen, page: () => EnterPhoneScreen()),
+      GetPage(name: enterNameScreen, page: () => EnterNameScreen()),
       GetPage(name: otpScreen, page: () => OtpScreen()),
       GetPage(name: homeScreen, page: () => HomeScreen()),
       GetPage(name: orderHistoryTabBar, page: () => OrderHistoryTabBar()),

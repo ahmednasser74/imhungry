@@ -63,6 +63,9 @@ class Injection {
 
   static void _coreCycle() {
     //controller
+    sl.registerFactory<LocationController>(
+          () => LocationController(locationsUseCase: sl()),
+    );
     sl.registerFactory<MapController>(() => MapController());
     // Use cases
     sl.registerLazySingleton<LocationsUseCase>(
@@ -119,9 +122,6 @@ class Injection {
 
   static void _drawerCycle() {
     // Controller
-    sl.registerFactory<LocationController>(
-      () => LocationController(locationsUseCase: sl()),
-    );
     sl.registerFactory<SettingController>(() => SettingController());
     sl.registerFactory<DiscountController>(
       () => DiscountController(discountUseCase: sl()),
