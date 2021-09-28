@@ -1,15 +1,16 @@
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/localization/translation_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/otp_controller.dart';
-import 'package:iam_hungry2/features/auth/presentation/controller/sign_up_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/select_language_controller.dart';
+import 'package:iam_hungry2/features/auth/presentation/controller/enter_phone_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/slider_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/splash_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/check_out_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
-import 'package:iam_hungry2/features/drawer/presentation/controller/address_controller.dart';
+import 'package:iam_hungry2/core/feature/location/presentation/controller/location_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/discount_controller.dart';
-import 'package:iam_hungry2/features/drawer/presentation/controller/map_controller.dart';
+import 'package:iam_hungry2/core/feature/location/presentation/controller/map_controller.dart';
 import 'package:iam_hungry2/features/drawer/presentation/controller/setting_controller.dart';
 import 'package:iam_hungry2/features/home/presentation/controller/drawer_controller.dart';
 import 'package:iam_hungry2/features/home/presentation/controller/home_controller.dart';
@@ -23,18 +24,19 @@ class ControllerBinding extends Bindings {
   @override
   void dependencies() {
     //Core
-    Get.lazyPut(() => Injection.sl<TranslationController>());
-    // SignUpCycle
-    Get.lazyPut(() => Injection.sl<SignUpController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<TranslationController>(), fenix: true);
+    // Auth Cycle
+    Get.lazyPut(() => Injection.sl<EnterPhoneController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<OtpController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<SplashController>());
-    Get.lazyPut(() => Injection.sl<SliderController>());
+    Get.lazyPut(() => Injection.sl<SplashController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<SliderController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<SelectLanguageController>(), fenix: true);
     //  Home Cycle
     Get.lazyPut(() => Injection.sl<DrawerCustomController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<HomeController>(), fenix: true);
     //  Drawer Cycle
     Get.lazyPut(() => Injection.sl<MapController>(), fenix: true);
-    Get.lazyPut(() => Injection.sl<AddressController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<LocationController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<SettingController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<DiscountController>(), fenix: true);
     // Hungry Cycle

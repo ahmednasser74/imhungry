@@ -80,7 +80,7 @@ class CreateYourOwnHungryScreen extends StatelessWidget {
                         textCapitalization: TextCapitalization.words,
                         textInputAction: TextInputAction.done,
                         style: textTheme.caption,
-                        decoration: CustomStyle.authInputDecoration.copyWith(
+                        decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                             hintText: 'Sandwich Name',
                             hintStyle: textTheme.bodyText1),
                       ),

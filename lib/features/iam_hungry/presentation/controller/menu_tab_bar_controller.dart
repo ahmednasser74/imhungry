@@ -7,12 +7,12 @@ class MenuTabBarController extends GetxController
   var _currentIndex = 0.obs;
   late TabController _controller;
   late VoidCallback onChanged;
-  late TabBarView tabBarView;
+  // late TabBarView tabBarView;
   var _selectedPage = 0.obs;
 
   get getCurrentIndex => _currentIndex;
 
-  get getTabController => _controller;
+  TabController get getTabController => _controller;
 
   set setSelectedPage(int selectedPage) => _selectedPage.value = selectedPage;
 
@@ -35,4 +35,3 @@ class MenuTabBarController extends GetxController
     super.dispose();
   }
 }
-

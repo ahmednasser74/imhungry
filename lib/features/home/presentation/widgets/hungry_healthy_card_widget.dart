@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
 
 class HungryAndHealthyWidget extends StatelessWidget {
   const HungryAndHealthyWidget();
@@ -14,7 +15,10 @@ class HungryAndHealthyWidget extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () => Get.toNamed(Routes.hungryScreen),
+            onTap: () {
+              Get.toNamed(Routes.menuTabBar);
+              Get.find<MenuTabBarController>().getTabController.animateTo(0);
+            },
             child: Container(
               height: .25.sh,
               padding: EdgeInsets.all(20),
@@ -26,7 +30,10 @@ class HungryAndHealthyWidget extends StatelessWidget {
         ),
         Expanded(
           child: GestureDetector(
-            onTap: () => Get.toNamed(Routes.healthyScreen),
+            onTap: () {
+              Get.toNamed(Routes.menuTabBar);
+              Get.find<MenuTabBarController>().getTabController.animateTo(6);
+            },
             child: Container(
               height: .25.sh,
               padding: EdgeInsets.all(20),

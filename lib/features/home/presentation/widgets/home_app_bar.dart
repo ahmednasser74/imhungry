@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeAppBar extends StatelessWidget {
   final VoidCallback onTapDrawerIcon;
@@ -22,9 +23,13 @@ class HomeAppBar extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 14),
           child: InkWell(
             onTap: () => Get.toNamed(Routes.searchScreen),
-            child: SvgPicture.asset(
-              'assets/images/search_icon.svg',
-              color: color,
+            child: SizedBox(
+              width: .08.sw,
+              height: .08.sh,
+              child: SvgPicture.asset(
+                'assets/images/search_icon.svg',
+                color: color,
+              ),
             ),
           ),
         )

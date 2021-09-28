@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class MenuTabBar extends GetView<MenuTabBarController> {
   @override
   Widget build(BuildContext context) {
-    // Get.put(()=>MenuTabBarController());
     final textTheme = Theme.of(context).textTheme;
     return Obx(
       () => Scaffold(

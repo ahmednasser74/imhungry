@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
-import 'package:iam_hungry2/features/drawer/presentation/controller/map_controller.dart';
+import 'package:iam_hungry2/core/feature/location/presentation/controller/map_controller.dart';
 
 class MapScreen extends GetView<MapController> {
+  final bool? isFirstTimeAddLocation;
+
+  MapScreen({this.isFirstTimeAddLocation});
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -15,19 +20,20 @@ class MapScreen extends GetView<MapController> {
         body: Stack(
           children: [
             GoogleMap(
-              myLocationEnabled: true,
-              zoomControlsEnabled: false,
-              myLocationButtonEnabled: false,
-              markers: controller.markers.toSet(),
-              mapType: MapType.normal,
-              polygons: controller.polygon,
-              initialCameraPosition: CameraPosition(
-                target: LatLng(controller.lat.value, controller.long.value),
-                zoom: 16,
-              ),
-              onMapCreated: (mapController) =>
-                  controller.mapController.complete(mapController),
-            ),
+                myLocationEnabled: true,
+                zoomControlsEnabled: true,
+                myLocationButtonEnabled: true,
+                markers: controller.markers.toSet(),
+                polygons: controller.polygon,
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(controller.lat.value, controller.long.value),
+                  zoom: 16,
+                ),
+                onMapCreated: (mapController) {
+                  if (!controller.mapController.isCompleted) {
+                    controller.mapController.complete(mapController);
+                  }
+                }),
             SafeArea(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -35,7 +41,7 @@ class MapScreen extends GetView<MapController> {
                   controller: controller.searchTEC,
                   onSubmitted: (value) => controller.onSubmitSearchTF(),
                   style: textTheme.caption,
-                  decoration: CustomStyle.authInputDecoration.copyWith(
+                  decoration: CustomStyle.roundedBorderInputDecoration.copyWith(
                     hintText: 'Search...',
                     suffixIcon: IconButton(
                       icon: Icon(Icons.close),
@@ -51,27 +57,29 @@ class MapScreen extends GetView<MapController> {
               child: Container(
                 decoration: CustomStyle.containerShadowDecoration.copyWith(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                    topLeft: const Radius.circular(20),
+                    topRight: const Radius.circular(20),
                   ),
                 ),
                 width: 1.sw,
                 height: .31.sh,
                 child: ListView(
-                  padding:const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   physics: BouncingScrollPhysics(),
                   children: [
                     TextField(
                       controller: controller.placeNameTEC,
                       style: textTheme.caption,
-                      decoration: CustomStyle.authInputDecoration
+                      decoration: CustomStyle.roundedBorderInputDecoration
                           .copyWith(hintText: 'Place title (Home, Work...)'),
                     ),
                     SizedBox(height: 6),
                     TextField(
                       controller: controller.streetTEC,
                       style: textTheme.caption,
-                      decoration: CustomStyle.authInputDecoration.copyWith(
+                      decoration:
+                          CustomStyle.roundedBorderInputDecoration.copyWith(
                         hintText: 'Street',
                       ),
                     ),
@@ -83,7 +91,7 @@ class MapScreen extends GetView<MapController> {
                             controller: controller.buildingTEC,
                             style: textTheme.caption,
                             keyboardType: TextInputType.number,
-                            decoration: CustomStyle.authInputDecoration
+                            decoration: CustomStyle.roundedBorderInputDecoration
                                 .copyWith(hintText: 'Building/Villa No.'),
                           ),
                         ),
@@ -93,7 +101,7 @@ class MapScreen extends GetView<MapController> {
                             controller: controller.floorTEC,
                             style: textTheme.caption,
                             keyboardType: TextInputType.number,
-                            decoration: CustomStyle.authInputDecoration
+                            decoration: CustomStyle.roundedBorderInputDecoration
                                 .copyWith(hintText: 'Floor/Flat No.'),
                           ),
                         ),
@@ -102,7 +110,9 @@ class MapScreen extends GetView<MapController> {
                     SizedBox(height: 8),
                     Center(
                       child: CustomButton(
-                        onPressed: () {},
+                        onPressed: () => isFirstTimeAddLocation ?? false
+                            ? Get.toNamed(Routes.homeScreen)
+                            : Get.back(),
                         title: 'Add Address',
                       ),
                     ),

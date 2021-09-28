@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/usecases/usecase.dart';
 import 'package:iam_hungry2/features/drawer/data/models/discount/discounts_model.dart';
 import 'package:iam_hungry2/features/drawer/domin/usecases/discounts_use_case.dart';
@@ -25,7 +24,7 @@ class DiscountController extends GetxController with StateMixin<DiscountsModel> 
   void addAddressMapBtn() async {
     var status = await Permission.location.request();
     if (status.isGranted) {
-      Get.toNamed(Routes.mapScreen);
+      // Get.toNamed(Routes.mapScreen);
     } else if (status.isDenied) {}
   }
 }

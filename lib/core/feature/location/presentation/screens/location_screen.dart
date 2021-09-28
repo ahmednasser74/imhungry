@@ -1,20 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iam_hungry2/features/drawer/data/models/location/locations_model.dart';
+import 'package:get/get.dart';
+import 'package:iam_hungry2/core/feature/location/presentation/controller/location_controller.dart';
 
-import '../colors.dart';
-import '../styles.dart';
-import 'items/address_item.dart';
+import '../../../../src/colors.dart';
+import '../../../../src/styles.dart';
+import '../../../../src/widgets/items/address_item.dart';
 
-class AddressScreenWidget extends StatelessWidget {
-  final VoidCallback onTapOpenMap;
-  final List<LocationsModel> locationsList;
-
-  AddressScreenWidget({
-    required this.onTapOpenMap,
-    required this.locationsList,
-  });
+class LocationScreen extends GetView<LocationController> {
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +26,9 @@ class AddressScreenWidget extends StatelessWidget {
               minFontSize: 25,
             ),
           ),
-          SizedBox(height: .02.sh),
+          SizedBox(height: .01.sh),
           GestureDetector(
-            onTap: onTapOpenMap,
+            onTap: controller.onTapOpenMap,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 8),
               width: 1.sw,

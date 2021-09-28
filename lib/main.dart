@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: CustomsThemes.defaultThemeData,
         initialRoute: Routes.splashScreen,
-        locale: Get.deviceLocale,
+        // locale: Get.deviceLocale,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
         translations: Translation(),

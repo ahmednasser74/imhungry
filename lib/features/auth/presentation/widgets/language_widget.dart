@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,6 +29,7 @@ class LanguageItemWidget extends StatelessWidget {
           height: .07.sh,
           decoration: CustomStyle.containerShadowDecoration.copyWith(
             color: backgroundColor,
+            border: Border.all(color: CustomColors.primaryColor)
           ),
           child: Center(
             child: AutoSizeText(
