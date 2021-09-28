@@ -20,10 +20,14 @@ WithoutModel _$WithoutModelFromJson(Map<String, dynamic> json) {
 class _$WithoutModelTearOff {
   const _$WithoutModelTearOff();
 
-  _WithoutModel call({int? id, String title = ''}) {
+  _WithoutModel call(
+      {@JsonKey(name: 'id') int id = 0,
+      @JsonKey(name: "active") int active = 0,
+      @JsonKey(name: 'name') String name = ''}) {
     return _WithoutModel(
       id: id,
-      title: title,
+      active: active,
+      name: name,
     );
   }
 
@@ -37,8 +41,12 @@ const $WithoutModel = _$WithoutModelTearOff();
 
 /// @nodoc
 mixin _$WithoutModel {
-  int? get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "active")
+  int get active => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +59,10 @@ abstract class $WithoutModelCopyWith<$Res> {
   factory $WithoutModelCopyWith(
           WithoutModel value, $Res Function(WithoutModel) then) =
       _$WithoutModelCopyWithImpl<$Res>;
-  $Res call({int? id, String title});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: "active") int active,
+      @JsonKey(name: 'name') String name});
 }
 
 /// @nodoc
@@ -65,16 +76,21 @@ class _$WithoutModelCopyWithImpl<$Res> implements $WithoutModelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? active = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as int,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -87,7 +103,10 @@ abstract class _$WithoutModelCopyWith<$Res>
           _WithoutModel value, $Res Function(_WithoutModel) then) =
       __$WithoutModelCopyWithImpl<$Res>;
   @override
-  $Res call({int? id, String title});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: "active") int active,
+      @JsonKey(name: 'name') String name});
 }
 
 /// @nodoc
@@ -103,16 +122,21 @@ class __$WithoutModelCopyWithImpl<$Res> extends _$WithoutModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? active = freezed,
+    Object? name = freezed,
   }) {
     return _then(_WithoutModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as int,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -120,30 +144,28 @@ class __$WithoutModelCopyWithImpl<$Res> extends _$WithoutModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WithoutModel with DiagnosticableTreeMixin implements _WithoutModel {
-  const _$_WithoutModel({this.id, this.title = ''});
+class _$_WithoutModel implements _WithoutModel {
+  const _$_WithoutModel(
+      {@JsonKey(name: 'id') this.id = 0,
+      @JsonKey(name: "active") this.active = 0,
+      @JsonKey(name: 'name') this.name = ''});
 
   factory _$_WithoutModel.fromJson(Map<String, dynamic> json) =>
       _$_$_WithoutModelFromJson(json);
 
   @override
-  final int? id;
-  @JsonKey(defaultValue: '')
+  @JsonKey(name: 'id')
+  final int id;
   @override
-  final String title;
+  @JsonKey(name: "active")
+  final int active;
+  @override
+  @JsonKey(name: 'name')
+  final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WithoutModel(id: $id, title: $title)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'WithoutModel'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('title', title));
+  String toString() {
+    return 'WithoutModel(id: $id, active: $active, name: $name)';
   }
 
   @override
@@ -152,15 +174,18 @@ class _$_WithoutModel with DiagnosticableTreeMixin implements _WithoutModel {
         (other is _WithoutModel &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)));
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title);
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -174,15 +199,23 @@ class _$_WithoutModel with DiagnosticableTreeMixin implements _WithoutModel {
 }
 
 abstract class _WithoutModel implements WithoutModel {
-  const factory _WithoutModel({int? id, String title}) = _$_WithoutModel;
+  const factory _WithoutModel(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: "active") int active,
+      @JsonKey(name: 'name') String name}) = _$_WithoutModel;
 
   factory _WithoutModel.fromJson(Map<String, dynamic> json) =
       _$_WithoutModel.fromJson;
 
   @override
-  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: "active")
+  int get active => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WithoutModelCopyWith<_WithoutModel> get copyWith =>

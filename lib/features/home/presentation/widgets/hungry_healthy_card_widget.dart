@@ -20,7 +20,7 @@ class HungryAndHealthyWidget extends StatelessWidget {
               Get.find<MenuTabBarController>().getTabController.animateTo(0);
             },
             child: Container(
-              height: .25.sh,
+              height: .23.sh,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(10),
               decoration: CustomStyle.containerShadowDecoration,
@@ -35,7 +35,7 @@ class HungryAndHealthyWidget extends StatelessWidget {
               Get.find<MenuTabBarController>().getTabController.animateTo(6);
             },
             child: Container(
-              height: .25.sh,
+              height: .23.sh,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(10),
               decoration: CustomStyle.containerShadowDecoration,

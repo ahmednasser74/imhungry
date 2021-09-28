@@ -16,6 +16,7 @@ import 'package:iam_hungry2/features/home/presentation/controller/drawer_control
 import 'package:iam_hungry2/features/home/presentation/controller/home_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/create_your_own_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/hungry_controller.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_tab_bar_controller.dart';
 
 import 'injection_container.dart';
@@ -43,6 +44,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.sl<HungryController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<CreateYourOwnController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<MenuTabBarController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<MenuController>(), fenix: true);
     // Cart Cycle
     Get.lazyPut(() => Injection.sl<CheckOutController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<ChooseLocationController>(), fenix: true);

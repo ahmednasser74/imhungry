@@ -1,17 +1,28 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
-import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/add_without_checkbox.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/custom_checkbox.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuDetailsDialog extends StatelessWidget {
+  final List<MenuModel> menuItemList;
+  final int index;
+
+  MenuDetailsDialog({
+    required this.menuItemList,
+    required this.index,
+  });
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final menuItem = menuItemList.elementAt(index);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: .06.sw, vertical: .02.sh),
       child: ClipRRect(
@@ -24,8 +35,8 @@ class MenuDetailsDialog extends StatelessWidget {
                 width: 1.sw,
                 padding: EdgeInsets.all(8.0),
                 decoration: CustomStyle.containerShadowDecoration,
-                child: Image.asset(
-                  'assets/images/app_icon.png',
+                child: CachedNetworkImage(
+                  imageUrl: menuItem.image,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -37,23 +48,35 @@ class MenuDetailsDialog extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Meal Title', style: textTheme.caption),
-                        RichText(
-                          text: TextSpan(
-                            text: 'SAR ',
-                            style: textTheme.bodyText1,
-                            children: [
-                              TextSpan(
-                                text: '20',
-                                style: textTheme.headline4,
-                              ),
-                            ],
+                        Expanded(
+                          flex: 3,
+                          child: AutoSizeText(
+                            menuItem.name,
+                            style: textTheme.caption,
+                            maxLines: 1,
+                            minFontSize: 8,
+                            maxFontSize: 24,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: RichText(
+                            text: TextSpan(
+                              text: '   SAR ',
+                              style: textTheme.subtitle1,
+                              children: [
+                                TextSpan(
+                                  text: menuItem.price.toString(),
+                                  style: textTheme.headline5,
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       ],
                     ),
                     AutoSizeText(
-                      'best in the world',
+                      menuItem.description,
                       style: textTheme.bodyText1,
                       maxLines: 1,
                       maxFontSize: 16,
@@ -66,7 +89,10 @@ class MenuDetailsDialog extends StatelessWidget {
                           width: 15,
                         ),
                         SizedBox(width: .01.sw),
-                        Text('300 Calories', style: textTheme.headline5),
+                        Text(
+                          '${menuItem.calories} Calories',
+                          style: textTheme.headline5,
+                        ),
                       ],
                     ),
                     SizedBox(height: .01.sh),
@@ -75,14 +101,17 @@ class MenuDetailsDialog extends StatelessWidget {
                       height: .14.sh,
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
-                        itemCount: 5,
-                        itemBuilder: (context, index) => CustomCheckBox(
-                          title: 'title',
-                          value: true,
-                          onChanged: (value) {},
-                          hasPrice: true,
-                          price: 2.5,
-                        ),
+                        itemCount: menuItem.addOnList.length,
+                        itemBuilder: (context, index) {
+                          final addOnList = menuItem.addOnList.elementAt(index);
+                          return CustomCheckBox(
+                            title: addOnList.name,
+                            value: false,
+                            onChanged: (value) {},
+                            hasPrice: true,
+                            price: addOnList.price.toDouble(),
+                          );
+                        },
                       ),
                     ),
                     SizedBox(height: .01.sh),
@@ -91,12 +120,20 @@ class MenuDetailsDialog extends StatelessWidget {
                       height: .14.sh,
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
-                        itemCount: 5,
-                        itemBuilder: (context, index) => CustomCheckBox(
-                          title: 'title',
-                          value: true,
-                          onChanged: (value) {},
-                        ),
+                        itemCount: menuItem.withOutList.length,
+                        itemBuilder: (context, index) {
+                          final withOutList =
+                              menuItem.withOutList.elementAt(index);
+                          return CustomCheckBox(
+                            title: withOutList.name,
+                            value: false,
+                            onChanged: (value) {
+                              // menuItem.withOutList
+                              //     .elementAt(index)
+                              //     .copyWith(checked: value);
+                            },
+                          );
+                        },
                       ),
                     ),
                     SizedBox(height: .01.sh),

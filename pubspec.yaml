@@ -64,6 +64,9 @@ dependencies:
   shimmer: ^2.0.0
   #  slide item
   flutter_slidable: ^0.6.0
+  # freezed
+  freezed_annotation: ^0.14.2
+
 dev_dependencies:
   freezed: ^0.14.2
   build_runner: ^2.0.4

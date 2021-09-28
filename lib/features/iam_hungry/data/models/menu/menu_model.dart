@@ -10,13 +10,14 @@ part 'menu_model.g.dart';
 class MenuModel with _$MenuModel {
   const factory MenuModel({
     @Default(0) @JsonKey(name: 'id') int id,
-    @Default('') @JsonKey(name: 'image') String image,
-    @Default('') @JsonKey(name: 'title') String title,
-    @Default('') @JsonKey(name: 'description') String description,
-    @Default(0) @JsonKey(name: 'calories') int calories,
     @Default(0.0) @JsonKey(name: 'price') double price,
-    @Default([]) @JsonKey(name: 'addOnList') List<AddonModel> addOnList,
-    @Default([]) @JsonKey(name: 'withOutList') List<WithoutModel> withOutList,
+    @Default(0) @JsonKey(name: 'calories') int calories,
+    @Default('') @JsonKey(name: 'image') String image,
+    @Default(0) @JsonKey(name: 'active') int active,
+    @Default('') @JsonKey(name: 'name') String name,
+    @Default('') @JsonKey(name: 'description') String description,
+    @Default([]) @JsonKey(name: 'addons') List<AddonModel> addOnList,
+    @Default([]) @JsonKey(name: 'without') List<WithoutModel> withOutList,
   }) = _MenuModel;
 
   factory MenuModel.fromJson(Map<String, dynamic> json) =>

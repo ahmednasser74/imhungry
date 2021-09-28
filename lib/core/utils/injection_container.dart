@@ -64,7 +64,7 @@ class Injection {
   static void _coreCycle() {
     //controller
     sl.registerFactory<LocationController>(
-          () => LocationController(locationsUseCase: sl()),
+      () => LocationController(locationsUseCase: sl()),
     );
     sl.registerFactory<MapController>(() => MapController());
     // Use cases
@@ -143,7 +143,9 @@ class Injection {
   static void _hungryCycle() {
     // Controller
     sl.registerFactory<HungryController>(() => HungryController());
-    sl.registerFactory<MenuTabBarController>(() => MenuTabBarController());
+    sl.registerFactory<MenuTabBarController>(
+      () => MenuTabBarController(menuUseCase: sl()),
+    );
     sl.registerFactory<CreateYourOwnController>(
       () => CreateYourOwnController(),
     );

@@ -21,29 +21,23 @@ class _$MenuModelTearOff {
   const _$MenuModelTearOff();
 
   _MenuModel call(
-      {@JsonKey(name: 'id')
-          int id = 0,
-      @JsonKey(name: 'image')
-          String image = '',
-      @JsonKey(name: 'title')
-          String title = '',
-      @JsonKey(name: 'description')
-          String description = '',
-      @JsonKey(name: 'calories')
-          int calories = 0,
-      @JsonKey(name: 'price')
-          double price = 0.0,
-      @JsonKey(name: 'addOnList')
-          List<AddonModel> addOnList = const [],
-      @JsonKey(name: 'withOutList')
-          List<WithoutModel> withOutList = const []}) {
+      {@JsonKey(name: 'id') int id = 0,
+      @JsonKey(name: 'price') double price = 0.0,
+      @JsonKey(name: 'calories') int calories = 0,
+      @JsonKey(name: 'image') String image = '',
+      @JsonKey(name: 'active') int active = 0,
+      @JsonKey(name: 'name') String name = '',
+      @JsonKey(name: 'description') String description = '',
+      @JsonKey(name: 'addons') List<AddonModel> addOnList = const [],
+      @JsonKey(name: 'without') List<WithoutModel> withOutList = const []}) {
     return _MenuModel(
       id: id,
-      image: image,
-      title: title,
-      description: description,
-      calories: calories,
       price: price,
+      calories: calories,
+      image: image,
+      active: active,
+      name: name,
+      description: description,
       addOnList: addOnList,
       withOutList: withOutList,
     );
@@ -61,19 +55,21 @@ const $MenuModel = _$MenuModelTearOff();
 mixin _$MenuModel {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image')
-  String get image => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
-  String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'description')
-  String get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'calories')
-  int get calories => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
   double get price => throw _privateConstructorUsedError;
-  @JsonKey(name: 'addOnList')
+  @JsonKey(name: 'calories')
+  int get calories => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'active')
+  int get active => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'addons')
   List<AddonModel> get addOnList => throw _privateConstructorUsedError;
-  @JsonKey(name: 'withOutList')
+  @JsonKey(name: 'without')
   List<WithoutModel> get withOutList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -88,13 +84,14 @@ abstract class $MenuModelCopyWith<$Res> {
       _$MenuModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'image') String image,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'calories') int calories,
       @JsonKey(name: 'price') double price,
-      @JsonKey(name: 'addOnList') List<AddonModel> addOnList,
-      @JsonKey(name: 'withOutList') List<WithoutModel> withOutList});
+      @JsonKey(name: 'calories') int calories,
+      @JsonKey(name: 'image') String image,
+      @JsonKey(name: 'active') int active,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'addons') List<AddonModel> addOnList,
+      @JsonKey(name: 'without') List<WithoutModel> withOutList});
 }
 
 /// @nodoc
@@ -108,11 +105,12 @@ class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? image = freezed,
-    Object? title = freezed,
-    Object? description = freezed,
-    Object? calories = freezed,
     Object? price = freezed,
+    Object? calories = freezed,
+    Object? image = freezed,
+    Object? active = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
     Object? addOnList = freezed,
     Object? withOutList = freezed,
   }) {
@@ -121,26 +119,30 @@ class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      calories: calories == freezed
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      calories: calories == freezed
-          ? _value.calories
-          : calories // ignore: cast_nullable_to_non_nullable
-              as int,
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
       addOnList: addOnList == freezed
           ? _value.addOnList
           : addOnList // ignore: cast_nullable_to_non_nullable
@@ -161,13 +163,14 @@ abstract class _$MenuModelCopyWith<$Res> implements $MenuModelCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'image') String image,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'calories') int calories,
       @JsonKey(name: 'price') double price,
-      @JsonKey(name: 'addOnList') List<AddonModel> addOnList,
-      @JsonKey(name: 'withOutList') List<WithoutModel> withOutList});
+      @JsonKey(name: 'calories') int calories,
+      @JsonKey(name: 'image') String image,
+      @JsonKey(name: 'active') int active,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'addons') List<AddonModel> addOnList,
+      @JsonKey(name: 'without') List<WithoutModel> withOutList});
 }
 
 /// @nodoc
@@ -182,11 +185,12 @@ class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? image = freezed,
-    Object? title = freezed,
-    Object? description = freezed,
-    Object? calories = freezed,
     Object? price = freezed,
+    Object? calories = freezed,
+    Object? image = freezed,
+    Object? active = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
     Object? addOnList = freezed,
     Object? withOutList = freezed,
   }) {
@@ -195,26 +199,30 @@ class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      calories: calories == freezed
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      calories: calories == freezed
-          ? _value.calories
-          : calories // ignore: cast_nullable_to_non_nullable
-              as int,
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
       addOnList: addOnList == freezed
           ? _value.addOnList
           : addOnList // ignore: cast_nullable_to_non_nullable
@@ -232,13 +240,14 @@ class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
 class _$_MenuModel implements _MenuModel {
   const _$_MenuModel(
       {@JsonKey(name: 'id') this.id = 0,
-      @JsonKey(name: 'image') this.image = '',
-      @JsonKey(name: 'title') this.title = '',
-      @JsonKey(name: 'description') this.description = '',
-      @JsonKey(name: 'calories') this.calories = 0,
       @JsonKey(name: 'price') this.price = 0.0,
-      @JsonKey(name: 'addOnList') this.addOnList = const [],
-      @JsonKey(name: 'withOutList') this.withOutList = const []});
+      @JsonKey(name: 'calories') this.calories = 0,
+      @JsonKey(name: 'image') this.image = '',
+      @JsonKey(name: 'active') this.active = 0,
+      @JsonKey(name: 'name') this.name = '',
+      @JsonKey(name: 'description') this.description = '',
+      @JsonKey(name: 'addons') this.addOnList = const [],
+      @JsonKey(name: 'without') this.withOutList = const []});
 
   factory _$_MenuModel.fromJson(Map<String, dynamic> json) =>
       _$_$_MenuModelFromJson(json);
@@ -247,30 +256,33 @@ class _$_MenuModel implements _MenuModel {
   @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'image')
-  final String image;
-  @override
-  @JsonKey(name: 'title')
-  final String title;
-  @override
-  @JsonKey(name: 'description')
-  final String description;
+  @JsonKey(name: 'price')
+  final double price;
   @override
   @JsonKey(name: 'calories')
   final int calories;
   @override
-  @JsonKey(name: 'price')
-  final double price;
+  @JsonKey(name: 'image')
+  final String image;
   @override
-  @JsonKey(name: 'addOnList')
+  @JsonKey(name: 'active')
+  final int active;
+  @override
+  @JsonKey(name: 'name')
+  final String name;
+  @override
+  @JsonKey(name: 'description')
+  final String description;
+  @override
+  @JsonKey(name: 'addons')
   final List<AddonModel> addOnList;
   @override
-  @JsonKey(name: 'withOutList')
+  @JsonKey(name: 'without')
   final List<WithoutModel> withOutList;
 
   @override
   String toString() {
-    return 'MenuModel(id: $id, image: $image, title: $title, description: $description, calories: $calories, price: $price, addOnList: $addOnList, withOutList: $withOutList)';
+    return 'MenuModel(id: $id, price: $price, calories: $calories, image: $image, active: $active, name: $name, description: $description, addOnList: $addOnList, withOutList: $withOutList)';
   }
 
   @override
@@ -279,18 +291,20 @@ class _$_MenuModel implements _MenuModel {
         (other is _MenuModel &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)) &&
             (identical(other.calories, calories) ||
                 const DeepCollectionEquality()
                     .equals(other.calories, calories)) &&
-            (identical(other.price, price) ||
-                const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
             (identical(other.addOnList, addOnList) ||
                 const DeepCollectionEquality()
                     .equals(other.addOnList, addOnList)) &&
@@ -303,11 +317,12 @@ class _$_MenuModel implements _MenuModel {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(image) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(calories) ^
       const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(calories) ^
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(addOnList) ^
       const DeepCollectionEquality().hash(withOutList);
 
@@ -324,15 +339,15 @@ class _$_MenuModel implements _MenuModel {
 
 abstract class _MenuModel implements MenuModel {
   const factory _MenuModel(
-          {@JsonKey(name: 'id') int id,
-          @JsonKey(name: 'image') String image,
-          @JsonKey(name: 'title') String title,
-          @JsonKey(name: 'description') String description,
-          @JsonKey(name: 'calories') int calories,
-          @JsonKey(name: 'price') double price,
-          @JsonKey(name: 'addOnList') List<AddonModel> addOnList,
-          @JsonKey(name: 'withOutList') List<WithoutModel> withOutList}) =
-      _$_MenuModel;
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'price') double price,
+      @JsonKey(name: 'calories') int calories,
+      @JsonKey(name: 'image') String image,
+      @JsonKey(name: 'active') int active,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'addons') List<AddonModel> addOnList,
+      @JsonKey(name: 'without') List<WithoutModel> withOutList}) = _$_MenuModel;
 
   factory _MenuModel.fromJson(Map<String, dynamic> json) =
       _$_MenuModel.fromJson;
@@ -341,25 +356,28 @@ abstract class _MenuModel implements MenuModel {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'image')
-  String get image => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'title')
-  String get title => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'description')
-  String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
+  double get price => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'calories')
   int get calories => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'price')
-  double get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String get image => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'addOnList')
+  @JsonKey(name: 'active')
+  int get active => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'description')
+  String get description => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'addons')
   List<AddonModel> get addOnList => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'withOutList')
+  @JsonKey(name: 'without')
   List<WithoutModel> get withOutList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

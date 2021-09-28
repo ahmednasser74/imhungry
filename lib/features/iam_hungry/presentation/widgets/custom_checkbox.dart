@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/core/src/colors.dart';
 
 class CustomCheckBox extends StatelessWidget {
   final Function(bool value) onChanged;
   final String title;
-  final double price;
+  final double? price;
   final bool value, hasPrice;
 
   const CustomCheckBox({
@@ -12,7 +13,7 @@ class CustomCheckBox extends StatelessWidget {
     required this.value,
     required this.onChanged,
     this.hasPrice = false,
-    this.price = 10,
+    this.price,
   });
 
   @override
@@ -27,6 +28,7 @@ class CustomCheckBox extends StatelessWidget {
             height: .05.sh,
             child: Checkbox(
               value: value,
+              activeColor: CustomColors.primaryColor,
               onChanged: (bool? newValue) => onChanged(newValue ?? false),
             ),
           ),
