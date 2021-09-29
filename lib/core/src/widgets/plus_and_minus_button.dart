@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PlusAndMinusButton extends StatelessWidget {
+class PlusAndMinusButton extends StatefulWidget {
   final double? width, height;
-  final VoidCallback onTapPlus, onTapMinus;
+  final void Function(int value) onTapPlus, onTapMinus;
   final int quantity;
   final Color color;
 
@@ -19,14 +19,27 @@ class PlusAndMinusButton extends StatelessWidget {
   });
 
   @override
+  State<PlusAndMinusButton> createState() => _PlusAndMinusButtonState();
+}
+
+class _PlusAndMinusButtonState extends State<PlusAndMinusButton> {
+  int changeQuantity = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    changeQuantity = widget.quantity;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Container(
       child: Container(
-        width: width ?? .25.sw,
-        height: height ?? .035.sh,
+        width: widget.width ?? .25.sw,
+        height: widget.height ?? .035.sh,
         decoration: BoxDecoration(
-          color: color,
+          color: widget.color,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -34,7 +47,13 @@ class PlusAndMinusButton extends StatelessWidget {
           children: [
             Expanded(
               child: InkWell(
-                onTap: onTapMinus,
+                onTap: () {
+                  if (changeQuantity > 0) {
+                    changeQuantity--;
+                    widget.onTapMinus(changeQuantity);
+                    setState(() {});
+                  }
+                },
                 child: Icon(Icons.remove, color: Colors.white),
               ),
             ),
@@ -43,7 +62,7 @@ class PlusAndMinusButton extends StatelessWidget {
                 color: Colors.black,
                 child: Center(
                   child: AutoSizeText(
-                    quantity.toString(),
+                    changeQuantity.toString(),
                     style: textTheme.headline2,
                     minFontSize: 10,
                     maxFontSize: 20,
@@ -54,7 +73,11 @@ class PlusAndMinusButton extends StatelessWidget {
             ),
             Expanded(
               child: InkWell(
-                onTap: onTapPlus,
+                onTap: () {
+                  changeQuantity++;
+                  widget.onTapPlus(changeQuantity);
+                  setState(() {});
+                },
                 child: Icon(Icons.add, color: Colors.white),
               ),
             )

@@ -10,7 +10,7 @@ import 'package:iam_hungry2/features/auth/domin/repositories/auth_repository.dar
 import 'package:iam_hungry2/features/auth/domin/usecases/auth_use_case.dart';
 import 'package:iam_hungry2/features/auth/domin/usecases/otp_use_case.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/select_language_controller.dart';
-import 'package:iam_hungry2/features/cart/presentation/controller/check_out_controller.dart';
+import 'package:iam_hungry2/core/controller/check_out_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
 import 'package:iam_hungry2/features/drawer/data/datasources/drawer_remote_data_source.dart';
@@ -64,7 +64,7 @@ class Injection {
   static void _coreCycle() {
     //controller
     sl.registerFactory<LocationController>(
-          () => LocationController(locationsUseCase: sl()),
+      () => LocationController(locationsUseCase: sl()),
     );
     sl.registerFactory<MapController>(() => MapController());
     // Use cases
@@ -143,7 +143,9 @@ class Injection {
   static void _hungryCycle() {
     // Controller
     sl.registerFactory<HungryController>(() => HungryController());
-    sl.registerFactory<MenuTabBarController>(() => MenuTabBarController());
+    sl.registerFactory<MenuTabBarController>(
+      () => MenuTabBarController(menuUseCase: sl()),
+    );
     sl.registerFactory<CreateYourOwnController>(
       () => CreateYourOwnController(),
     );

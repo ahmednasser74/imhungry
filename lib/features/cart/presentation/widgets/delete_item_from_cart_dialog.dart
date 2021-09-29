@@ -33,7 +33,7 @@ class DeleteItemFromCartDialog extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Expanded(child: Image.asset(image, height: .1.sh)),
+                      Expanded(child: Image.network(image, height: .1.sh)),
                       const SizedBox(width: 4),
                       Expanded(
                         flex: 3,

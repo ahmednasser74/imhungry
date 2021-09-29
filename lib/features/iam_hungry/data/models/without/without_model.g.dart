@@ -8,13 +8,15 @@ part of 'without_model.dart';
 
 _$_WithoutModel _$_$_WithoutModelFromJson(Map<String, dynamic> json) {
   return _$_WithoutModel(
-    id: json['id'] as int?,
-    title: json['title'] as String? ?? '',
+    id: json['id'] as int,
+    active: json['active'] as int,
+    name: json['name'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_WithoutModelToJson(_$_WithoutModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'active': instance.active,
+      'name': instance.name,
     };

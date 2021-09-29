@@ -9,9 +9,10 @@ part 'addon_model.g.dart';
 @freezed
 class AddonModel with _$AddonModel {
   const factory AddonModel({
-    int? id,
-    @Default('') String title,
-    @Default(0) int price,
+    @Default(0) @JsonKey(name:'id') int id,
+    @Default('') @JsonKey(name:'name') String name,
+    @Default(0) @JsonKey(name:'price') int price,
+    @Default(0) @JsonKey(name: "active") int active,
   }) = _AddonModel;
 
   factory AddonModel.fromJson(Map<String, dynamic> json) =>

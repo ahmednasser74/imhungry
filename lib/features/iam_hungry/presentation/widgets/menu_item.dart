@@ -1,16 +1,26 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
 
 class MenuItem extends StatelessWidget {
   final VoidCallback onTap;
+  final List<MenuModel> menuModel;
+  final int index;
 
-  MenuItem({required this.onTap});
+  MenuItem({
+    required this.onTap,
+    required this.menuModel,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final menu = menuModel.elementAt(index);
     return Container(
       color: Colors.white,
       child: GestureDetector(
@@ -24,7 +34,19 @@ class MenuItem extends StatelessWidget {
             children: [
               Expanded(
                 flex: 7,
-                child: Image.asset('assets/images/app_icon.png'),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: CachedNetworkImage(
+                    imageUrl: menu.image,
+                    progressIndicatorBuilder: (_, url, progress) =>
+                        SvgPicture.asset(
+                      'assets/images/iam_hungry_bite_logo.svg',
+                      color: CustomColors.redLightColor,
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                ),
               ),
               Expanded(
                 flex: 6,
@@ -34,7 +56,7 @@ class MenuItem extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 6),
                       child: AutoSizeText(
-                        'Meal Title',
+                        menu.name,
                         style: textTheme.headline3,
                         maxFontSize: 30,
                         minFontSize: 6,
@@ -50,7 +72,8 @@ class MenuItem extends StatelessWidget {
                           height: 20,
                         ),
                         SizedBox(width: 4),
-                        Text('20 Calories', style: textTheme.headline5)
+                        Text('${menu.calories} Calories',
+                            style: textTheme.headline5)
                       ],
                     ),
                     SizedBox(height: 4),
@@ -59,7 +82,10 @@ class MenuItem extends StatelessWidget {
                         text: 'SAR ',
                         style: textTheme.bodyText1,
                         children: [
-                          TextSpan(text: '20', style: textTheme.headline4),
+                          TextSpan(
+                            text: menu.price.toString(),
+                            style: textTheme.headline4,
+                          ),
                         ],
                       ),
                     )

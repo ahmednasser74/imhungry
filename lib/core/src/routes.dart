@@ -20,7 +20,7 @@ import 'package:iam_hungry2/features/iam_healthy/presentation/screens/healthy_sc
 import 'package:iam_hungry2/features/iam_hungry/presentation/screens/create_your_own_hungry.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/screens/hungry_screen.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/screens/top_meal_screen.dart';
-import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/menu_tab_bar.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/screens/menu_tab_bar.dart';
 import 'package:iam_hungry2/features/auth/presentation/screens/otp_screen.dart';
 import 'package:iam_hungry2/features/auth/presentation/screens/enter_phone_screen.dart';
 import 'package:iam_hungry2/features/auth/presentation/screens/slider_screen.dart';

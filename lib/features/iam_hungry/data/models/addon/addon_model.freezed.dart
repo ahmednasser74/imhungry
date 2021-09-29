@@ -20,11 +20,16 @@ AddonModel _$AddonModelFromJson(Map<String, dynamic> json) {
 class _$AddonModelTearOff {
   const _$AddonModelTearOff();
 
-  _AddonModel call({int? id, String title = '', int price = 0}) {
+  _AddonModel call(
+      {@JsonKey(name: 'id') int id = 0,
+      @JsonKey(name: 'name') String name = '',
+      @JsonKey(name: 'price') int price = 0,
+      @JsonKey(name: "active") int active = 0}) {
     return _AddonModel(
       id: id,
-      title: title,
+      name: name,
       price: price,
+      active: active,
     );
   }
 
@@ -38,9 +43,14 @@ const $AddonModel = _$AddonModelTearOff();
 
 /// @nodoc
 mixin _$AddonModel {
-  int? get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
   int get price => throw _privateConstructorUsedError;
+  @JsonKey(name: "active")
+  int get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +63,11 @@ abstract class $AddonModelCopyWith<$Res> {
   factory $AddonModelCopyWith(
           AddonModel value, $Res Function(AddonModel) then) =
       _$AddonModelCopyWithImpl<$Res>;
-  $Res call({int? id, String title, int price});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'price') int price,
+      @JsonKey(name: "active") int active});
 }
 
 /// @nodoc
@@ -67,21 +81,26 @@ class _$AddonModelCopyWithImpl<$Res> implements $AddonModelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? name = freezed,
     Object? price = freezed,
+    Object? active = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as int,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -93,7 +112,11 @@ abstract class _$AddonModelCopyWith<$Res> implements $AddonModelCopyWith<$Res> {
           _AddonModel value, $Res Function(_AddonModel) then) =
       __$AddonModelCopyWithImpl<$Res>;
   @override
-  $Res call({int? id, String title, int price});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'price') int price,
+      @JsonKey(name: "active") int active});
 }
 
 /// @nodoc
@@ -109,21 +132,26 @@ class __$AddonModelCopyWithImpl<$Res> extends _$AddonModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? name = freezed,
     Object? price = freezed,
+    Object? active = freezed,
   }) {
     return _then(_AddonModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as int,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -132,23 +160,31 @@ class __$AddonModelCopyWithImpl<$Res> extends _$AddonModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AddonModel with DiagnosticableTreeMixin implements _AddonModel {
-  const _$_AddonModel({this.id, this.title = '', this.price = 0});
+  const _$_AddonModel(
+      {@JsonKey(name: 'id') this.id = 0,
+      @JsonKey(name: 'name') this.name = '',
+      @JsonKey(name: 'price') this.price = 0,
+      @JsonKey(name: "active") this.active = 0});
 
   factory _$_AddonModel.fromJson(Map<String, dynamic> json) =>
       _$_$_AddonModelFromJson(json);
 
   @override
-  final int? id;
-  @JsonKey(defaultValue: '')
+  @JsonKey(name: 'id')
+  final int id;
   @override
-  final String title;
-  @JsonKey(defaultValue: 0)
+  @JsonKey(name: 'name')
+  final String name;
   @override
+  @JsonKey(name: 'price')
   final int price;
+  @override
+  @JsonKey(name: "active")
+  final int active;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AddonModel(id: $id, title: $title, price: $price)';
+    return 'AddonModel(id: $id, name: $name, price: $price, active: $active)';
   }
 
   @override
@@ -157,8 +193,9 @@ class _$_AddonModel with DiagnosticableTreeMixin implements _AddonModel {
     properties
       ..add(DiagnosticsProperty('type', 'AddonModel'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('price', price));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('price', price))
+      ..add(DiagnosticsProperty('active', active));
   }
 
   @override
@@ -167,18 +204,21 @@ class _$_AddonModel with DiagnosticableTreeMixin implements _AddonModel {
         (other is _AddonModel &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.price, price) ||
-                const DeepCollectionEquality().equals(other.price, price)));
+                const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(price);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(active);
 
   @JsonKey(ignore: true)
   @override
@@ -192,17 +232,27 @@ class _$_AddonModel with DiagnosticableTreeMixin implements _AddonModel {
 }
 
 abstract class _AddonModel implements AddonModel {
-  const factory _AddonModel({int? id, String title, int price}) = _$_AddonModel;
+  const factory _AddonModel(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'price') int price,
+      @JsonKey(name: "active") int active}) = _$_AddonModel;
 
   factory _AddonModel.fromJson(Map<String, dynamic> json) =
       _$_AddonModel.fromJson;
 
   @override
-  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
   @override
-  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'price')
   int get price => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "active")
+  int get active => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AddonModelCopyWith<_AddonModel> get copyWith =>
