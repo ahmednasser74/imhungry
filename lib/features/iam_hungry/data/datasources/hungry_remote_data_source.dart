@@ -22,7 +22,7 @@ class HungryRemoteDataSourceImp extends GetConnect
       return data;
     } else {
       print('statusCode = ${response.statusCode}');
-      throw SocketException('Error Loading Message');
+      throw SocketException('Error Loading seller-menu');
     }
   }
 }

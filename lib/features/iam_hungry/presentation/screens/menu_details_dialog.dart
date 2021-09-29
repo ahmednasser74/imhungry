@@ -157,18 +157,8 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           ),
                           const SizedBox(height: 10),
                           CustomButton(
-                            onPressed: () {
-                              controller.itemModel =
-                                  controller.itemModel.copyWith(
-                                active: menuItem.active,
-                                id: menuItem.id,
-                                image: menuItem.image,
-                                description: menuItem.description,
-                                price: menuItem.price,
-                              );
-                              print('menuItem = ${controller.itemModel}');
-                              Get.back();
-                            },
+                            onPressed: () =>
+                                controller.onTapAddToCart(menuItem),
                             title: 'Add to cart',
                             fonSize: 16.sp,
                           ),

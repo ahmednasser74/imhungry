@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iam_hungry2/core/controller/check_out_controller.dart';
 import 'package:iam_hungry2/core/usecases/usecase.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/addon/addon_model.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/category/category_model.dart';
@@ -12,26 +13,20 @@ class MenuController extends GetxController
 
   final MenuUseCase menuUseCase;
   MenuModel _itemModel = MenuModel(addOnList: [], withOutList: []);
+
   set itemModel(MenuModel item) => _itemModel = item;
+
   MenuModel get itemModel => _itemModel;
+  double totalAddOns = 0;
+
+  @override
+  void onInit() async {
+    await getMenu();
+    super.onInit();
+  }
+
   void changeQuantity(int quantity) {
     _itemModel = _itemModel.copyWith(quantity: quantity);
-  }
-
-  void addAddons(AddonModel addonModel) {
-    _itemModel.addOnList.add(addonModel);
-  }
-
-  void removeAddons(int index) {
-    _itemModel.addOnList.removeAt(index);
-  }
-
-  void addWithout(WithoutModel withoutModel) {
-    _itemModel.withOutList.add(withoutModel);
-  }
-
-  void removeWithout(int index) {
-    _itemModel.withOutList.removeAt(index);
   }
 
   void onChangeAddons(
@@ -39,9 +34,13 @@ class MenuController extends GetxController
       required int index,
       required AddonModel addonModel}) {
     if (isSelected) {
-      addAddons(addonModel);
+      _itemModel.addOnList.add(addonModel);
+      totalAddOns = _itemModel.addOnList
+          .map((e) => e.price)
+          .reduce((e1, e2) => e1 + e2)
+          .toDouble();
     } else {
-      removeAddons(index);
+      _itemModel.addOnList.removeAt(index);
     }
   }
 
@@ -50,16 +49,24 @@ class MenuController extends GetxController
       required int index,
       required WithoutModel withoutModel}) {
     if (isSelected) {
-      addWithout(withoutModel);
+      _itemModel.withOutList.add(withoutModel);
     } else {
-      removeWithout(index);
+      _itemModel.withOutList.removeAt(index);
     }
   }
 
-  @override
-  void onInit() async {
-    await getMenu();
-    super.onInit();
+  void onTapAddToCart(MenuModel menuItem) {
+    itemModel = itemModel.copyWith(
+      active: menuItem.active,
+      id: menuItem.id,
+      image: menuItem.image,
+      description: menuItem.description,
+      price: menuItem.price,
+      name: menuItem.name,
+      totalAdds: totalAddOns,
+    );
+    Get.find<CheckOutController>().addMenuItem = itemModel;
+    Get.back();
   }
 
   Future<void> getMenu() async {

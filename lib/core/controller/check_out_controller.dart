@@ -3,16 +3,16 @@ import 'package:iam_hungry2/features/cart/data/model/cart/cart_model.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
 
 class CheckOutController extends GetxController {
-  CartModel _cart = CartModel(menus: []);
+  CartModel _cart = CartModel(items: []);
 
   set addMenuItem(MenuModel menuItem) {
-    _cart.menus.add(menuItem);
+    _cart.items.add(menuItem);
     _setTotalPrice();
   }
 
-  int get getMenuLength => _cart.menus.length;
+  int get getMenuLength => _cart.items.length;
 
-  List<MenuModel> get getMenuItems => _cart.menus;
+  List<MenuModel> get getMenuItems => _cart.items;
 
   double get getSubtotalPrice => _cart.subTotal;
 
@@ -21,14 +21,15 @@ class CheckOutController extends GetxController {
   double get getTotalPrice => _cart.total;
 
   double getTotalWithoutTax() {
-    return _cart.menus.isNotEmpty
-        ? _cart.menus.map((e) => e.totalPrice).reduce((e1, e2) => e1 + e2)
+    return _cart.items.isNotEmpty
+        ? _cart.items.map((e) => e.totalPrice).reduce((e1, e2) => e1 + e2)
         : 0;
   }
 
   @override
   void onInit() {
     super.onInit();
+    _setTotalPrice();
   }
 
   void _setTotalPrice() {
@@ -40,11 +41,11 @@ class CheckOutController extends GetxController {
   }
 
   void incrementQuantity(int index) {
-    final menuItem = _cart.menus.elementAt(index);
+    final menuItem = _cart.items.elementAt(index);
     final quantity = menuItem.quantity;
     final updateQuantity = quantity + 1;
     final total = (menuItem.totalAdds + menuItem.price) * updateQuantity;
-    _cart.menus.replaceRange(
+    _cart.items.replaceRange(
       index,
       index + 1,
       [menuItem.copyWith(quantity: updateQuantity, totalPrice: total)],
@@ -54,11 +55,11 @@ class CheckOutController extends GetxController {
   }
 
   void decrementQuantity(int index) {
-    final menuItem = _cart.menus.elementAt(index);
+    final menuItem = _cart.items.elementAt(index);
     final quantity = menuItem.quantity;
     final updateQuantity = quantity - 1;
     final total = (menuItem.totalAdds + menuItem.price) * updateQuantity;
-    _cart.menus.replaceRange(
+    _cart.items.replaceRange(
       index,
       index + 1,
       [menuItem.copyWith(quantity: updateQuantity, totalPrice: total)],
@@ -69,7 +70,7 @@ class CheckOutController extends GetxController {
 
   void deleteItem(MenuModel menuItem) {
     try {
-      _cart.menus.remove(menuItem);
+      _cart.items.remove(menuItem);
       _setTotalPrice();
     } catch (e) {
       print('deleteException $e');

@@ -24,12 +24,12 @@ class _$CartModelTearOff {
       {double subTotal = 0,
       double tax = 0,
       double total = 0,
-      List<MenuModel> menus = const <MenuModel>[]}) {
+      List<MenuModel> items = const <MenuModel>[]}) {
     return _CartModel(
       subTotal: subTotal,
       tax: tax,
       total: total,
-      menus: menus,
+      items: items,
     );
   }
 
@@ -46,7 +46,7 @@ mixin _$CartModel {
   double get subTotal => throw _privateConstructorUsedError;
   double get tax => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
-  List<MenuModel> get menus => throw _privateConstructorUsedError;
+  List<MenuModel> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,7 +58,7 @@ mixin _$CartModel {
 abstract class $CartModelCopyWith<$Res> {
   factory $CartModelCopyWith(CartModel value, $Res Function(CartModel) then) =
       _$CartModelCopyWithImpl<$Res>;
-  $Res call({double subTotal, double tax, double total, List<MenuModel> menus});
+  $Res call({double subTotal, double tax, double total, List<MenuModel> items});
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$CartModelCopyWithImpl<$Res> implements $CartModelCopyWith<$Res> {
     Object? subTotal = freezed,
     Object? tax = freezed,
     Object? total = freezed,
-    Object? menus = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
       subTotal: subTotal == freezed
@@ -89,9 +89,9 @@ class _$CartModelCopyWithImpl<$Res> implements $CartModelCopyWith<$Res> {
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      menus: menus == freezed
-          ? _value.menus
-          : menus // ignore: cast_nullable_to_non_nullable
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as List<MenuModel>,
     ));
   }
@@ -103,7 +103,7 @@ abstract class _$CartModelCopyWith<$Res> implements $CartModelCopyWith<$Res> {
           _CartModel value, $Res Function(_CartModel) then) =
       __$CartModelCopyWithImpl<$Res>;
   @override
-  $Res call({double subTotal, double tax, double total, List<MenuModel> menus});
+  $Res call({double subTotal, double tax, double total, List<MenuModel> items});
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class __$CartModelCopyWithImpl<$Res> extends _$CartModelCopyWithImpl<$Res>
     Object? subTotal = freezed,
     Object? tax = freezed,
     Object? total = freezed,
-    Object? menus = freezed,
+    Object? items = freezed,
   }) {
     return _then(_CartModel(
       subTotal: subTotal == freezed
@@ -135,9 +135,9 @@ class __$CartModelCopyWithImpl<$Res> extends _$CartModelCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      menus: menus == freezed
-          ? _value.menus
-          : menus // ignore: cast_nullable_to_non_nullable
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
               as List<MenuModel>,
     ));
   }
@@ -150,7 +150,7 @@ class _$_CartModel implements _CartModel {
       {this.subTotal = 0,
       this.tax = 0,
       this.total = 0,
-      this.menus = const <MenuModel>[]});
+      this.items = const <MenuModel>[]});
 
   factory _$_CartModel.fromJson(Map<String, dynamic> json) =>
       _$_$_CartModelFromJson(json);
@@ -166,11 +166,11 @@ class _$_CartModel implements _CartModel {
   final double total;
   @JsonKey(defaultValue: const <MenuModel>[])
   @override
-  final List<MenuModel> menus;
+  final List<MenuModel> items;
 
   @override
   String toString() {
-    return 'CartModel(subTotal: $subTotal, tax: $tax, total: $total, menus: $menus)';
+    return 'CartModel(subTotal: $subTotal, tax: $tax, total: $total, items: $items)';
   }
 
   @override
@@ -184,8 +184,8 @@ class _$_CartModel implements _CartModel {
                 const DeepCollectionEquality().equals(other.tax, tax)) &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
-            (identical(other.menus, menus) ||
-                const DeepCollectionEquality().equals(other.menus, menus)));
+            (identical(other.items, items) ||
+                const DeepCollectionEquality().equals(other.items, items)));
   }
 
   @override
@@ -194,7 +194,7 @@ class _$_CartModel implements _CartModel {
       const DeepCollectionEquality().hash(subTotal) ^
       const DeepCollectionEquality().hash(tax) ^
       const DeepCollectionEquality().hash(total) ^
-      const DeepCollectionEquality().hash(menus);
+      const DeepCollectionEquality().hash(items);
 
   @JsonKey(ignore: true)
   @override
@@ -212,7 +212,7 @@ abstract class _CartModel implements CartModel {
       {double subTotal,
       double tax,
       double total,
-      List<MenuModel> menus}) = _$_CartModel;
+      List<MenuModel> items}) = _$_CartModel;
 
   factory _CartModel.fromJson(Map<String, dynamic> json) =
       _$_CartModel.fromJson;
@@ -224,7 +224,7 @@ abstract class _CartModel implements CartModel {
   @override
   double get total => throw _privateConstructorUsedError;
   @override
-  List<MenuModel> get menus => throw _privateConstructorUsedError;
+  List<MenuModel> get items => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CartModelCopyWith<_CartModel> get copyWith =>

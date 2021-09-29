@@ -10,7 +10,7 @@ class CartModel with _$CartModel {
     @Default(0) double subTotal,
     @Default(0) double tax,
     @Default(0) double total,
-    @Default(<MenuModel>[]) List<MenuModel> menus,
+    @Default(<MenuModel>[]) List<MenuModel> items,
   }) = _CartModel;
   factory CartModel.fromJson(Map<String, dynamic> json) =>
       _$CartModelFromJson(json);
