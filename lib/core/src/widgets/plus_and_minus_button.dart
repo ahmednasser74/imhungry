@@ -48,7 +48,7 @@ class _PlusAndMinusButtonState extends State<PlusAndMinusButton> {
             Expanded(
               child: InkWell(
                 onTap: () {
-                  if (changeQuantity > 0) {
+                  if (changeQuantity > 1) {
                     changeQuantity--;
                     widget.onTapMinus(changeQuantity);
                     setState(() {});

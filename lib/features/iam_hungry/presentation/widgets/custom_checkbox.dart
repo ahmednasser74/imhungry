@@ -46,8 +46,9 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
             child: Checkbox(
               value: isChanged,
               activeColor: CustomColors.primaryColor,
-              onChanged: (bool? newValue) {
-                widget.onChanged(newValue ?? false);
+              onChanged: (_) {
+                isChanged = !isChanged;
+                widget.onChanged(isChanged);
                 setState(() {});
               },
             ),

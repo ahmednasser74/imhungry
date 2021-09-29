@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
@@ -105,13 +106,18 @@ class MenuDetailsDialog extends GetView<MenuController> {
                         padding: EdgeInsets.zero,
                         itemCount: menuItem.addOnList.length,
                         itemBuilder: (context, index) {
-                          final addOnList = menuItem.addOnList.elementAt(index);
+                          final addOn = menuItem.addOnList.elementAt(index);
                           return CustomCheckBox(
-                            title: addOnList.name,
+                            title: addOn.name,
                             value: false,
-                            onChanged: (value) {},
+                            onChanged: (value) {
+                              controller.onChangeAddons(
+                                  isSelected: value,
+                                  index: index,
+                                  addonModel: addOn);
+                            },
                             hasPrice: true,
-                            price: addOnList.price.toDouble(),
+                            price: addOn.price.toDouble(),
                           );
                         },
                       ),
@@ -124,15 +130,16 @@ class MenuDetailsDialog extends GetView<MenuController> {
                         padding: EdgeInsets.zero,
                         itemCount: menuItem.withOutList.length,
                         itemBuilder: (context, index) {
-                          final withOutList =
-                              menuItem.withOutList.elementAt(index);
+                          final withOut = menuItem.withOutList.elementAt(index);
                           return CustomCheckBox(
-                            title: withOutList.name,
+                            title: withOut.name,
                             value: false,
                             onChanged: (value) {
                               if (value) {
-                                final name = withOutList.name;
-                                print('name = $name');
+                                controller.onChangeWithout(
+                                    isSelected: value,
+                                    index: index,
+                                    withoutModel: withOut);
                               }
                             },
                           );
@@ -145,15 +152,22 @@ class MenuDetailsDialog extends GetView<MenuController> {
                         children: [
                           PlusAndMinusButton(
                             quantity: 1,
-                            onTapMinus: (value) {},
-                            onTapPlus: (value) {},
+                            onTapMinus: controller.changeQuantity,
+                            onTapPlus: controller.changeQuantity,
                           ),
                           const SizedBox(height: 10),
                           CustomButton(
                             onPressed: () {
-                              menuItem.copyWith(
-
+                              controller.itemModel =
+                                  controller.itemModel.copyWith(
+                                active: menuItem.active,
+                                id: menuItem.id,
+                                image: menuItem.image,
+                                description: menuItem.description,
+                                price: menuItem.price,
                               );
+                              print('menuItem = ${controller.itemModel}');
+                              Get.back();
                             },
                             title: 'Add to cart',
                             fonSize: 16.sp,
