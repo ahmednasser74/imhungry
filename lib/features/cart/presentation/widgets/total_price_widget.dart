@@ -56,7 +56,7 @@ class ReceiptItemWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(receiptTitle, style: textTheme.caption),
-        Text(price.toString(), style: textTheme.caption),
+        Text('${price.toStringAsFixed(2)}', style: textTheme.caption),
       ],
     );
   }

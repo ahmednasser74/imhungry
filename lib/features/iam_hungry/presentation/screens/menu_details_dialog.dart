@@ -135,12 +135,10 @@ class MenuDetailsDialog extends GetView<MenuController> {
                             title: withOut.name,
                             value: false,
                             onChanged: (value) {
-                              if (value) {
-                                controller.onChangeWithout(
-                                    isSelected: value,
-                                    index: index,
-                                    withoutModel: withOut);
-                              }
+                              controller.onChangeWithout(
+                                  isSelected: value,
+                                  index: index,
+                                  withoutModel: withOut);
                             },
                           );
                         },
@@ -158,12 +156,12 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           const SizedBox(height: 10),
                           CustomButton(
                             onPressed: () =>
-                                controller.onTapAddToCart(menuItem),
+                                {controller.onTapAddToCart(menuItem)},
                             title: 'Add to cart',
                             fonSize: 16.sp,
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.pop(context),
+                            onTap: controller.onTapCancel,
                             child: AutoSizeText(
                               'Cancel',
                               style: textTheme.caption?.copyWith(

@@ -26,6 +26,7 @@ class CheckOutOrderedItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final controller = Get.find<CheckOutController>();
     return Padding(
+      key: UniqueKey(),
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: Slidable(
         actionPane: SlidableBehindActionPane(),
@@ -91,8 +92,10 @@ class CheckOutOrderedItem extends StatelessWidget {
                         width: .18.sw,
                         height: .032.sh,
                         quantity: menuModel.quantity,
-                        onTapPlus: (value) => controller.incrementQuantity(index),
-                        onTapMinus: (value) => controller.decrementQuantity(index),
+                        onTapPlus: (value) =>
+                            controller.incrementQuantity(index),
+                        onTapMinus: (value) =>
+                            controller.decrementQuantity(index),
                       ),
                     )
                   ],

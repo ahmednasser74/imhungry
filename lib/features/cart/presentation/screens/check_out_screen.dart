@@ -33,12 +33,11 @@ class CheckOutScreen extends GetView<CheckOutController> {
                           height: .4.sh,
                           child: Scrollbar(
                             radius: Radius.circular(10),
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: controller.getMenuLength,
-                              itemBuilder: (_, index) =>
-                                  GetBuilder<CheckOutController>(
-                                builder: (c) => CheckOutOrderedItem(
+                            child: GetBuilder<CheckOutController>(
+                              builder: (c) => ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: controller.getMenuLength,
+                                itemBuilder: (_, index) => CheckOutOrderedItem(
                                   index: index,
                                   menuModel:
                                       controller.getMenuItems.elementAt(index),

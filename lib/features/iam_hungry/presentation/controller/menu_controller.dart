@@ -15,7 +15,8 @@ class MenuController extends GetxController
   MenuModel _itemModel = MenuModel(addOnList: [], withOutList: []);
 
   set itemModel(MenuModel item) => _itemModel = item;
-
+  void _createItemModel() =>
+      _itemModel = MenuModel(addOnList: [], withOutList: []);
   MenuModel get itemModel => _itemModel;
   double totalAddOns = 0;
 
@@ -67,6 +68,12 @@ class MenuController extends GetxController
     );
     Get.find<CheckOutController>().addMenuItem = itemModel;
     Get.back();
+    _createItemModel();
+  }
+
+  void onTapCancel() {
+    Get.back();
+    _createItemModel();
   }
 
   Future<void> getMenu() async {
