@@ -2,15 +2,17 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/custom_checkbox.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MenuDetailsDialog extends StatelessWidget {
+class MenuDetailsDialog extends GetView<MenuController> {
   final List<MenuModel> menuItemList;
   final int index;
 
@@ -128,9 +130,10 @@ class MenuDetailsDialog extends StatelessWidget {
                             title: withOutList.name,
                             value: false,
                             onChanged: (value) {
-                              // menuItem.withOutList
-                              //     .elementAt(index)
-                              //     .copyWith(checked: value);
+                              if (value) {
+                                final name = withOutList.name;
+                                print('name = $name');
+                              }
                             },
                           );
                         },
@@ -142,12 +145,16 @@ class MenuDetailsDialog extends StatelessWidget {
                         children: [
                           PlusAndMinusButton(
                             quantity: 1,
-                            onTapMinus: () {},
-                            onTapPlus: () {},
+                            onTapMinus: (value) {},
+                            onTapPlus: (value) {},
                           ),
                           const SizedBox(height: 10),
                           CustomButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              menuItem.copyWith(
+
+                              );
+                            },
                             title: 'Add to cart',
                             fonSize: 16.sp,
                           ),

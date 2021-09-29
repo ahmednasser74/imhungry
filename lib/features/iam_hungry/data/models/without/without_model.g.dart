@@ -10,13 +10,13 @@ _$_WithoutModel _$_$_WithoutModelFromJson(Map<String, dynamic> json) {
   return _$_WithoutModel(
     id: json['id'] as int,
     active: json['active'] as int,
-    name: json['name'] as String? ?? '',
+    name: json['name'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_WithoutModelToJson(_$_WithoutModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
       'active': instance.active,
+      'name': instance.name,
     };

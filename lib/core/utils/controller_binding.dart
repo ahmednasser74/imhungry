@@ -5,7 +5,7 @@ import 'package:iam_hungry2/features/auth/presentation/controller/select_languag
 import 'package:iam_hungry2/features/auth/presentation/controller/enter_phone_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/slider_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/splash_controller.dart';
-import 'package:iam_hungry2/features/cart/presentation/controller/check_out_controller.dart';
+import 'package:iam_hungry2/core/controller/check_out_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
 import 'package:iam_hungry2/core/feature/location/presentation/controller/location_controller.dart';

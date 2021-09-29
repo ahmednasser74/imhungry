@@ -9,8 +9,9 @@ part of 'addon_model.dart';
 _$_AddonModel _$_$_AddonModelFromJson(Map<String, dynamic> json) {
   return _$_AddonModel(
     id: json['id'] as int,
-    name: json['name'] as String? ?? '',
-    price: json['price'] as int? ?? 0,
+    name: json['name'] as String,
+    price: json['price'] as int,
+    active: json['active'] as int,
   );
 }
 
@@ -19,4 +20,5 @@ Map<String, dynamic> _$_$_AddonModelToJson(_$_AddonModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'price': instance.price,
+      'active': instance.active,
     };

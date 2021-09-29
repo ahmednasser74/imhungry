@@ -29,7 +29,10 @@ class _$MenuModelTearOff {
       @JsonKey(name: 'name') String name = '',
       @JsonKey(name: 'description') String description = '',
       @JsonKey(name: 'addons') List<AddonModel> addOnList = const [],
-      @JsonKey(name: 'without') List<WithoutModel> withOutList = const []}) {
+      @JsonKey(name: 'without') List<WithoutModel> withOutList = const [],
+      int quantity = 1,
+      double totalAdds = 0,
+      double totalPrice = 0}) {
     return _MenuModel(
       id: id,
       price: price,
@@ -40,6 +43,9 @@ class _$MenuModelTearOff {
       description: description,
       addOnList: addOnList,
       withOutList: withOutList,
+      quantity: quantity,
+      totalAdds: totalAdds,
+      totalPrice: totalPrice,
     );
   }
 
@@ -71,6 +77,9 @@ mixin _$MenuModel {
   List<AddonModel> get addOnList => throw _privateConstructorUsedError;
   @JsonKey(name: 'without')
   List<WithoutModel> get withOutList => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
+  double get totalAdds => throw _privateConstructorUsedError;
+  double get totalPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -91,7 +100,10 @@ abstract class $MenuModelCopyWith<$Res> {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'addons') List<AddonModel> addOnList,
-      @JsonKey(name: 'without') List<WithoutModel> withOutList});
+      @JsonKey(name: 'without') List<WithoutModel> withOutList,
+      int quantity,
+      double totalAdds,
+      double totalPrice});
 }
 
 /// @nodoc
@@ -113,6 +125,9 @@ class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
     Object? description = freezed,
     Object? addOnList = freezed,
     Object? withOutList = freezed,
+    Object? quantity = freezed,
+    Object? totalAdds = freezed,
+    Object? totalPrice = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -151,6 +166,18 @@ class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
           ? _value.withOutList
           : withOutList // ignore: cast_nullable_to_non_nullable
               as List<WithoutModel>,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalAdds: totalAdds == freezed
+          ? _value.totalAdds
+          : totalAdds // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: totalPrice == freezed
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -170,7 +197,10 @@ abstract class _$MenuModelCopyWith<$Res> implements $MenuModelCopyWith<$Res> {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'addons') List<AddonModel> addOnList,
-      @JsonKey(name: 'without') List<WithoutModel> withOutList});
+      @JsonKey(name: 'without') List<WithoutModel> withOutList,
+      int quantity,
+      double totalAdds,
+      double totalPrice});
 }
 
 /// @nodoc
@@ -193,6 +223,9 @@ class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? addOnList = freezed,
     Object? withOutList = freezed,
+    Object? quantity = freezed,
+    Object? totalAdds = freezed,
+    Object? totalPrice = freezed,
   }) {
     return _then(_MenuModel(
       id: id == freezed
@@ -231,6 +264,18 @@ class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
           ? _value.withOutList
           : withOutList // ignore: cast_nullable_to_non_nullable
               as List<WithoutModel>,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalAdds: totalAdds == freezed
+          ? _value.totalAdds
+          : totalAdds // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: totalPrice == freezed
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -247,7 +292,10 @@ class _$_MenuModel implements _MenuModel {
       @JsonKey(name: 'name') this.name = '',
       @JsonKey(name: 'description') this.description = '',
       @JsonKey(name: 'addons') this.addOnList = const [],
-      @JsonKey(name: 'without') this.withOutList = const []});
+      @JsonKey(name: 'without') this.withOutList = const [],
+      this.quantity = 1,
+      this.totalAdds = 0,
+      this.totalPrice = 0});
 
   factory _$_MenuModel.fromJson(Map<String, dynamic> json) =>
       _$_$_MenuModelFromJson(json);
@@ -279,10 +327,19 @@ class _$_MenuModel implements _MenuModel {
   @override
   @JsonKey(name: 'without')
   final List<WithoutModel> withOutList;
+  @JsonKey(defaultValue: 1)
+  @override
+  final int quantity;
+  @JsonKey(defaultValue: 0)
+  @override
+  final double totalAdds;
+  @JsonKey(defaultValue: 0)
+  @override
+  final double totalPrice;
 
   @override
   String toString() {
-    return 'MenuModel(id: $id, price: $price, calories: $calories, image: $image, active: $active, name: $name, description: $description, addOnList: $addOnList, withOutList: $withOutList)';
+    return 'MenuModel(id: $id, price: $price, calories: $calories, image: $image, active: $active, name: $name, description: $description, addOnList: $addOnList, withOutList: $withOutList, quantity: $quantity, totalAdds: $totalAdds, totalPrice: $totalPrice)';
   }
 
   @override
@@ -310,7 +367,16 @@ class _$_MenuModel implements _MenuModel {
                     .equals(other.addOnList, addOnList)) &&
             (identical(other.withOutList, withOutList) ||
                 const DeepCollectionEquality()
-                    .equals(other.withOutList, withOutList)));
+                    .equals(other.withOutList, withOutList)) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality()
+                    .equals(other.quantity, quantity)) &&
+            (identical(other.totalAdds, totalAdds) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalAdds, totalAdds)) &&
+            (identical(other.totalPrice, totalPrice) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalPrice, totalPrice)));
   }
 
   @override
@@ -324,7 +390,10 @@ class _$_MenuModel implements _MenuModel {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(addOnList) ^
-      const DeepCollectionEquality().hash(withOutList);
+      const DeepCollectionEquality().hash(withOutList) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(totalAdds) ^
+      const DeepCollectionEquality().hash(totalPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -347,7 +416,10 @@ abstract class _MenuModel implements MenuModel {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'addons') List<AddonModel> addOnList,
-      @JsonKey(name: 'without') List<WithoutModel> withOutList}) = _$_MenuModel;
+      @JsonKey(name: 'without') List<WithoutModel> withOutList,
+      int quantity,
+      double totalAdds,
+      double totalPrice}) = _$_MenuModel;
 
   factory _MenuModel.fromJson(Map<String, dynamic> json) =
       _$_MenuModel.fromJson;
@@ -379,6 +451,12 @@ abstract class _MenuModel implements MenuModel {
   @override
   @JsonKey(name: 'without')
   List<WithoutModel> get withOutList => throw _privateConstructorUsedError;
+  @override
+  int get quantity => throw _privateConstructorUsedError;
+  @override
+  double get totalAdds => throw _privateConstructorUsedError;
+  @override
+  double get totalPrice => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MenuModelCopyWith<_MenuModel> get copyWith =>

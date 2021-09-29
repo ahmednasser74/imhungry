@@ -74,8 +74,8 @@ class TopMealItemWidget extends StatelessWidget {
             width: .25.sw,
             height: .04.sh,
             quantity: 2,
-            onTapPlus: () {},
-            onTapMinus: () {},
+            onTapPlus: (value) {},
+            onTapMinus: (value) {},
           )
         ],
       ),

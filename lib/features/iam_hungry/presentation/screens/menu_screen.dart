@@ -4,6 +4,7 @@ import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/menu_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
 
 import 'menu_details_dialog.dart';
 

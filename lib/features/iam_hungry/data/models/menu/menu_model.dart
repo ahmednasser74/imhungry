@@ -18,6 +18,9 @@ class MenuModel with _$MenuModel {
     @Default('') @JsonKey(name: 'description') String description,
     @Default([]) @JsonKey(name: 'addons') List<AddonModel> addOnList,
     @Default([]) @JsonKey(name: 'without') List<WithoutModel> withOutList,
+    @Default(1) int quantity,
+    @Default(0) double totalAdds,
+    @Default(0) double totalPrice,
   }) = _MenuModel;
 
   factory MenuModel.fromJson(Map<String, dynamic> json) =>

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 
-class CustomCheckBox extends StatelessWidget {
+class CustomCheckBox extends StatefulWidget {
   final Function(bool value) onChanged;
   final String title;
   final double? price;
@@ -17,27 +17,48 @@ class CustomCheckBox extends StatelessWidget {
   });
 
   @override
+  State<CustomCheckBox> createState() => _CustomCheckBoxState();
+}
+
+class _CustomCheckBoxState extends State<CustomCheckBox> {
+  bool isChanged = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isChanged = widget.value;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return InkWell(
-      onTap: () => onChanged(!value),
+      onTap: () {
+        isChanged = !isChanged;
+        widget.onChanged(isChanged);
+        setState(() {});
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           SizedBox(
             height: .05.sh,
             child: Checkbox(
-              value: value,
+              value: isChanged,
               activeColor: CustomColors.primaryColor,
-              onChanged: (bool? newValue) => onChanged(newValue ?? false),
+              onChanged: (bool? newValue) {
+                widget.onChanged(newValue ?? false);
+                setState(() {});
+              },
             ),
           ),
-          Expanded(child: Text(title)),
+          Expanded(child: Text(widget.title)),
           Visibility(
-            visible: hasPrice ? true : false,
+            visible: widget.hasPrice ? true : false,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(hasPrice ? '+$price' : '', style: textTheme.caption),
+              child: Text(widget.hasPrice ? '+${widget.price}' : '',
+                  style: textTheme.caption),
             ),
           )
         ],

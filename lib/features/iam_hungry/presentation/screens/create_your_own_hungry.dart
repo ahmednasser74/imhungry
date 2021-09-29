@@ -113,8 +113,8 @@ class CreateYourOwnHungryScreen extends StatelessWidget {
                       width: .25.sw,
                       height: .04.sh,
                       quantity: 1,
-                      onTapMinus: () {},
-                      onTapPlus: () {},
+                      onTapMinus: (value) {},
+                      onTapPlus: (value) {},
                     ),
                     CustomButton(
                       title: 'Add to Cart',
