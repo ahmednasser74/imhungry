@@ -14,7 +14,7 @@ class BeforeCheckoutController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    getBeforeCheckout();
+    // getBeforeCheckout();
   }
 
   Future<void> getBeforeCheckout() async {

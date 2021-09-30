@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: CustomsThemes.defaultThemeData,
-        initialRoute: Routes.menuTabBar,
+        initialRoute: Routes.splashScreen,
         // locale: Get.deviceLocale,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
