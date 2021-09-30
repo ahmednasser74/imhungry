@@ -45,7 +45,7 @@ class EnterNameScreen extends StatelessWidget {
                   Text('Name', style: textTheme.headline5),
                   TextField(
                     // controller: enterPhoneController.phoneTEC,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.name,
                     textInputAction: TextInputAction.done,
                     style: textTheme.caption,
                     decoration: CustomStyle.authInputDecoration

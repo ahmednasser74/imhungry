@@ -6,8 +6,9 @@ import 'package:iam_hungry2/core/src/widgets/custom_app_bar.dart';
 import 'package:iam_hungry2/core/src/widgets/horizontal_list_builder.dart';
 import 'package:iam_hungry2/core/src/widgets/side_title_widget.dart';
 import 'package:iam_hungry2/core/controller/check_out_controller.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/before_checkout_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/widgets/before_check_out_item.dart';
-import 'package:iam_hungry2/features/cart/presentation/widgets/check_out_ordered_item.dart';
+import 'package:iam_hungry2/features/cart/presentation/widgets/check_out_item.dart';
 import 'package:iam_hungry2/features/cart/presentation/widgets/proceeed_button.dart';
 import 'package:iam_hungry2/features/cart/presentation/widgets/total_price_widget.dart';
 import 'package:shimmer/shimmer.dart';
@@ -16,6 +17,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CheckOutScreen extends GetView<CheckOutController> {
   @override
   Widget build(BuildContext context) {
+    // Get.put(()=>BeforeCheckoutController());
+    final beforeCheckoutController = Get.find<BeforeCheckoutController>();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(.08.sh),
@@ -37,7 +40,7 @@ class CheckOutScreen extends GetView<CheckOutController> {
                               builder: (c) => ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: controller.getMenuLength,
-                                itemBuilder: (_, index) => CheckOutOrderedItem(
+                                itemBuilder: (_, index) => CheckOutItem(
                                   index: index,
                                   menuModel:
                                       controller.getMenuItems.elementAt(index),
@@ -67,7 +70,9 @@ class CheckOutScreen extends GetView<CheckOutController> {
                               heightList: .022.sh,
                               itemCount: 5,
                               itemBuilder: (_, index) => BeforeCheckOutItem(
-                                onTap: () {},
+                                onTap: (){},
+                                // onTap:()=>
+                                //     beforeCheckoutController.onTabAddItemToCart,
                               ),
                             ),
                             GetBuilder<CheckOutController>(
@@ -75,7 +80,7 @@ class CheckOutScreen extends GetView<CheckOutController> {
                                 subTotal: controller.getSubtotalPrice,
                                 discount: 0,
                                 tax: controller.getTax,
-                                total: controller.getTotalPrice,
+                                total: controller.getTotalPrice + 10,
                               ),
                             ),
                           ],

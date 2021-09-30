@@ -11,6 +11,11 @@ import 'package:iam_hungry2/features/auth/domin/usecases/auth_use_case.dart';
 import 'package:iam_hungry2/features/auth/domin/usecases/otp_use_case.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/select_language_controller.dart';
 import 'package:iam_hungry2/core/controller/check_out_controller.dart';
+import 'package:iam_hungry2/features/cart/data/datasources/cart_remote_data_source.dart';
+import 'package:iam_hungry2/features/cart/data/repositories/cart_repository_imp.dart';
+import 'package:iam_hungry2/features/cart/domin/repositories/cart_repository.dart';
+import 'package:iam_hungry2/features/cart/domin/usecases/before_checkout_use_case.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/before_checkout_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
 import 'package:iam_hungry2/features/drawer/data/datasources/drawer_remote_data_source.dart';
@@ -174,5 +179,20 @@ class Injection {
       () => ChooseLocationController(),
     );
     sl.registerFactory<PaymentController>(() => PaymentController());
+    sl.registerFactory<BeforeCheckoutController>(
+      () => BeforeCheckoutController(beforeCheckoutUseCase: sl()),
+    );
+    // Use cases
+    sl.registerLazySingleton<BeforeCheckoutUseCase>(
+      () => BeforeCheckoutUseCase(cartRepository: sl()),
+    );
+    // Repo
+    sl.registerLazySingleton<CartRepository>(
+      () => CartRepositoryImp(cartRemoteDataSource: sl()),
+    );
+    // Data sources
+    sl.registerLazySingleton<CartRemoteDataSource>(
+      () => CartRemoteDataSourceImp(),
+    );
   }
 }

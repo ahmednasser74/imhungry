@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:iam_hungry2/features/cart/data/model/cart/cart_model.dart';
-import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 
 class CheckOutController extends GetxController {
   CartModel _cart = CartModel(items: []);
 
-  set addMenuItem(MenuModel menuItem) {
+  set addMenuItem(MenuItemModel menuItem) {
     final double totalPrice =
         (menuItem.quantity * menuItem.price) + menuItem.totalAdds;
     menuItem = menuItem.copyWith(totalPrice: totalPrice);
@@ -15,7 +15,7 @@ class CheckOutController extends GetxController {
 
   int get getMenuLength => _cart.items.length;
 
-  List<MenuModel> get getMenuItems => _cart.items;
+  List<MenuItemModel> get getMenuItems => _cart.items;
 
   double get getSubtotalPrice => _cart.subTotal;
 
@@ -71,7 +71,7 @@ class CheckOutController extends GetxController {
     update();
   }
 
-  void deleteItem(MenuModel menuItem) {
+  void deleteItem(MenuItemModel menuItem) {
     try {
       _cart.items.remove(menuItem);
       if (_cart.items.isNotEmpty)

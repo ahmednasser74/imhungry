@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'menu_model.dart';
+part of 'menu_item_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,13 +12,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-MenuModel _$MenuModelFromJson(Map<String, dynamic> json) {
+MenuItemModel _$MenuItemModelFromJson(Map<String, dynamic> json) {
   return _MenuModel.fromJson(json);
 }
 
 /// @nodoc
-class _$MenuModelTearOff {
-  const _$MenuModelTearOff();
+class _$MenuItemModelTearOff {
+  const _$MenuItemModelTearOff();
 
   _MenuModel call(
       {@JsonKey(name: 'id') int id = 0,
@@ -49,16 +49,16 @@ class _$MenuModelTearOff {
     );
   }
 
-  MenuModel fromJson(Map<String, Object> json) {
-    return MenuModel.fromJson(json);
+  MenuItemModel fromJson(Map<String, Object> json) {
+    return MenuItemModel.fromJson(json);
   }
 }
 
 /// @nodoc
-const $MenuModel = _$MenuModelTearOff();
+const $MenuItemModel = _$MenuItemModelTearOff();
 
 /// @nodoc
-mixin _$MenuModel {
+mixin _$MenuItemModel {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
@@ -83,14 +83,15 @@ mixin _$MenuModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MenuModelCopyWith<MenuModel> get copyWith =>
+  $MenuItemModelCopyWith<MenuItemModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MenuModelCopyWith<$Res> {
-  factory $MenuModelCopyWith(MenuModel value, $Res Function(MenuModel) then) =
-      _$MenuModelCopyWithImpl<$Res>;
+abstract class $MenuItemModelCopyWith<$Res> {
+  factory $MenuItemModelCopyWith(
+          MenuItemModel value, $Res Function(MenuItemModel) then) =
+      _$MenuItemModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'price') double price,
@@ -107,12 +108,13 @@ abstract class $MenuModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
-  _$MenuModelCopyWithImpl(this._value, this._then);
+class _$MenuItemModelCopyWithImpl<$Res>
+    implements $MenuItemModelCopyWith<$Res> {
+  _$MenuItemModelCopyWithImpl(this._value, this._then);
 
-  final MenuModel _value;
+  final MenuItemModel _value;
   // ignore: unused_field
-  final $Res Function(MenuModel) _then;
+  final $Res Function(MenuItemModel) _then;
 
   @override
   $Res call({
@@ -183,7 +185,8 @@ class _$MenuModelCopyWithImpl<$Res> implements $MenuModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$MenuModelCopyWith<$Res> implements $MenuModelCopyWith<$Res> {
+abstract class _$MenuModelCopyWith<$Res>
+    implements $MenuItemModelCopyWith<$Res> {
   factory _$MenuModelCopyWith(
           _MenuModel value, $Res Function(_MenuModel) then) =
       __$MenuModelCopyWithImpl<$Res>;
@@ -204,7 +207,7 @@ abstract class _$MenuModelCopyWith<$Res> implements $MenuModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$MenuModelCopyWithImpl<$Res> extends _$MenuModelCopyWithImpl<$Res>
+class __$MenuModelCopyWithImpl<$Res> extends _$MenuItemModelCopyWithImpl<$Res>
     implements _$MenuModelCopyWith<$Res> {
   __$MenuModelCopyWithImpl(_MenuModel _value, $Res Function(_MenuModel) _then)
       : super(_value, (v) => _then(v as _MenuModel));
@@ -339,7 +342,7 @@ class _$_MenuModel implements _MenuModel {
 
   @override
   String toString() {
-    return 'MenuModel(id: $id, price: $price, calories: $calories, image: $image, active: $active, name: $name, description: $description, addOnList: $addOnList, withOutList: $withOutList, quantity: $quantity, totalAdds: $totalAdds, totalPrice: $totalPrice)';
+    return 'MenuItemModel(id: $id, price: $price, calories: $calories, image: $image, active: $active, name: $name, description: $description, addOnList: $addOnList, withOutList: $withOutList, quantity: $quantity, totalAdds: $totalAdds, totalPrice: $totalPrice)';
   }
 
   @override
@@ -406,7 +409,7 @@ class _$_MenuModel implements _MenuModel {
   }
 }
 
-abstract class _MenuModel implements MenuModel {
+abstract class _MenuModel implements MenuItemModel {
   const factory _MenuModel(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'price') double price,

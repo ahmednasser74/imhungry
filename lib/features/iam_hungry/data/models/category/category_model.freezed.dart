@@ -24,7 +24,7 @@ class _$CategoryModelTearOff {
       {@JsonKey(name: 'id') int id = 0,
       @JsonKey(name: 'active') int active = 0,
       @JsonKey(name: 'name') String categoryName = '',
-      @JsonKey(name: 'items') List<MenuModel> menuList = const []}) {
+      @JsonKey(name: 'items') List<MenuItemModel> menuList = const []}) {
     return _CategoryModel(
       id: id,
       active: active,
@@ -50,7 +50,7 @@ mixin _$CategoryModel {
   @JsonKey(name: 'name')
   String get categoryName => throw _privateConstructorUsedError;
   @JsonKey(name: 'items')
-  List<MenuModel> get menuList => throw _privateConstructorUsedError;
+  List<MenuItemModel> get menuList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,7 +67,7 @@ abstract class $CategoryModelCopyWith<$Res> {
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'active') int active,
       @JsonKey(name: 'name') String categoryName,
-      @JsonKey(name: 'items') List<MenuModel> menuList});
+      @JsonKey(name: 'items') List<MenuItemModel> menuList});
 }
 
 /// @nodoc
@@ -102,7 +102,7 @@ class _$CategoryModelCopyWithImpl<$Res>
       menuList: menuList == freezed
           ? _value.menuList
           : menuList // ignore: cast_nullable_to_non_nullable
-              as List<MenuModel>,
+              as List<MenuItemModel>,
     ));
   }
 }
@@ -118,7 +118,7 @@ abstract class _$CategoryModelCopyWith<$Res>
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'active') int active,
       @JsonKey(name: 'name') String categoryName,
-      @JsonKey(name: 'items') List<MenuModel> menuList});
+      @JsonKey(name: 'items') List<MenuItemModel> menuList});
 }
 
 /// @nodoc
@@ -155,7 +155,7 @@ class __$CategoryModelCopyWithImpl<$Res>
       menuList: menuList == freezed
           ? _value.menuList
           : menuList // ignore: cast_nullable_to_non_nullable
-              as List<MenuModel>,
+              as List<MenuItemModel>,
     ));
   }
 }
@@ -183,7 +183,7 @@ class _$_CategoryModel implements _CategoryModel {
   final String categoryName;
   @override
   @JsonKey(name: 'items')
-  final List<MenuModel> menuList;
+  final List<MenuItemModel> menuList;
 
   @override
   String toString() {
@@ -230,7 +230,7 @@ abstract class _CategoryModel implements CategoryModel {
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'active') int active,
       @JsonKey(name: 'name') String categoryName,
-      @JsonKey(name: 'items') List<MenuModel> menuList}) = _$_CategoryModel;
+      @JsonKey(name: 'items') List<MenuItemModel> menuList}) = _$_CategoryModel;
 
   factory _CategoryModel.fromJson(Map<String, dynamic> json) =
       _$_CategoryModel.fromJson;
@@ -246,7 +246,7 @@ abstract class _CategoryModel implements CategoryModel {
   String get categoryName => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'items')
-  List<MenuModel> get menuList => throw _privateConstructorUsedError;
+  List<MenuItemModel> get menuList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CategoryModelCopyWith<_CategoryModel> get copyWith =>

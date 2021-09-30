@@ -11,13 +11,14 @@ class HungryAndHealthyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tabBarController = Get.find<MenuTabBarController>();
     return Row(
       children: [
         Expanded(
           child: GestureDetector(
             onTap: () {
               Get.toNamed(Routes.menuTabBar);
-              Get.find<MenuTabBarController>().getTabController.animateTo(0);
+              tabBarController.getTabController.animateTo(0);
             },
             child: Container(
               height: .23.sh,
@@ -32,7 +33,9 @@ class HungryAndHealthyWidget extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               Get.toNamed(Routes.menuTabBar);
-              Get.find<MenuTabBarController>().getTabController.animateTo(6);
+              tabBarController.getTabController.animateTo(
+                tabBarController.getCategoriesModel.categories.length - 1,
+              );
             },
             child: Container(
               height: .23.sh,

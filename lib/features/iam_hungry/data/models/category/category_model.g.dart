@@ -12,7 +12,7 @@ _$_CategoryModel _$_$_CategoryModelFromJson(Map<String, dynamic> json) {
     active: json['active'] as int,
     categoryName: json['name'] as String,
     menuList: (json['items'] as List<dynamic>)
-        .map((e) => MenuModel.fromJson(e as Map<String, dynamic>))
+        .map((e) => MenuItemModel.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }

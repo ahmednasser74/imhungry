@@ -32,7 +32,10 @@ class LocationController extends GetxController
     if (Platform.isAndroid) {
       if (status.isGranted) {
         Get.toNamed(Routes.mapScreen);
-      } else if (status.isDenied) {}
+      }
+      else if (status.isDenied) {
+
+      }
     } else {
       Get.toNamed(Routes.mapScreen);
     }

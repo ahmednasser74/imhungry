@@ -12,7 +12,8 @@ class CustomButton extends StatelessWidget {
       paddingHorizontal,
       paddingVertical,
       marginHorizontal,
-      marginVertical;
+      marginVertical,
+      borderRadius;
   final Widget? child;
   final Color textColor, backgroundColor, borderColor;
 
@@ -31,6 +32,7 @@ class CustomButton extends StatelessWidget {
     this.fonSize = 20,
     this.fontFamily = 'alfa',
     this.borderColor = Colors.transparent,
+    this.borderRadius = 10,
   });
 
   @override
@@ -60,7 +62,7 @@ class CustomButton extends StatelessWidget {
           elevation: elevation,
           alignment: alignment,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           ),
         ),
       ),

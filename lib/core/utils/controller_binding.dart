@@ -6,6 +6,7 @@ import 'package:iam_hungry2/features/auth/presentation/controller/enter_phone_co
 import 'package:iam_hungry2/features/auth/presentation/controller/slider_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/splash_controller.dart';
 import 'package:iam_hungry2/core/controller/check_out_controller.dart';
+import 'package:iam_hungry2/features/cart/presentation/controller/before_checkout_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/choose_location_controller.dart';
 import 'package:iam_hungry2/features/cart/presentation/controller/payment_controller.dart';
 import 'package:iam_hungry2/core/feature/location/presentation/controller/location_controller.dart';
@@ -49,5 +50,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.sl<CheckOutController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<ChooseLocationController>(), fenix: true);
     Get.lazyPut(() => Injection.sl<PaymentController>(), fenix: true);
+    Get.lazyPut(() => Injection.sl<BeforeCheckoutController>(), fenix: true);
   }
 }

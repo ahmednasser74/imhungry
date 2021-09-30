@@ -2,13 +2,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/addon/addon_model.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/without/without_model.dart';
 
-part 'menu_model.freezed.dart';
+part 'menu_item_model.freezed.dart';
 
-part 'menu_model.g.dart';
+part 'menu_item_model.g.dart';
 
 @freezed
-class MenuModel with _$MenuModel {
-  const factory MenuModel({
+class MenuItemModel with _$MenuItemModel {
+
+  const factory MenuItemModel({
     @Default(0) @JsonKey(name: 'id') int id,
     @Default(0.0) @JsonKey(name: 'price') double price,
     @Default(0) @JsonKey(name: 'calories') int calories,
@@ -23,6 +24,6 @@ class MenuModel with _$MenuModel {
     @Default(0) double totalPrice,
   }) = _MenuModel;
 
-  factory MenuModel.fromJson(Map<String, dynamic> json) =>
-      _$MenuModelFromJson(json);
+  factory MenuItemModel.fromJson(Map<String, dynamic> json) =>
+      _$MenuItemModelFromJson(json);
 }

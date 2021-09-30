@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 
 part 'cart_model.freezed.dart';
 part 'cart_model.g.dart';
@@ -10,7 +10,7 @@ class CartModel with _$CartModel {
     @Default(0) double subTotal,
     @Default(0) double tax,
     @Default(0) double total,
-    @Default(<MenuModel>[]) List<MenuModel> items,
+    @Default(<MenuItemModel>[]) List<MenuItemModel> items,
   }) = _CartModel;
   factory CartModel.fromJson(Map<String, dynamic> json) =>
       _$CartModelFromJson(json);

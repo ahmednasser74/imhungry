@@ -14,14 +14,14 @@ class MenuTabBarController extends GetxController
   MenuTabBarController({required this.menuUseCase}); // @override
 
   var _currentIndex = 0.obs;
-  late TabController _controller;
+  late TabController _tabBarController;
   late VoidCallback onChanged;
   var _selectedPage = 0.obs;
   late CategoriesModel _categoriesModel;
 
   get getCurrentIndex => _currentIndex;
 
-  TabController get getTabController => _controller;
+  TabController get getTabController => _tabBarController;
 
   CategoriesModel get getCategoriesModel => _categoriesModel;
 
@@ -37,13 +37,13 @@ class MenuTabBarController extends GetxController
     print('hello tabBarController');
     change(null, status: RxStatus.loading());
     _categoriesModel = await menuUseCase(params: NoParams());
-    _controller = new TabController(
+    _tabBarController = new TabController(
       initialIndex: 0,
       length: _categoriesModel.categories.length,
       vsync: this,
     );
-    onChanged = () => _currentIndex.value = this._controller.index;
-    _controller.addListener(onChanged);
+    onChanged = () => _currentIndex.value = this._tabBarController.index;
+    _tabBarController.addListener(onChanged);
     change(_categoriesModel.categories, status: RxStatus.success());
   }
 
@@ -60,8 +60,8 @@ class MenuTabBarController extends GetxController
 
   @override
   void dispose() {
-    _controller.removeListener(onChanged);
-    _controller.dispose();
+    _tabBarController.removeListener(onChanged);
+    _tabBarController.dispose();
     super.dispose();
   }
 }

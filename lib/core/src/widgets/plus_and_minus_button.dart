@@ -54,7 +54,7 @@ class _PlusAndMinusButtonState extends State<PlusAndMinusButton> {
                     setState(() {});
                   }
                 },
-                child: Icon(Icons.remove, color: Colors.white),
+                child: Icon(Icons.remove, color: Colors.white,size: 20.sp),
               ),
             ),
             Expanded(
@@ -78,7 +78,7 @@ class _PlusAndMinusButtonState extends State<PlusAndMinusButton> {
                   widget.onTapPlus(changeQuantity);
                   setState(() {});
                 },
-                child: Icon(Icons.add, color: Colors.white),
+                child: Icon(Icons.add, color: Colors.white,size: 20.sp),
               ),
             )
           ],

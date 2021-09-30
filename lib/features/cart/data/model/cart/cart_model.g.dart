@@ -12,7 +12,7 @@ _$_CartModel _$_$_CartModelFromJson(Map<String, dynamic> json) {
     tax: (json['tax'] as num?)?.toDouble() ?? 0,
     total: (json['total'] as num?)?.toDouble() ?? 0,
     items: (json['items'] as List<dynamic>?)
-            ?.map((e) => MenuModel.fromJson(e as Map<String, dynamic>))
+            ?.map((e) => MenuItemModel.fromJson(e as Map<String, dynamic>))
             .toList() ??
         [],
   );

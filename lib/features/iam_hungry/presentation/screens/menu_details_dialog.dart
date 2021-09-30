@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
-import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/custom_checkbox.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
@@ -14,7 +14,7 @@ import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuDetailsDialog extends GetView<MenuController> {
-  final List<MenuModel> menuItemList;
+  final List<MenuItemModel> menuItemList;
   final int index;
 
   MenuDetailsDialog({
@@ -110,12 +110,11 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           return CustomCheckBox(
                             title: addOn.name,
                             value: false,
-                            onChanged: (value) {
-                              controller.onChangeAddons(
-                                  isSelected: value,
-                                  index: index,
-                                  addonModel: addOn);
-                            },
+                            onChanged: (value) => controller.onChangeAddons(
+                              isSelected: value,
+                              index: index,
+                              addonModel: addOn,
+                            ),
                             hasPrice: true,
                             price: addOn.price.toDouble(),
                           );
@@ -134,12 +133,11 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           return CustomCheckBox(
                             title: withOut.name,
                             value: false,
-                            onChanged: (value) {
-                              controller.onChangeWithout(
-                                  isSelected: value,
-                                  index: index,
-                                  withoutModel: withOut);
-                            },
+                            onChanged: (value) => controller.onChangeWithout(
+                              isSelected: value,
+                              index: index,
+                              withoutModel: withOut,
+                            ),
                           );
                         },
                       ),
@@ -156,7 +154,7 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           const SizedBox(height: 10),
                           CustomButton(
                             onPressed: () =>
-                                {controller.onTapAddToCart(menuItem)},
+                                controller.onTapAddToCart(menuItem),
                             title: 'Add to cart',
                             fonSize: 16.sp,
                           ),

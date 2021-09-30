@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
-import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 
 class MenuItem extends StatelessWidget {
   final VoidCallback onTap;
-  final List<MenuModel> menuModel;
+  final List<MenuItemModel> menuModel;
   final int index;
 
   MenuItem({

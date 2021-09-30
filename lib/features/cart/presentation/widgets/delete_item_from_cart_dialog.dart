@@ -2,6 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iam_hungry2/core/src/colors.dart';
+import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 
 class DeleteItemFromCartDialog extends StatelessWidget {
   final String image, sandwichName;
@@ -19,10 +21,10 @@ class DeleteItemFromCartDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
-        height: .25.sh,
+        height: .22.sh,
         width: 1.sw,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18),
           child: Scaffold(
             body: Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
@@ -30,35 +32,45 @@ class DeleteItemFromCartDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Expanded(child: Image.network(image, height: .1.sh)),
-                      const SizedBox(width: 4),
-                      Expanded(
-                        flex: 3,
-                        child: AutoSizeText(
-                          'Remove $sandwichName ?',
-                          style: textTheme.headline4,
-                          minFontSize: 1,
-                          maxLines: 1,
-                        ),
-                      ),
-                    ],
+                  Center(
+                    child: Image.network(image, height: .051.sh),
+                  ),
+                  Center(
+                    child: AutoSizeText(
+                      'Remove $sandwichName ?',
+                      style: textTheme.caption,
+                      minFontSize: 10,
+                      maxFontSize: 24,
+                      maxLines: 1,
+                    ),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      TextButton(
+                      CustomButton(
                         onPressed: () => Get.back(),
-                        child: Text('No', style: textTheme.subtitle2),
+                        title: 'No',
+                        fontFamily: 'nunito',
+                        paddingVertical: 0,
+                        marginVertical: 0,
+                        paddingHorizontal: 30,
+                        borderColor: CustomColors.primaryColor,
+                        backgroundColor: Colors.white,
+                        textColor: CustomColors.primaryColor,
+                        borderRadius: 10,
                       ),
                       SizedBox(
                         width: .05.sw,
                       ),
-                      TextButton(
+                      CustomButton(
                         onPressed: onTapRemove,
-                        child: Text('Yes', style: textTheme.subtitle2),
+                        title: 'Yes',
+                        fontFamily: 'nunito',
+                        paddingVertical: 0,
+                        marginVertical: 0,
+                        paddingHorizontal: 30,
+                        borderRadius: 10,
                       ),
                     ],
                   ),

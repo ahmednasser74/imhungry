@@ -50,7 +50,7 @@ class SelectLanguageScreen extends GetView<SelectLanguageController> {
                         LanguageItemWidget(
                           languageName: 'English',
                           // onTap: controller.onEnglishPressed,
-                          onTap: () {},
+                          onTap: () => Get.toNamed(Routes.enterPhoneScreen),
                           backgroundColor:
                               controller.getLanguage == Language.English
                                   ? CustomColors.primaryColor
@@ -62,7 +62,7 @@ class SelectLanguageScreen extends GetView<SelectLanguageController> {
                         LanguageItemWidget(
                           languageName: 'العربيه',
                           // onTap: controller.onArabicPressed,
-                          onTap: () {},
+                          onTap: () => Get.toNamed(Routes.enterPhoneScreen),
                           backgroundColor:
                               controller.getLanguage == Language.Arabic
                                   ? CustomColors.primaryColor
@@ -76,10 +76,6 @@ class SelectLanguageScreen extends GetView<SelectLanguageController> {
                   ],
                 ),
               ),
-              CustomButton(
-                onPressed: () => Get.toNamed(Routes.enterPhoneScreen),
-                title: 'Select Language',
-              )
             ],
           ),
         ),

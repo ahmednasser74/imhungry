@@ -7,15 +7,15 @@ import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:iam_hungry2/core/controller/check_out_controller.dart';
-import 'package:iam_hungry2/features/iam_hungry/data/models/menu/menu_model.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 import 'delete_item_from_cart_dialog.dart';
 
-class CheckOutOrderedItem extends StatelessWidget {
+class CheckOutItem extends StatelessWidget {
   final bool hasPlusAndMinus;
-  final MenuModel menuModel;
+  final MenuItemModel menuModel;
   final int index;
 
-  CheckOutOrderedItem({
+  CheckOutItem({
     required this.hasPlusAndMinus,
     required this.menuModel,
     required this.index,
@@ -37,7 +37,7 @@ class CheckOutOrderedItem extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Image.network(menuModel.image),
               ),
               Expanded(
@@ -71,25 +71,24 @@ class CheckOutOrderedItem extends StatelessWidget {
                       : MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'SAR ',
-                        style: textTheme.subtitle1,
-                        children: [
-                          TextSpan(
-                            text: menuModel.price.toString(),
-                            style: textTheme.headline5?.copyWith(
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        AutoSizeText(
+                          'SAR ',
+                          style: textTheme.subtitle1?.copyWith(fontSize: 8.sp),
+                          maxLines: 1,
+                          maxFontSize: 18,
+                          minFontSize: 4,
+                        ),
+                        Text('${menuModel.price}', style: textTheme.headline5),
+                      ],
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 20),
                     Visibility(
                       visible: hasPlusAndMinus,
                       child: PlusAndMinusButton(
-                        width: .18.sw,
+                        width: .19.sw,
                         height: .032.sh,
                         quantity: menuModel.quantity,
                         onTapPlus: (value) =>
