@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       builder: () => GetMaterialApp(
         title: 'Flutter Demo',
         theme: CustomsThemes.defaultThemeData,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.menuTabBar,
         // locale: Get.deviceLocale,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
