@@ -14,7 +14,7 @@ class BeforeCheckoutController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    // getBeforeCheckout();
+    getBeforeCheckout();
   }
 
   Future<void> getBeforeCheckout() async {
@@ -23,7 +23,7 @@ class BeforeCheckoutController extends GetxController
     change(beforeCheckoutList, status: RxStatus.success());
   }
 
-  void onAddToCart(MenuItemModel menuItem) {
+  void onAddToCart(MenuItemModel menuItem ) {
     Get.find<CheckOutController>().addMenuItem = menuItem;
   }
 }

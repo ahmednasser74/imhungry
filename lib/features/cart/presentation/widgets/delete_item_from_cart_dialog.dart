@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
+import 'package:iam_hungry2/core/utils/helper_methods.dart';
 
 class DeleteItemFromCartDialog extends StatelessWidget {
   final String image, sandwichName;
@@ -33,7 +35,12 @@ class DeleteItemFromCartDialog extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Image.network(image, height: .051.sh),
+                    child: CachedNetworkImage(
+                      imageUrl: image,
+                      height: .051.sh,
+                      progressIndicatorBuilder:
+                          HelperMethods.onCacheImageLoading,
+                    ),
                   ),
                   Center(
                     child: AutoSizeText(

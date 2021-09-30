@@ -1,13 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iam_hungry2/core/utils/helper_methods.dart';
+import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 
 class BeforeCheckOutItem extends StatelessWidget {
   final VoidCallback onTap;
+  final MenuItemModel menuItem;
 
   const BeforeCheckOutItem({
     required this.onTap,
+    required this.menuItem,
   });
 
   @override
@@ -24,12 +29,15 @@ class BeforeCheckOutItem extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Image.asset('assets/images/hungry/sandwich_icon.png'),
+              child: CachedNetworkImage(
+                imageUrl: menuItem.image,
+                progressIndicatorBuilder: HelperMethods.onCacheImageLoading,
+              ),
             ),
             Padding(
-              padding:const EdgeInsets.symmetric(horizontal: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 6),
               child: AutoSizeText(
-                'Single Burger',
+                menuItem.name,
                 maxLines: 1,
                 maxFontSize: 30,
                 minFontSize: 8,
@@ -40,7 +48,10 @@ class BeforeCheckOutItem extends StatelessWidget {
                 text: 'SAR ',
                 style: textTheme.subtitle1?.copyWith(fontSize: 8),
                 children: [
-                  TextSpan(text: '20', style: textTheme.headline5),
+                  TextSpan(
+                    text: '${menuItem.price}',
+                    style: textTheme.headline5,
+                  ),
                 ],
               ),
             )

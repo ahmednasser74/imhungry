@@ -27,6 +27,7 @@ class HungryRemoteDataSourceImp extends DefaultGetConnect
 class DefaultGetConnect extends GetConnect {
   final Map<String, String>? headers;
   DefaultGetConnect({this.headers = const {'localization': 'en'}});
+
   @override
   InternalFinalCallback<void> get onStart {
     super.onStart;

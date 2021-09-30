@@ -1,12 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
 import 'package:iam_hungry2/core/src/widgets/plus_and_minus_button.dart';
 import 'package:iam_hungry2/core/controller/check_out_controller.dart';
+import 'package:iam_hungry2/core/utils/helper_methods.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 import 'delete_item_from_cart_dialog.dart';
 
@@ -38,7 +41,10 @@ class CheckOutItem extends StatelessWidget {
             children: [
               Expanded(
                 flex: 2,
-                child: Image.network(menuModel.image),
+                child: CachedNetworkImage(
+                  imageUrl: menuModel.image,
+                  progressIndicatorBuilder: HelperMethods.onCacheImageLoading,
+                ),
               ),
               Expanded(
                 flex: 5,
@@ -76,12 +82,15 @@ class CheckOutItem extends StatelessWidget {
                       children: [
                         AutoSizeText(
                           'SAR ',
-                          style: textTheme.subtitle1?.copyWith(fontSize: 8.sp),
+                          style: textTheme.subtitle1?.copyWith(fontSize: 12.sp),
                           maxLines: 1,
                           maxFontSize: 18,
                           minFontSize: 4,
                         ),
-                        Text('${menuModel.price}', style: textTheme.headline5),
+                        Text(
+                          '${menuModel.price}',
+                          style: textTheme.headline4?.copyWith(fontSize: 18.sp),
+                        ),
                       ],
                     ),
                     SizedBox(height: 20),

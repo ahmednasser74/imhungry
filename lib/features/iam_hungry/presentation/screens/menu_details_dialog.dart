@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
+import 'package:iam_hungry2/core/utils/helper_methods.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/controller/menu_controller.dart';
 import 'package:iam_hungry2/features/iam_hungry/presentation/widgets/custom_checkbox.dart';
@@ -41,6 +42,7 @@ class MenuDetailsDialog extends GetView<MenuController> {
                 child: CachedNetworkImage(
                   imageUrl: menuItem.image,
                   fit: BoxFit.fill,
+                  progressIndicatorBuilder: HelperMethods.onCacheImageLoading,
                 ),
               ),
               Padding(
@@ -63,17 +65,24 @@ class MenuDetailsDialog extends GetView<MenuController> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: RichText(
-                            text: TextSpan(
-                              text: '   SAR ',
-                              style: textTheme.subtitle1,
-                              children: [
-                                TextSpan(
-                                  text: menuItem.price.toString(),
-                                  style: textTheme.headline5,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              AutoSizeText(
+                                'SAR ',
+                                style: textTheme.subtitle1
+                                    ?.copyWith(fontSize: 14.sp),
+                                maxLines: 1,
+                                maxFontSize: 18,
+                                minFontSize: 4,
+                              ),
+                              Text(
+                                '${menuItem.price}',
+                                style: textTheme.headline4?.copyWith(
+                                  fontSize: 18.sp,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         )
                       ],
@@ -99,26 +108,32 @@ class MenuDetailsDialog extends GetView<MenuController> {
                       ],
                     ),
                     SizedBox(height: .01.sh),
-                    Text('Adds On:', style: textTheme.caption),
-                    SizedBox(
-                      height: .14.sh,
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: menuItem.addOnList.length,
-                        itemBuilder: (context, index) {
-                          final addOn = menuItem.addOnList.elementAt(index);
-                          return CustomCheckBox(
-                            title: addOn.name,
-                            value: false,
-                            onChanged: (value) => controller.onChangeAddons(
-                              isSelected: value,
-                              index: index,
-                              addonModel: addOn,
-                            ),
-                            hasPrice: true,
-                            price: addOn.price.toDouble(),
-                          );
-                        },
+                    Visibility(
+                      // visible: menuItem.addOnList.length != 0 ? true : false,
+                      child: Text('Adds On:', style: textTheme.caption),
+                    ),
+                    Visibility(
+                      // visible: menuItem.addOnList.length != 0 ? true : false,
+                      child: SizedBox(
+                        height: .14.sh,
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: menuItem.addOnList.length,
+                          itemBuilder: (context, index) {
+                            final addOn = menuItem.addOnList.elementAt(index);
+                            return CustomCheckBox(
+                              title: addOn.name,
+                              value: false,
+                              onChanged: (value) => controller.onChangeAddons(
+                                isSelected: value,
+                                index: index,
+                                addonModel: addOn,
+                              ),
+                              hasPrice: true,
+                              price: addOn.price.toDouble(),
+                            );
+                          },
+                        ),
                       ),
                     ),
                     SizedBox(height: .01.sh),
@@ -172,7 +187,7 @@ class MenuDetailsDialog extends GetView<MenuController> {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               )

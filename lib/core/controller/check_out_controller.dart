@@ -10,6 +10,7 @@ class CheckOutController extends GetxController {
         (menuItem.quantity * menuItem.price) + menuItem.totalAdds;
     menuItem = menuItem.copyWith(totalPrice: totalPrice);
     _cart.items.add(menuItem);
+
     setTotalPrice();
   }
 

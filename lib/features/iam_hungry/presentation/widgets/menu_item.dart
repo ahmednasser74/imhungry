@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
+import 'package:iam_hungry2/core/utils/helper_methods.dart';
 import 'package:iam_hungry2/features/iam_hungry/data/models/menu_item/menu_item_model.dart';
 
 class MenuItem extends StatelessWidget {
@@ -38,13 +39,7 @@ class MenuItem extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: CachedNetworkImage(
                     imageUrl: menu.image,
-                    progressIndicatorBuilder: (_, url, progress) =>
-                        SvgPicture.asset(
-                      'assets/images/iam_hungry_bite_logo.svg',
-                      color: CustomColors.redLightColor,
-                      height: 50,
-                      width: 50,
-                    ),
+                    progressIndicatorBuilder: HelperMethods.onCacheImageLoading,
                   ),
                 ),
               ),

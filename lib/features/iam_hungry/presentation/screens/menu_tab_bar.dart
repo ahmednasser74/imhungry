@@ -47,7 +47,7 @@ class MenuTabBar extends GetView<MenuTabBarController> {
             ),
           ],
         ),
-        //  onLoading: Center(child: LoadingIndicatorWidget()),
+         onLoading: Center(child: LoadingIndicatorWidget()),
       ),
     );
   }
