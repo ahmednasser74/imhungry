@@ -33,7 +33,7 @@ class MenuController extends GetxController
   void changeQuantity(int quantity) {
     _itemModel = _itemModel.copyWith(quantity: quantity);
   }
-  //TODO: lama ba3ml check w arg3 ashelha tany btfdl mtsgla enha checked
+
   void onChangeAddons({
     required bool isSelected,
     required int index,
@@ -41,20 +41,17 @@ class MenuController extends GetxController
   }) {
     if (isSelected) {
       _itemModel.addOnList.add(addonModel);
-      totalAddonName = _itemModel.addOnList
-          .map((e) => '${e.name}, ')
-          .reduce((e1, e2) => e1 + e2);
+
+      _itemModel = _itemModel.copyWith(totalAdds: totalAddonPrice);
+    } else {
+      _itemModel.addOnList.removeAt(index);
+    }
+    if (_itemModel.addOnList.isNotEmpty) {
+      totalAddonName = _itemModel.addOnList.map((e) => e.name).join(', ');
       totalAddonPrice = _itemModel.addOnList
           .map((e) => e.price)
           .reduce((e1, e2) => e1 + e2)
           .toDouble();
-      _itemModel = _itemModel.copyWith(totalAdds: totalAddonPrice);
-      _itemModel.addOnList.forEach((element) {
-        print('added  = ${element.name}');
-      });
-    } else {
-      _itemModel.addOnList.remove(itemModel);
-      _itemModel = _itemModel.copyWith(totalAdds: totalAddonPrice);
     }
   }
 
@@ -65,12 +62,11 @@ class MenuController extends GetxController
   }) {
     if (isSelected) {
       _itemModel.withOutList.add(withoutModel);
-      totalWithoutName = _itemModel.withOutList
-          .map((e) => '${e.name}, ')
-          .reduce((e1, e2) => e1 + e2);
     } else {
       _itemModel.withOutList.removeAt(index);
     }
+    if (_itemModel.withOutList.isNotEmpty)
+      totalWithoutName = _itemModel.withOutList.map((e) => e.name).join(', ');
   }
 
   void onTapAddToCart(MenuItemModel menuItem) {
