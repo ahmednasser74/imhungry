@@ -90,7 +90,7 @@ class MenuDetailsDialog extends GetView<MenuController> {
                     AutoSizeText(
                       menuItem.description,
                       style: textTheme.bodyText1,
-                      maxLines: 1,
+                      maxLines: 2,
                       maxFontSize: 16,
                       minFontSize: 6,
                     ),

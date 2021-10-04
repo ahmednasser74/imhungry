@@ -52,6 +52,9 @@ class MenuController extends GetxController
           .map((e) => e.price)
           .reduce((e1, e2) => e1 + e2)
           .toDouble();
+    } else {
+      totalAddonName = '';
+      totalAddonPrice = _itemModel.price;
     }
   }
 
@@ -67,6 +70,9 @@ class MenuController extends GetxController
     }
     if (_itemModel.withOutList.isNotEmpty)
       totalWithoutName = _itemModel.withOutList.map((e) => e.name).join(', ');
+    else {
+      totalWithoutName = '';
+    }
   }
 
   void onTapAddToCart(MenuItemModel menuItem) {

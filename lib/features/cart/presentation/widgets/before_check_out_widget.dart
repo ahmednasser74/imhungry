@@ -22,17 +22,17 @@ class BeforeCheckoutWidget extends GetView<BeforeCheckoutController> {
             baseColor: Colors.black,
             period: Duration(milliseconds: 1000),
             child: SideTitleWidget(
-              title: beforeCheckoutList!.categoryName,
+              title: 'Before Checkout',
               color: Colors.black,
             ),
           ),
           HorizontalListBuilder(
             heightList: .022.sh,
-            itemCount: beforeCheckoutList.menuList.length,
+            itemCount: (beforeCheckoutList?.menuList ?? []).length,
             itemBuilder: (_, index) => BeforeCheckOutItem(
-              menuItem: beforeCheckoutList.menuList.elementAt(index),
+              menuItem: (beforeCheckoutList?.menuList ?? []).elementAt(index),
               onTap: () => controller.onAddToCart(
-                beforeCheckoutList.menuList.elementAt(index),
+                (beforeCheckoutList?.menuList ?? []).elementAt(index),
               ),
             ),
           ),
