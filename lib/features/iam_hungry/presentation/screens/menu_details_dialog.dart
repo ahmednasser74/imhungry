@@ -35,7 +35,7 @@ class MenuDetailsDialog extends GetView<MenuController> {
           body: Column(
             children: [
               Container(
-                height: .25.sh,
+                height: .22.sh,
                 width: 1.sw,
                 padding: EdgeInsets.all(8.0),
                 decoration: CustomStyle.containerShadowDecoration,

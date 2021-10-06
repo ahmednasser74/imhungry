@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:iam_hungry2/core/src/colors.dart';
 import 'package:iam_hungry2/core/src/routes.dart';
 import 'package:iam_hungry2/core/src/styles.dart';
-import 'package:iam_hungry2/core/src/widgets/custom_button.dart';
 import 'package:iam_hungry2/core/utils/enums.dart';
 import 'package:iam_hungry2/features/auth/presentation/controller/select_language_controller.dart';
 import 'package:iam_hungry2/features/auth/presentation/widgets/language_widget.dart';

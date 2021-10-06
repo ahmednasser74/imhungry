@@ -94,7 +94,6 @@ flutter:
     - assets/images/healthy/
     - assets/images/cart/
     - assets/images/test/
-    - assets/lottie/
     - assets/sound/
 
   fonts:
