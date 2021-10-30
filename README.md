@@ -1,16 +1,19 @@
-# iam_hungry2
+##  I'M HUNGRY 
+I'M Hungry is flutter application for franchise restaurant in Saudi Arabia which in Guinness World Records and
+https://www.imhungry.co/
 
-A new Flutter project.
+## Mobile application tools: 
+State Management ( GetX ).
+GetConnect API networking.
+Dependency Injection.
+Clean Architecture ( TDD ).
+Notification (APNS & FCM).
+Localization.
+Maps (Google Map & Map Box).
+Animations.
+Offline Storage ( SharedPreference ).
+released (IOS & Android ).
 
-## Getting Started
+## Project Screens
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![iam hungry](https://user-images.githubusercontent.com/50350016/139539339-da82ef8a-4154-43f0-90b2-a4503b064705.png)
